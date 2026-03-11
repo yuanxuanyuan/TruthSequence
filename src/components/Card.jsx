@@ -176,7 +176,7 @@ export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comb
         )}
         <div className="relative p-2 h-full flex flex-col">
           {comboSizes.length > 0 && (
-            <span className={`absolute top-1 right-1.5 text-[9px] font-mono tabular-nums flex flex-col items-end gap-0.5 ${hasMultiCombo ? 'font-semibold' : ''}`}>
+            <span className={`absolute top-1 right-1.5 text-[13px] font-mono tabular-nums flex flex-col items-end gap-0 [&>*:not(:first-child)]:-mt-[5px] ${hasMultiCombo ? 'font-semibold' : ''}`}>
               {comboSizes.filter(n => n !== 2).map(n => (
                 <span
                   key={n}
@@ -200,7 +200,14 @@ export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comb
           {card.desc && (
             <div className="flex-1 min-h-0 flex items-center -ml-[10px] -mr-[20px] -mt-[30px] -mb-[30px] px-2">
               <p className="w-full text-[11px] text-slate-500 leading-snug line-clamp-3 overflow-hidden text-left">
-                {card.desc}
+                {card.desc[0] ? (
+                  <>
+                    <span className="text-[13px] font-bold text-amber-400 inline-block align-baseline">{card.desc[0]}</span>
+                    {card.desc.slice(1)}
+                  </>
+                ) : (
+                  card.desc
+                )}
               </p>
             </div>
           )}
