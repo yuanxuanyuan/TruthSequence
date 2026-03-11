@@ -1,0 +1,4252 @@
+[
+  {
+    "combo_id": "geo_combo_01",
+    "name": "第一阶梯主体",
+    "requires": [
+      "geo_01",
+      "geo_05"
+    ],
+    "damage": 32,
+    "factText": "【中考要点】第一级阶梯以青藏高原为主体，海拔多在4000米以上，与第二级阶梯以昆仑山—祁连山—横断山脉为界。"
+  },
+  {
+    "combo_id": "geo_combo_02",
+    "name": "第二阶梯高原",
+    "requires": [
+      "geo_02",
+      "geo_06"
+    ],
+    "damage": 28,
+    "factText": "【中考要点】第二级阶梯海拔1000–2000米，以高原、盆地为主。黄土高原水土流失严重，是黄河泥沙的主要来源区。"
+  },
+  {
+    "combo_id": "geo_combo_03",
+    "name": "第三阶梯平原",
+    "requires": [
+      "geo_03",
+      "geo_09"
+    ],
+    "damage": 28,
+    "factText": "【中考要点】第三级阶梯以平原丘陵为主。东北平原黑土广布，以温带季风气候为主，是我国重要商品粮基地。"
+  },
+  {
+    "combo_id": "geo_combo_04",
+    "name": "地势总特征",
+    "requires": [
+      "geo_04",
+      "geo_44"
+    ],
+    "damage": 30,
+    "factText": "【中考要点】我国地势西高东低，呈三级阶梯状分布。在阶梯交界处河流落差大，水能资源集中。"
+  },
+  {
+    "combo_id": "geo_combo_05",
+    "name": "阶梯分界—西段",
+    "requires": [
+      "geo_13",
+      "geo_15"
+    ],
+    "damage": 26,
+    "factText": "【中考要点】第一、二级阶梯以昆仑山脉—祁连山脉—横断山脉为界。横断山脉纵列分布，阻隔东西交通。"
+  },
+  {
+    "combo_id": "geo_combo_06",
+    "name": "阶梯分界—东段",
+    "requires": [
+      "geo_16",
+      "geo_17"
+    ],
+    "damage": 26,
+    "factText": "【中考要点】第二、三级阶梯以大兴安岭—太行山脉—巫山—雪峰山为界。太行山是华北平原与黄土高原的分界。"
+  },
+  {
+    "combo_id": "geo_combo_07",
+    "name": "南北分界线",
+    "requires": [
+      "geo_20",
+      "geo_32"
+    ],
+    "damage": 34,
+    "factText": "【中考要点】秦岭—淮河是我国重要的南北地理分界线：与800mm等降水量线、1月0℃等温线大致重合。"
+  },
+  {
+    "combo_id": "geo_combo_08",
+    "name": "西北干旱盆地",
+    "requires": [
+      "geo_24",
+      "geo_36"
+    ],
+    "damage": 28,
+    "factText": "【中考要点】塔里木盆地深处内陆降水稀少，属干旱区。塔克拉玛干沙漠位于盆地中部，为世界第二大流动沙漠。"
+  },
+  {
+    "combo_id": "geo_combo_09",
+    "name": "紫色盆地",
+    "requires": [
+      "geo_27",
+      "geo_38"
+    ],
+    "damage": 28,
+    "factText": "【中考要点】四川盆地又称「紫色盆地」，属亚热带季风气候，夏季高温多雨、冬季温和少雨，有「天府之国」之称。"
+  },
+  {
+    "combo_id": "geo_combo_10",
+    "name": "季风与降水",
+    "requires": [
+      "geo_28",
+      "geo_30"
+    ],
+    "damage": 32,
+    "factText": "【中考要点】季风区受夏季风影响明显，降水集中夏季。我国东部雨季的早晚和长短与夏季风的进退密切相关。"
+  },
+  {
+    "combo_id": "geo_combo_11",
+    "name": "非季风与干旱",
+    "requires": [
+      "geo_29",
+      "geo_40"
+    ],
+    "damage": 28,
+    "factText": "【中考要点】非季风区夏季风影响微弱，西北内陆多属温带大陆性气候：冬冷夏热、气温年较差大、降水少且集中。"
+  },
+  {
+    "combo_id": "geo_combo_12",
+    "name": "湿润与气候",
+    "requires": [
+      "geo_33",
+      "geo_38"
+    ],
+    "damage": 26,
+    "factText": "【中考要点】湿润区年降水量大于800mm，主要分布在秦岭—淮河以南及东北东部，多属亚热带季风气候。"
+  },
+  {
+    "combo_id": "geo_combo_13",
+    "name": "长江与水能",
+    "requires": [
+      "geo_42",
+      "geo_44"
+    ],
+    "damage": 32,
+    "factText": "【中考要点】长江流经我国三级阶梯，在阶梯交界处落差大，水能资源丰富，建有世界最大的三峡水电站。"
+  },
+  {
+    "combo_id": "geo_combo_14",
+    "name": "黄河与黄土",
+    "requires": [
+      "geo_43",
+      "geo_06"
+    ],
+    "damage": 30,
+    "factText": "【中考要点】黄河中游流经黄土高原，水土流失严重，泥沙在下游沉积，形成极易泛滥的「地上河」。"
+  },
+  {
+    "combo_id": "geo_combo_15",
+    "name": "太行与两侧",
+    "requires": [
+      "geo_17",
+      "geo_10"
+    ],
+    "damage": 26,
+    "factText": "【中考要点】太行山脉是第二、三级阶梯分界线，东侧是华北平原，西侧是黄土高原，东坡陡、西坡缓。"
+  },
+  {
+    "combo_id": "geo_combo_16",
+    "name": "巫山与三峡",
+    "requires": [
+      "geo_18",
+      "geo_42"
+    ],
+    "damage": 28,
+    "factText": "【中考要点】巫山是阶梯分界山脉，长江切穿巫山形成举世闻名的长江三峡，落差大、峡谷深，水能极其丰富。"
+  },
+  {
+    "combo_id": "geo_combo_17",
+    "name": "400mm与季风区",
+    "requires": [
+      "geo_37",
+      "geo_28"
+    ],
+    "damage": 30,
+    "factText": "【中考要点】400mm等降水量线大致与季风区与非季风区分界一致，线东南以种植业为主；线西北以畜牧业为主。"
+  },
+  {
+    "combo_id": "geo_combo_18",
+    "name": "冬季风与温带季风",
+    "requires": [
+      "geo_31",
+      "geo_39"
+    ],
+    "damage": 26,
+    "factText": "【中考要点】温带季风气候区冬季受冬季风控制，寒冷干燥；冬季风势力强时带来寒潮、大风和降温。"
+  },
+  {
+    "combo_id": "geo_combo_19",
+    "name": "东南季风影响区",
+    "requires": [
+      "geo_50",
+      "geo_28"
+    ],
+    "damage": 28,
+    "factText": "【中考要点】东南季风来自太平洋，是我国东部季风区降水的主要来源，降水由东南向西北递减。"
+  },
+  {
+    "combo_id": "geo_combo_20",
+    "name": "高原盆地",
+    "requires": [
+      "geo_26",
+      "geo_05"
+    ],
+    "damage": 28,
+    "factText": "【中考要点】柴达木盆地位于青藏高原第一级阶梯，有「聚宝盆」之称，盐湖、石油、有色金属等资源丰富。"
+  },
+  {
+    "combo_id": "bio_combo_01",
+    "name": "消化起始",
+    "requires": [
+      "bio_51",
+      "bio_82"
+    ],
+    "damage": 30,
+    "factText": "【中考要点】口腔是消化的起始，唾液淀粉酶可将淀粉初步分解为麦芽糖，咀嚼减小食物颗粒增加酶接触面积。"
+  },
+  {
+    "combo_id": "bio_combo_02",
+    "name": "胃的消化",
+    "requires": [
+      "bio_52",
+      "bio_84"
+    ],
+    "damage": 32,
+    "factText": "【中考要点】胃液含盐酸和胃蛋白酶，在适宜pH下将蛋白质初步分解为多肽，胃酸还能杀死随食物进入的细菌。"
+  },
+  {
+    "combo_id": "bio_combo_03",
+    "name": "肝胆相助",
+    "requires": [
+      "bio_55",
+      "bio_58"
+    ],
+    "damage": 30,
+    "factText": "【中考要点】肝脏分泌胆汁，胆汁虽不含消化酶，但能乳化脂肪，将其变为脂肪微粒促进消化。"
+  },
+  {
+    "combo_id": "bio_combo_04",
+    "name": "小肠吸收",
+    "requires": [
+      "bio_53",
+      "bio_60"
+    ],
+    "damage": 32,
+    "factText": "【中考要点】小肠内壁有环形皱襞和小肠绒毛，大大增加了吸收面积，是消化和吸收的主要场所。"
+  },
+  {
+    "combo_id": "bio_combo_05",
+    "name": "体肺双循环",
+    "requires": [
+      "bio_72",
+      "bio_73"
+    ],
+    "damage": 35,
+    "factText": "【中考要点】体循环让动脉血变静脉血供应全身，肺循环让静脉血变动脉血完成氧合，两条循环在心脏连接。"
+  },
+  {
+    "combo_id": "bio_combo_06",
+    "name": "心脏泵血",
+    "requires": [
+      "bio_64",
+      "bio_74"
+    ],
+    "damage": 30,
+    "factText": "【中考要点】心脏左心室壁最厚，与主动脉相连，负责将含氧丰富的动脉血泵入体循环，动力极其强劲。"
+  },
+  {
+    "combo_id": "bio_combo_07",
+    "name": "血氧运输",
+    "requires": [
+      "bio_69",
+      "bio_77"
+    ],
+    "damage": 32,
+    "factText": "【中考要点】红细胞无细胞核呈双凹圆盘状，内富含血红蛋白，在肺部结合氧，在组织处释放氧。"
+  },
+  {
+    "combo_id": "bio_combo_08",
+    "name": "消化链",
+    "requires": [
+      "bio_51",
+      "bio_52",
+      "bio_53"
+    ],
+    "damage": 65,
+    "factText": "【中考要点】食物经口腔初步消化，经胃蛋白酶分解，最终在小肠内完成彻底消化与营养吸收。"
+  },
+  {
+    "combo_id": "bio_combo_09",
+    "name": "血液循环中枢",
+    "requires": [
+      "bio_64",
+      "bio_76",
+      "bio_72"
+    ],
+    "damage": 70,
+    "factText": "【中考要点】左心室将动脉血泵入主动脉，经毛细血管交换后回流至右心房，构成完整的体循环核心。"
+  },
+  {
+    "combo_id": "his_combo_fix_10",
+    "name": "近代开篇",
+    "requires": [
+      "his_01",
+      "his_02"
+    ],
+    "damage": 32,
+    "factText": "【中考要点】1840年鸦片战争战败，签订《南京条约》割香港岛赔巨款，中国开始沦为半殖民地半封建社会。"
+  },
+  {
+    "combo_id": "his_combo_fix_11",
+    "name": "甲午之痛",
+    "requires": [
+      "his_05",
+      "his_06"
+    ],
+    "damage": 35,
+    "factText": "【中考要点】甲午战争北洋舰队覆没，签订《马关条约》割台湾、辽东，大大加深了半殖民地化程度。"
+  },
+  {
+    "combo_id": "his_combo_fix_12",
+    "name": "革命先行者",
+    "requires": [
+      "his_25",
+      "his_35"
+    ],
+    "damage": 30,
+    "factText": "【中考要点】孙中山提出三民主义，领导辛亥革命推翻清朝建立中华民国，是中国民主革命的伟大先行者。"
+  },
+  {
+    "combo_id": "his_combo_fix_13",
+    "name": "思想启蒙",
+    "requires": [
+      "his_12",
+      "his_13"
+    ],
+    "damage": 32,
+    "factText": "【中考要点】新文化运动提倡民主科学，五四运动爆发标志新民主主义革命开端，极大地解放了思想。"
+  },
+  {
+    "combo_id": "his_combo_fix_14",
+    "name": "开天辟地",
+    "requires": [
+      "his_14",
+      "his_38"
+    ],
+    "damage": 30,
+    "factText": "【中考要点】1921年中共一大召开宣告中国共产党成立，这是开天辟地的大事，中国革命面貌焕然一新。"
+  },
+  {
+    "combo_id": "his_combo_fix_15",
+    "name": "抗战历程",
+    "requires": [
+      "his_40",
+      "his_42",
+      "his_45"
+    ],
+    "damage": 68,
+    "factText": "【中考要点】卢沟桥事变全面抗战爆发，国共第二次合作抗敌，最终日本无条件投降，取得民族解放完全胜利。"
+  },
+  {
+    "combo_id": "bio_combo_16",
+    "name": "消化与循环",
+    "requires": [
+      "bio_53",
+      "bio_60",
+      "bio_64",
+      "bio_72"
+    ],
+    "damage": 130,
+    "factText": "【中考要点】小肠吸收的养料随血液循环运往全身，左心室泵出的动脉血在毛细血管处供给细胞，两系统紧密配合。"
+  },
+  {
+    "combo_id": "bio_combo_17",
+    "name": "免疫屏障",
+    "requires": [
+      "bio_70",
+      "bio_101"
+    ],
+    "block": 25,
+    "factText": "【中考要点】白细胞吞噬异物，抗体精准识别抗原，两者协同形成人体坚固的免疫屏障抵御病原体。"
+  },
+  {
+    "combo_id": "bio_combo_18",
+    "name": "体循环之怒",
+    "requires": [
+      "bio_72",
+      "bio_74",
+      "bio_76"
+    ],
+    "damage": 68,
+    "factText": "【中考要点】体循环从壁最厚的左心室开始，将动脉血强力泵入主动脉干，输送至全身毛细血管网。"
+  },
+  {
+    "combo_id": "bio_combo_19",
+    "name": "心室暴走",
+    "requires": [
+      "bio_107",
+      "bio_64",
+      "bio_74"
+    ],
+    "damage": 70,
+    "factText": "【中考要点】心室收缩时房室瓣关闭、动脉瓣开放，左心室将含氧血疯狂泵入主动脉供应全身！"
+  },
+  {
+    "combo_id": "bio_combo_20",
+    "name": "冠脉供养",
+    "requires": [
+      "bio_104",
+      "bio_64",
+      "bio_105"
+    ],
+    "damage": 65,
+    "factText": "【中考要点】冠状动脉从主动脉根部发出，为心脏心肌自身持续供血供氧，一旦硬化将引发致命心肌梗死。"
+  },
+  {
+    "combo_id": "bio_combo_21",
+    "name": "肺循环觉醒",
+    "requires": [
+      "bio_73",
+      "bio_110",
+      "bio_78"
+    ],
+    "damage": 68,
+    "factText": "【中考要点】在肺部毛细血管处，血红蛋白与氧气完美结合发生氧合，暗红的静脉血瞬间觉醒为鲜红的动脉血！"
+  },
+  {
+    "combo_id": "geo_combo_21",
+    "name": "半干旱荒漠",
+    "requires": [
+      "geo_35",
+      "geo_36",
+      "geo_40"
+    ],
+    "damage": 72,
+    "factText": "【中考要点】西北内陆多属温带大陆性气候，冬冷夏热降水稀少，半干旱区与干旱区广布塔里木等盆地。"
+  },
+  {
+    "combo_id": "geo_combo_22",
+    "name": "雨带北进",
+    "requires": [
+      "geo_51",
+      "geo_30",
+      "geo_28"
+    ],
+    "damage": 70,
+    "factText": "【中考要点】夏季风带来丰沛水汽，雨带随其由南向北推进，决定了我国东部季风区各地雨季的早晚与长短。"
+  },
+  {
+    "combo_id": "geo_combo_23",
+    "name": "梅雨缠绵",
+    "requires": [
+      "geo_52",
+      "geo_38",
+      "geo_11"
+    ],
+    "damage": 68,
+    "factText": "【中考要点】6月雨带徘徊在长江中下游形成连阴梅雨，亚热带季风气候下的平原河网密布，极易引发洪涝。"
+  },
+  {
+    "combo_id": "geo_combo_24",
+    "name": "干湿分野",
+    "requires": [
+      "geo_58",
+      "geo_37",
+      "geo_60"
+    ],
+    "damage": 65,
+    "factText": "【中考要点】400mm等降水量线分割了半湿润与半干旱区（农牧分界），200mm线分割了半干旱与干旱区。"
+  },
+  {
+    "combo_id": "geo_combo_25",
+    "name": "世界屋脊的凝视",
+    "requires": [
+      "geo_01",
+      "geo_05",
+      "geo_62"
+    ],
+    "damage": 70,
+    "factText": "【中考要点】青藏高原海拔4000米以上的高寒地带，太阳辐射极强，是傲视群雄的第一级阶梯主体。"
+  },
+  {
+    "combo_id": "geo_combo_26",
+    "name": "南北天堑",
+    "requires": [
+      "geo_20",
+      "geo_61",
+      "geo_49"
+    ],
+    "block": 40,
+    "factText": "【中考要点】秦岭—淮河与800mm等降水量线重合，线南湿润线北半湿润，是我国不可逾越的南北地理天堑。"
+  },
+  {
+    "combo_id": "geo_combo_27",
+    "name": "阶梯东界",
+    "requires": [
+      "geo_16",
+      "geo_17",
+      "geo_18"
+    ],
+    "damage": 68,
+    "factText": "【中考要点】大兴安岭、太行山脉、巫山构成了雄伟的阶梯东界，其以东是海拔500米以下的第三级阶梯。"
+  },
+  {
+    "combo_id": "geo_combo_28",
+    "name": "西段天堑",
+    "requires": [
+      "geo_13",
+      "geo_14",
+      "geo_15"
+    ],
+    "damage": 68,
+    "factText": "【中考要点】昆仑山、祁连山与纵列分布的横断山脉，共同筑造了第一、二级阶梯极难跨越的西段分界。"
+  },
+  {
+    "combo_id": "geo_combo_29",
+    "name": "西北三大盆地",
+    "requires": [
+      "geo_24",
+      "geo_25",
+      "geo_26"
+    ],
+    "damage": 70,
+    "factText": "【中考要点】干旱的塔里木、准噶尔盆地与位于第一级阶梯的柴达木“聚宝盆”，共同构成了大西北的盆地矩阵。"
+  },
+  {
+    "combo_id": "geo_combo_30",
+    "name": "三级阶梯大势",
+    "requires": [
+      "geo_04",
+      "geo_01",
+      "geo_03"
+    ],
+    "damage": 72,
+    "factText": "【中考要点】西高东低的三级阶梯，让大河浩荡东流沟通东西，又让阶梯交界处落差极大，水能如雷霆万钧。"
+  },
+  {
+    "combo_id": "geo_combo_31",
+    "name": "罗马的季风",
+    "requires": [
+      "geo_84",
+      "geo_85",
+      "geo_86"
+    ],
+    "damage": 65,
+    "factText": "【中考要点】地中海气候夏季受副高控制炎热干燥，冬季受西风影响温和多雨，奇特的雨热不同期是其标志。"
+  },
+  {
+    "combo_id": "geo_combo_32",
+    "name": "西欧温湿走廊",
+    "requires": [
+      "geo_77",
+      "geo_91",
+      "geo_88"
+    ],
+    "damage": 68,
+    "factText": "【中考要点】受北大西洋暖流增温增湿影响，地势平坦的欧洲西部形成了全年温和湿润的温带海洋性气候。"
+  },
+  {
+    "combo_id": "geo_combo_33",
+    "name": "赤道雨林",
+    "requires": [
+      "geo_87",
+      "geo_79",
+      "geo_89"
+    ],
+    "damage": 70,
+    "factText": "【中考要点】南美洲拥有终年高温多雨的亚马逊热带雨林，而其西岸却受秘鲁寒流降温减湿影响，气候迥异。"
+  },
+  {
+    "combo_id": "geo_combo_34",
+    "name": "秘鲁渔场之秘",
+    "requires": [
+      "geo_89",
+      "geo_79",
+      "geo_82"
+    ],
+    "damage": 65,
+    "factText": "【中考要点】秘鲁寒流这股强劲的上升补偿流，将深层营养盐翻搅至海面，在南美西岸造就了世界级的大渔场！"
+  },
+  {
+    "combo_id": "geo_combo_35",
+    "name": "三大洋格局",
+    "requires": [
+      "geo_80",
+      "geo_81",
+      "geo_82"
+    ],
+    "damage": 68,
+    "factText": "【中考要点】环火圈的太平洋、S形的大西洋与季风肆虐的印度洋，共同主宰着地球的洋流与水循环命脉。"
+  },
+  {
+    "combo_id": "geo_combo_36",
+    "name": "亚非欧大陆",
+    "requires": [
+      "geo_76",
+      "geo_78",
+      "geo_77"
+    ],
+    "damage": 70,
+    "factText": "【中考要点】跨三带的亚洲、热带非洲与温和的欧洲陆地相连，构成了地球上最庞大、最复杂的超级大陆系统。"
+  },
+  {
+    "combo_id": "bio_combo_22",
+    "name": "体循环大满贯",
+    "requires": [
+      "bio_74",
+      "bio_76",
+      "bio_112",
+      "bio_103"
+    ],
+    "damage": 150,
+    "factText": "【中考要点】体循环极速狂飙：左心室发力→主动脉→全身毛细血管网物质交换→上下腔静脉收尾回流右心房！"
+  },
+  {
+    "combo_id": "bio_combo_23",
+    "name": "绝对屏障",
+    "requires": [
+      "bio_113",
+      "bio_101",
+      "bio_114"
+    ],
+    "block": 45,
+    "factText": "【中考要点】吞噬细胞疯狂吞噬，浆细胞分泌特异性抗体，这两大免疫屏障联手抵御外敌，不可侵犯！"
+  },
+  {
+    "combo_id": "bio_combo_24",
+    "name": "消化吸收链",
+    "requires": [
+      "bio_52",
+      "bio_53",
+      "bio_54",
+      "bio_118"
+    ],
+    "damage": 72,
+    "factText": "【中考要点】食物过胃入小肠，被密布的小肠绒毛极速榨干营养，残渣最终落入大肠化为粪便排出！"
+  },
+  {
+    "combo_id": "bio_combo_25",
+    "name": "营养入血",
+    "requires": [
+      "bio_115",
+      "bio_116",
+      "bio_60"
+    ],
+    "damage": 65,
+    "factText": "【中考要点】大分子被分解为葡萄糖和氨基酸等小分子后，终于能够穿透小肠绒毛，直接融入血液奔涌！"
+  },
+  {
+    "combo_id": "bio_combo_26",
+    "name": "消化液三杰",
+    "requires": [
+      "bio_57",
+      "bio_119",
+      "bio_120"
+    ],
+    "damage": 68,
+    "factText": "【中考要点】胃液先手破防蛋白质，胰液与肠液含多种高纯度消化酶，在小肠内联手完成最彻底的化学绝杀！"
+  },
+  {
+    "combo_id": "his_combo_01",
+    "name": "大一统的奠基",
+    "requires": [
+      "his_51",
+      "his_53",
+      "his_55"
+    ],
+    "damage": 75,
+    "factText": "【中考要点】秦始皇废除分封推行郡县，统一文字货币度量衡，以雷霆手腕为两千年封建大一统奠定不拔之基！"
+  },
+  {
+    "combo_id": "his_combo_02",
+    "name": "皇权的极昼",
+    "requires": [
+      "his_56",
+      "his_57",
+      "his_58"
+    ],
+    "damage": 80,
+    "factText": "【中考要点】明太祖朱元璋狠心废除千年丞相，设立恐怖的锦衣卫，将专制主义中央集权推向了空前的极昼！"
+  },
+  {
+    "combo_id": "his_combo_03",
+    "name": "汉武雄风",
+    "requires": [
+      "his_52",
+      "his_61",
+      "his_62"
+    ],
+    "damage": 76,
+    "factText": "【中考要点】汉武帝罢黜百家独尊儒术统驭思想，派遣张骞凿空西域开辟丝绸之路，成就了西汉无与伦比的鼎盛雄风！"
+  },
+  {
+    "combo_id": "his_combo_04",
+    "name": "贞观气象",
+    "requires": [
+      "his_59",
+      "his_54",
+      "his_60"
+    ],
+    "damage": 78,
+    "factText": "【中考要点】唐太宗完善科举与三省六部制，广纳贤才，开创了国泰民安的贞观之治，为盛唐盛世打下坚实地基！"
+  },
+  {
+    "combo_id": "his_combo_05",
+    "name": "郑和远航",
+    "requires": [
+      "his_63",
+      "his_56",
+      "his_62"
+    ],
+    "damage": 72,
+    "factText": "【中考要点】大明国威远播，郑和七下西洋直达非洲东岸，这是大航海时代前夜人类最伟大的和平航海史诗！"
+  },
+  {
+    "combo_id": "his_combo_06",
+    "name": "秦统天下",
+    "requires": [
+      "his_51",
+      "his_65",
+      "his_53"
+    ],
+    "damage": 74,
+    "factText": "【中考要点】公元前221年，大秦铁骑横扫六合完成统一，郡县制如铁锁般将庞大的帝国牢牢捆绑在皇权之下！"
+  },
+  {
+    "combo_id": "combo_geo_ext_01",
+    "name": "昼夜的轮回",
+    "requires": [
+      "geo_ext_earth",
+      "geo_ext_rotation"
+    ],
+    "damage": 30,
+    "factText": "【地理考点】地球自西向东的自转运动，如同一台永动机，永不停息地产生了昼夜更替和时间的差异现象。"
+  },
+  {
+    "combo_id": "combo_geo_ext_02",
+    "name": "生命之源的孕育",
+    "requires": [
+      "geo_ext_valley",
+      "geo_ext_river_origin"
+    ],
+    "damage": 35,
+    "factText": "【地形判读】等高线向高处凸出的部位是山谷，低洼的地势最易汇聚水源，这里是河流诞生的天然摇篮。"
+  },
+  {
+    "combo_id": "combo_geo_ext_03",
+    "name": "岛国的生存法则",
+    "requires": [
+      "geo_ext_japan",
+      "geo_ext_processing_trade"
+    ],
+    "block": 35,
+    "factText": "【世界区域】日本国内资源极度贫乏且市场狭小，逼迫其走上了依赖海运的\"进口-加工-出口\"型经济道路。"
+  },
+  {
+    "combo_id": "combo_geo_ext_04",
+    "name": "黑金与干渴",
+    "requires": [
+      "geo_ext_middle_east",
+      "geo_ext_oil",
+      "geo_ext_water_lack"
+    ],
+    "damage": 75,
+    "factText": "【世界区域】中东波斯湾流淌着无尽的石油黑金，但热带沙漠带来的干渴与水资源争夺，让这里战火不断。"
+  },
+  {
+    "combo_id": "combo_geo_ext_05",
+    "name": "反转的雨季",
+    "requires": [
+      "geo_ext_med_climate",
+      "geo_ext_rain_heat_diff"
+    ],
+    "damage": 30,
+    "factText": "【世界气候】地中海气候夏季炎热干燥，冬季却温和多雨，奇妙的\"雨热不同期\"成为它区别于其他气候的标志。"
+  },
+  {
+    "combo_id": "combo_geo_ext_06",
+    "name": "神州天堑",
+    "requires": [
+      "geo_ext_qinling",
+      "geo_ext_800mm",
+      "geo_ext_0deg"
+    ],
+    "block": 80,
+    "factText": "【中国地理】秦岭-淮河一线无缝重合了800mm与1月0℃两条极寒防线，稳稳划定了中国南北方的楚河汉界。"
+  },
+  {
+    "combo_id": "combo_geo_ext_07",
+    "name": "悬河的咆哮",
+    "requires": [
+      "geo_ext_huanghe",
+      "geo_ext_sediment",
+      "geo_ext_suspended_river"
+    ],
+    "damage": 80,
+    "factText": "【中国河流】黄河中游狂吸泥沙，在下游流速锐减疯狂沉积，硬生生将河床抬高成令人胆寒的\"地上悬河\"！"
+  },
+  {
+    "combo_id": "combo_geo_ext_08",
+    "name": "巨龙的脉搏",
+    "requires": [
+      "geo_ext_changjiang",
+      "geo_ext_golden_waterway"
+    ],
+    "damage": 35,
+    "factText": "【中国河流】长江中下游江阔水深、终年不冻，无与伦比的内河航运价值让它当之无愧地被称为\"黄金水道\"。"
+  },
+  {
+    "combo_id": "combo_geo_ext_09",
+    "name": "人口的天平",
+    "requires": [
+      "geo_ext_heihe",
+      "geo_ext_pop_dist"
+    ],
+    "damage": 30,
+    "factText": "【中国人口】黑河—腾冲线（胡焕庸线）如同无形的鸿沟，残忍揭露了我国人口\"东密西疏\"的绝对失衡格局。"
+  },
+  {
+    "combo_id": "combo_geo_ext_10",
+    "name": "沙岛的生长",
+    "requires": [
+      "geo_ext_shanghai",
+      "geo_ext_chongming",
+      "geo_ext_sediment"
+    ],
+    "damage": 65,
+    "factText": "【上海乡土】上海地处长江口，日夜不息的泥沙沉积魔法，让崇明岛这座中国最大的河口冲积岛仍在不断生长！"
+  },
+  {
+    "combo_id": "combo_geo_ext_11",
+    "name": "四季变奏",
+    "requires": [
+      "geo_ext_revolution",
+      "geo_ext_seasons"
+    ],
+    "damage": 40,
+    "factText": "【地球运动】地球绕日公转，带来了昼夜长短的拉扯与四季的更迭更替，为大地划定了五条温度的界线。"
+  },
+  {
+    "combo_id": "combo_geo_ext_12",
+    "name": "半球裂隙",
+    "requires": [
+      "geo_ext_20w160e",
+      "geo_ext_hemisphere"
+    ],
+    "damage": 45,
+    "factText": "【地球地图】为了不将完整的欧洲大陆劈成两半，人类巧妙地选择了20°W与160°E作为切割东西半球的利刃！"
+  },
+  {
+    "combo_id": "combo_geo_ext_13",
+    "name": "缩尺魔法",
+    "requires": [
+      "geo_ext_scale",
+      "geo_ext_scale_rule"
+    ],
+    "damage": 35,
+    "factText": "【地图三要素】记住这个口诀：比例尺的数字越大（分母越小），地图显示的范围越小，细节呈现就越发纤毫毕现！"
+  },
+  {
+    "combo_id": "combo_geo_ext_14",
+    "name": "大地的裂变",
+    "requires": [
+      "geo_ext_plate",
+      "geo_ext_ring_of_fire"
+    ],
+    "damage": 85,
+    "factText": "【板块构造】在太平洋板块与其他板块激烈碰撞的边缘，地壳撕裂咆哮，铸就了地球上最狂暴的环太平洋火山地震带！"
+  },
+  {
+    "combo_id": "combo_geo_ext_15",
+    "name": "十字路口",
+    "requires": [
+      "geo_ext_malacca",
+      "geo_ext_crossroads"
+    ],
+    "block": 45,
+    "factText": "【东南亚】扼守亚洲与大洋洲、太平洋与印度洋的绝对十字路口，马六甲海峡是全球航运无可替代的咽喉命脉。"
+  },
+  {
+    "combo_id": "combo_geo_ext_16",
+    "name": "绿色的金子",
+    "requires": [
+      "geo_ext_europe_west",
+      "geo_ext_green_gold"
+    ],
+    "damage": 35,
+    "factText": "【世界区域】欧洲西部温和湿润的海洋性气候，滋养了极品牧草，这漫山遍野的\"绿色金子\"撑起了发达的畜牧帝国。"
+  },
+  {
+    "combo_id": "combo_geo_ext_17",
+    "name": "农场主的引擎",
+    "requires": [
+      "geo_ext_usa_agri",
+      "geo_ext_mechanization"
+    ],
+    "damage": 60,
+    "factText": "【世界区域】美国广袤的平原上，高度机械化和专业化的农业带如同庞大的工厂引擎，以恐怖的效率生产着世界粮食。"
+  },
+  {
+    "combo_id": "combo_geo_ext_18",
+    "name": "孤岛生态",
+    "requires": [
+      "geo_ext_australia",
+      "geo_ext_sheep_back"
+    ],
+    "block": 50,
+    "factText": "【世界区域】澳大利亚独占南半球一块大陆，无天敌的生态让它牧羊成群，稳坐\"骑在羊背上的国家\"宝座。"
+  },
+  {
+    "combo_id": "combo_geo_ext_19",
+    "name": "极地风暴",
+    "requires": [
+      "geo_ext_antarctica",
+      "geo_ext_extreme_cold"
+    ],
+    "damage": 70,
+    "factText": "【世界区域】南极大陆是地球的冰封禁地，酷寒、极其干燥且伴随着致命的烈风，企鹅是这里当之无愧的主人。"
+  },
+  {
+    "combo_id": "combo_geo_ext_20",
+    "name": "凛冬黑土",
+    "requires": [
+      "geo_ext_north_region",
+      "geo_ext_dry_farming"
+    ],
+    "damage": 45,
+    "factText": "【中国地理】秦淮以北的广大地区缺水干旱，但东北平原下那肥沃到流油的黑土地，成为了旱作农业最强劲的后盾。"
+  },
+  {
+    "combo_id": "combo_geo_ext_21",
+    "name": "烟雨鱼米乡",
+    "requires": [
+      "geo_ext_south_region",
+      "geo_ext_paddy_field"
+    ],
+    "block": 40,
+    "factText": "【中国地理】越过秦岭向南，充沛的降水将大地化为一片水田，自古以来的鱼米之乡在烟雨中散发着丰收的香气。"
+  },
+  {
+    "combo_id": "combo_geo_ext_22",
+    "name": "丝路黄沙",
+    "requires": [
+      "geo_ext_nw_region",
+      "geo_ext_arid"
+    ],
+    "damage": 55,
+    "factText": "【中国地理】大西北深居内陆，海洋水汽在长途跋涉中消耗殆尽，极度的\"干旱\"雕刻出了无边无际的荒漠戈壁。"
+  },
+  {
+    "combo_id": "combo_geo_ext_23",
+    "name": "雪域净土",
+    "requires": [
+      "geo_ext_qinghai_tibet",
+      "geo_ext_high_cold"
+    ],
+    "block": 60,
+    "factText": "【中国地理】世界屋脊青藏高原凭借绝高的海拔，硬生生隔绝了尘世，留下了最纯粹的\"高寒\"特征与广布的冰川。"
+  },
+  {
+    "combo_id": "combo_geo_ext_24",
+    "name": "钢铁动脉",
+    "requires": [
+      "geo_ext_railway",
+      "geo_ext_pioneer"
+    ],
+    "damage": 50,
+    "factText": "【中国交通】想要富先修路，作为国民经济绝对\"先行官\"，四通八达的铁路网如同钢铁动脉般输送着国家血液！"
+  },
+  {
+    "combo_id": "combo_geo_ext_25",
+    "name": "绝壁飞瀑",
+    "requires": [
+      "geo_23",
+      "geo_ext_valley"
+    ],
+    "damage": 45,
+    "factText": "【地形判读】当多条等高线惊险重叠便化为陡崖，若此处恰有山谷水流经过，飞流直下的瀑布景观便呼之欲出！"
+  },
+  {
+    "combo_id": "combo_geo_ext_26",
+    "name": "洲际咽喉",
+    "requires": [
+      "geo_new_028",
+      "geo_new_029"
+    ],
+    "damage": 50,
+    "factText": "【大洲分界】苏伊士运河与巴拿马运河不仅是斩断相连大陆的利刃，更是扼住全球两大洋航运咽喉的黄金水道！"
+  },
+  {
+    "combo_id": "combo_geo_ext_27",
+    "name": "单一枷锁",
+    "requires": [
+      "geo_78",
+      "geo_new_058"
+    ],
+    "damage": 65,
+    "factText": "【世界区域】撒哈拉以南非洲虽为黑种人故乡且矿产丰富，却被殖民遗留的\"单一商品经济\"死死锁住了发展喉咙。"
+  },
+  {
+    "combo_id": "combo_geo_ext_28",
+    "name": "地球之肺",
+    "requires": [
+      "geo_new_067",
+      "geo_33"
+    ],
+    "block": 45,
+    "factText": "【世界区域】巴西拥有全球最大的亚马孙热带雨林，它疯狂吞吐着二氧化碳，被全人类敬畏地称为\"地球之肺\"。"
+  },
+  {
+    "combo_id": "combo_geo_ext_29",
+    "name": "民族交响",
+    "requires": [
+      "geo_new_080",
+      "geo_new_081"
+    ],
+    "damage": 55,
+    "factText": "【中国民族】56个民族在中华大地上呈现\"大散居、小聚居、交错杂居\"，泼水节与那达慕交织成绚丽的民族交响。"
+  },
+  {
+    "combo_id": "combo_geo_ext_30",
+    "name": "南稻北麦",
+    "requires": [
+      "geo_new_125",
+      "geo_32"
+    ],
+    "damage": 40,
+    "factText": "【中国农业】受气候与地形双重钳制，中国东部形成了种植业，而秦淮一线更是死死划定了\"南稻北麦\"的千古格局。"
+  },
+  {
+    "combo_id": "combo_geo_ext_31",
+    "name": "工业的龙骨",
+    "requires": [
+      "geo_new_087",
+      "geo_new_088",
+      "geo_new_089",
+      "geo_new_090"
+    ],
+    "damage": 80,
+    "factText": "【中国工业】辽中南、京津唐、沪宁杭、珠三角，这四大工业基地死死盘踞在东部沿海，构成了国民经济无敌的龙骨！"
+  },
+  {
+    "combo_id": "combo_geo_ext_32",
+    "name": "申城的血脉",
+    "requires": [
+      "geo_new_096",
+      "geo_new_098"
+    ],
+    "block": 50,
+    "factText": "【上海乡土】受亚热带季风恩赐终年不冻的黄浦江，不仅是极其便利的航运黄金水道，更是哺育大上海的母亲血脉。"
+  },
+  {
+    "combo_id": "combo_geo_ext_33",
+    "name": "分水之岭",
+    "requires": [
+      "geo_ext_ridge",
+      "geo_ext_river_origin"
+    ],
+    "damage": 35,
+    "factText": "【地形判读】与汇聚河流的山谷相反，等高线向低处凸出的\"山脊\"地势高耸，如同利刃般无情劈开水流，化作分水岭。"
+  },
+  {
+    "combo_id": "combo_geo_ext_34",
+    "name": "蔚蓝真相",
+    "requires": [
+      "geo_ext_earth",
+      "geo_ext_land_sea_ratio"
+    ],
+    "block": 40,
+    "factText": "【海陆概况】从太空俯瞰地球，这根本不是什么地球，而是一颗被71%海水淹没的\"水球\"——三分陆地七分海洋！"
+  },
+  {
+    "combo_id": "combo_geo_ext_35",
+    "name": "文明交织",
+    "requires": [
+      "geo_ext_religion",
+      "geo_ext_language"
+    ],
+    "damage": 45,
+    "factText": "【人文地理】汉语在人数上绝对碾压，英语在范围上无限扩张，而基督、伊斯兰与佛教三大宗教则统御着精神世界。"
+  },
+  {
+    "combo_id": "combo_geo_ext_36",
+    "name": "东方巨龙",
+    "requires": [
+      "geo_ext_china_location",
+      "geo_ext_34_provinces"
+    ],
+    "damage": 60,
+    "factText": "【中国疆域】雄踞亚洲东部、太平洋西岸，海陆兼备的中国版图上，34个省级行政区犹如巨龙鳞片般拱卫神州！"
+  },
+  {
+    "combo_id": "combo_geo_ext_37",
+    "name": "魔都王冠",
+    "requires": [
+      "geo_ext_shanghai",
+      "geo_ext_shanghai_5_centers"
+    ],
+    "damage": 55,
+    "factText": "【上海乡土】上海的野心绝不仅限于经济繁荣，它正在全速打造国际经、金、贸、航、科创的终极\"五个中心\"王冠！"
+  },
+  {
+    "combo_id": "his_combo_07",
+    "name": "虎门销烟",
+    "requires": [
+      "his_01",
+      "his_21",
+      "his_47"
+    ],
+    "damage": 65,
+    "factText": "【历史要点】林则徐在虎门海滩销毁的不仅是鸦片，更向全世界表明了禁烟决心，却也因此引爆了鸦片战争的炮火！"
+  },
+  {
+    "combo_id": "his_combo_08",
+    "name": "洋务与北洋",
+    "requires": [
+      "his_04",
+      "his_22",
+      "his_48"
+    ],
+    "damage": 60,
+    "factText": "【历史要点】李鸿章穷尽半生心血组建的北洋水师，曾是大清最后的牌面，却在甲午海战的隆隆炮火中灰飞烟灭！"
+  },
+  {
+    "combo_id": "his_combo_09",
+    "name": "戊戌双杰",
+    "requires": [
+      "his_07",
+      "his_23",
+      "his_24"
+    ],
+    "damage": 55,
+    "factText": "【历史要点】康有为与梁启超满腔热血掀起的维新变法，虽如百日昙花一现，却如同惊雷般劈开了思想启蒙的裂缝。"
+  },
+  {
+    "combo_id": "his_combo_10",
+    "name": "世纪之交的劫难",
+    "requires": [
+      "his_08",
+      "his_28",
+      "his_09"
+    ],
+    "damage": 85,
+    "factText": "【历史要点】1900年八国联军以镇压义和团为由长驱直入，随后签订的《辛丑条约》将中国彻底打入半殖民地的深渊！"
+  },
+  {
+    "combo_id": "his_combo_11",
+    "name": "走向共和",
+    "requires": [
+      "his_49",
+      "his_10",
+      "his_11",
+      "his_25"
+    ],
+    "damage": 90,
+    "factText": "【历史要点】武昌城头的一声枪响，孙中山领导的辛亥革命终结了漫长的封建帝制，艰难催生了亚洲第一个共和国！"
+  },
+  {
+    "combo_id": "his_combo_12",
+    "name": "思想的觉醒",
+    "requires": [
+      "his_13",
+      "his_26",
+      "his_27",
+      "his_36"
+    ],
+    "damage": 75,
+    "factText": "【历史要点】陈独秀与李大钊高举民主与科学的两面大旗，新文化运动用狂风暴雨般的思想洗礼彻底唤醒了国人！"
+  },
+  {
+    "combo_id": "his_combo_13",
+    "name": "星火燎原",
+    "requires": [
+      "his_16",
+      "his_17",
+      "his_18",
+      "his_39"
+    ],
+    "damage": 100,
+    "factText": "【历史要点】南昌枪响打出第一军，井冈山头燃起星星之火，长征途中的遵义会议挽救残局，红星终于照耀中国！"
+  },
+  {
+    "combo_id": "his_combo_14",
+    "name": "民族血泪",
+    "requires": [
+      "his_40",
+      "his_41"
+    ],
+    "damage": 45,
+    "factText": "【历史要点】卢沟桥的枪声撕裂了和平的伪装，日军铁蹄全面入侵，在南京制造了惨绝人寰的三十万屠城浩劫！"
+  },
+  {
+    "combo_id": "his_combo_15",
+    "name": "敌后抗战",
+    "requires": [
+      "his_43",
+      "his_44"
+    ],
+    "damage": 50,
+    "factText": "【历史要点】共产党在敌后根据地发动全民游击战，彭老总指挥的百团大战更是在华北平原给日寇以雷霆痛击！"
+  },
+  {
+    "combo_id": "his_combo_16",
+    "name": "革命胜利",
+    "requires": [
+      "his_20",
+      "his_46",
+      "his_50"
+    ],
+    "damage": 80,
+    "factText": "【历史要点】摧枯拉朽的解放战争彻底埋葬了反动派政权，1949年天安门城楼的宣告，标志着新民主主义革命大获全胜！"
+  },
+  {
+    "combo_id": "his_combo_17",
+    "name": "不平等之痛",
+    "requires": [
+      "his_29",
+      "his_30",
+      "his_31",
+      "his_32"
+    ],
+    "damage": 70,
+    "factText": "【历史要点】割地！赔款！开埠通商！列强将这屈辱的三大枷锁死死锁在中国身上，加速了半殖民地半封建的坠落。"
+  },
+  {
+    "combo_id": "his_combo_18",
+    "name": "列强瓜分",
+    "requires": [
+      "his_33",
+      "his_34"
+    ],
+    "damage": 45,
+    "factText": "【历史要点】甲午战败彻底暴露了清政府的软弱无能，列强如饿狼般扑来强占租界、划分势力范围，掀起瓜分狂潮！"
+  },
+  {
+    "combo_id": "his_combo_20",
+    "name": "大革命风暴",
+    "requires": [
+      "his_15",
+      "his_16"
+    ],
+    "damage": 50,
+    "factText": "【历史要点】气势如虹的北伐战争眼看就要统一全国，却因反动派叛变而血流成河，逼迫共产党在南昌亮出反抗之剑！"
+  },
+  {
+    "combo_id": "his_combo_21",
+    "name": "五四先锋",
+    "requires": [
+      "his_12",
+      "his_37"
+    ],
+    "damage": 45,
+    "factText": "【历史要点】五四运动不仅是新民主主义的开端，更熔铸了永不褪色的“爱国、进步、民主、科学”五四青年精神！"
+  },
+  {
+    "combo_id": "his_combo_22",
+    "name": "盛世与危机",
+    "requires": [
+      "his_64",
+      "his_01"
+    ],
+    "damage": 50,
+    "factText": "【历史要点】康熙爷缔造的盛世不过是封建社会的回光返照，闭关锁国让中国在鸦片战争面对坚船利炮时毫无还手之力。"
+  },
+  {
+    "combo_id": "bio_combo_27",
+    "name": "吞咽通道",
+    "requires": [
+      "bio_85",
+      "bio_86",
+      "bio_87"
+    ],
+    "damage": 60,
+    "factText": "【生物要点】食物过咽时软腭惊险上抬封死气管，食管随即爆发出节律性蠕动，将食物如履平地般安全推入胃中。"
+  },
+  {
+    "combo_id": "bio_combo_28",
+    "name": "大肠末端",
+    "requires": [
+      "bio_54",
+      "bio_88"
+    ],
+    "damage": 45,
+    "factText": "【生物要点】大肠不仅负责榨干最后的残余水分形成粪便，其起始端盲肠下挂着的那根退化阑尾，发炎时足以致命。"
+  },
+  {
+    "combo_id": "bio_combo_29",
+    "name": "淋巴系统",
+    "requires": [
+      "bio_90",
+      "bio_97",
+      "bio_98"
+    ],
+    "damage": 65,
+    "factText": "【生物要点】组织液不仅回流血液，更渗入隐秘的淋巴管化为淋巴，参与淋巴循环最终殊途同归汇入大静脉网络。"
+  },
+  {
+    "combo_id": "bio_combo_30",
+    "name": "静脉防线",
+    "requires": [
+      "bio_66",
+      "bio_91"
+    ],
+    "damage": 40,
+    "factText": "【生物要点】面对低压缓慢甚至需要抵抗重力的回流挑战，四肢静脉内暗藏的静脉瓣如同一道道单向阀门，死守防线！"
+  },
+  {
+    "combo_id": "bio_combo_31",
+    "name": "内环境交换",
+    "requires": [
+      "bio_68",
+      "bio_67",
+      "bio_92"
+    ],
+    "damage": 70,
+    "factText": "【生物要点】血浆穿透极薄的毛细血管壁渗出成为组织液，在这没有硝烟的战场上，与全身细胞进行着最纯粹的物质交换。"
+  },
+  {
+    "combo_id": "bio_combo_32",
+    "name": "左心回血",
+    "requires": [
+      "bio_93",
+      "bio_96"
+    ],
+    "damage": 45,
+    "factText": "【生物要点】在肺部饱吸氧气的鲜红动脉血，顺着肺静脉一路狂奔，最终稳稳注满心脏的左心房储血池。"
+  },
+  {
+    "combo_id": "bio_combo_33",
+    "name": "右心出击",
+    "requires": [
+      "bio_94",
+      "bio_95"
+    ],
+    "damage": 45,
+    "factText": "【生物要点】右心室强力收缩，将承载着满满二氧化碳废气的暗红静脉血，轰入肺动脉，开启肺部的净化之旅。"
+  },
+  {
+    "combo_id": "bio_combo_34",
+    "name": "心脏节律",
+    "requires": [
+      "bio_102",
+      "bio_106",
+      "bio_111"
+    ],
+    "damage": 65,
+    "factText": "【生物要点】以偏向左侧的心尖为基准，心脏每完成一次完美的收缩舒张心动周期，生命的数字——心率，便跳动一次。"
+  },
+  {
+    "combo_id": "bio_combo_35",
+    "name": "血流方向律",
+    "requires": [
+      "bio_108",
+      "bio_109"
+    ],
+    "damage": 50,
+    "factText": "【生物要点】动脉冲锋陷阵，毛细血管网迂回交换，静脉安稳撤退。这套严酷的单向血液流动法则，任何细胞不得违抗！"
+  },
+  {
+    "combo_id": "bio_combo_36",
+    "name": "基础营养",
+    "requires": [
+      "bio_121",
+      "bio_122",
+      "bio_123"
+    ],
+    "damage": 55,
+    "factText": "【生物要点】不仅需要糖脂蛋白三大宏量狂野供能，人体这台精密仪器同样极度依赖维生素与无机盐的微量微操调节。"
+  },
+  {
+    "combo_id": "bio_combo_37",
+    "name": "非特异防线",
+    "requires": [
+      "bio_124",
+      "bio_113"
+    ],
+    "damage": 50,
+    "factText": "【生物要点】吞噬细胞作为机体生来就有的天生狂战士，对任何外来病原体都不讲武德，直接张开大口进行无差别吞噬防卫！"
+  },
+  {
+    "combo_id": "bio_combo_38",
+    "name": "特异性对抗",
+    "requires": [
+      "bio_125",
+      "bio_101",
+      "bio_114"
+    ],
+    "damage": 70,
+    "factText": "【生物要点】一旦特定抗原突破防线，免疫系统便立刻解析情报，量身定制出极度专一的抗体导弹，发动特异性歼灭战！"
+  },
+  {
+    "combo_id": "bio_combo_39",
+    "name": "消化道动力",
+    "requires": [
+      "bio_126",
+      "bio_85"
+    ],
+    "damage": 40,
+    "factText": "【生物要点】长达九米的幽深消化道绝不只是静止的管道，它那不知疲倦的肌肉蠕动，才是强行推进食物不断深化的终极动力。"
+  },
+  {
+    "combo_id": "bio_combo_40",
+    "name": "胃部危机",
+    "requires": [
+      "bio_61",
+      "bio_62",
+      "curse_stomachache"
+    ],
+    "damage": 80,
+    "factText": "【极限反转】幽门螺杆菌感染胃黏膜导致剧烈胃痛！你成功利用病理知识破解了疾病逻辑，将胃痛诅咒瞬间转化为巨额反击伤害！"
+  },
+  {
+    "combo_id": "geo_combo_38",
+    "name": "中国群山",
+    "requires": [
+      "geo_12",
+      "geo_21",
+      "geo_22",
+      "geo_23"
+    ],
+    "damage": 80,
+    "factText": "【地理考点】喜马拉雅的极高、天山的分疆、阴山的干湿界线与南岭的挡寒，这四座走向分明的巨型山脉锁死了中国地形的骨架。"
+  },
+  {
+    "combo_id": "geo_combo_39",
+    "name": "雪峰界线",
+    "requires": [
+      "geo_19",
+      "geo_71"
+    ],
+    "damage": 45,
+    "factText": "【地理考点】看似不起眼的湘西雪峰山，却犹如定海神针一般，死死镇守着我国第二级和第三级阶梯分界线的最南端关卡。"
+  },
+  {
+    "combo_id": "geo_combo_40",
+    "name": "季风边界",
+    "requires": [
+      "geo_45",
+      "geo_46",
+      "geo_47",
+      "geo_28"
+    ],
+    "damage": 90,
+    "factText": "【地理考点】贺兰山、巴颜喀拉山和冈底斯山连成了一道无形的叹息之墙，太平洋的季风水汽到此戛然而止，再难深入非季风区寸步。"
+  },
+  {
+    "combo_id": "geo_combo_41",
+    "name": "秦淮数值",
+    "requires": [
+      "geo_48",
+      "geo_49",
+      "geo_32"
+    ],
+    "damage": 75,
+    "factText": "【地理考点】1月0℃等温线决断河流冰封，800mm等降水量线分割水旱田地！这两大数据神迹般地完美重合在秦岭淮河这一线上。"
+  },
+  {
+    "combo_id": "geo_combo_42",
+    "name": "气候灾害",
+    "requires": [
+      "geo_53",
+      "geo_54",
+      "geo_55"
+    ],
+    "damage": 65,
+    "factText": "【地理考点】受极地冷空气引爆的寒潮，副高控制下高温无雨的伏旱，以及狂扫东南沿海的台风，是中国人年复一年对抗的气候浩劫。"
+  },
+  {
+    "combo_id": "geo_combo_43",
+    "name": "降水规律",
+    "requires": [
+      "geo_56",
+      "geo_57",
+      "geo_59"
+    ],
+    "damage": 70,
+    "factText": "【地理考点】东南季风带来了由东南向西北空间递减的雨水，更制造了夏秋多冬春少的极端时间分配，但好在雨热同期拯救了华夏农业。"
+  },
+  {
+    "combo_id": "geo_combo_44",
+    "name": "世界之巅",
+    "requires": [
+      "geo_63",
+      "geo_12"
+    ],
+    "damage": 45,
+    "factText": "【地理考点】喜马拉雅山脉以其势不可挡的造山运动，将主峰珠穆朗玛峰高举至8848.86米的高空，让全世界都必须仰视它的存在。"
+  },
+  {
+    "combo_id": "geo_combo_45",
+    "name": "东部丘陵",
+    "requires": [
+      "geo_64",
+      "geo_65",
+      "geo_66",
+      "geo_73"
+    ],
+    "damage": 85,
+    "factText": "【地理考点】东北极寒的长白山脉、东南碧绿的武夷山，以及红壤广布的江南丘陵，共同构成了我国东部第三级阶梯起伏连绵的破碎地貌。"
+  },
+  {
+    "combo_id": "geo_combo_46",
+    "name": "丝路咽喉",
+    "requires": [
+      "geo_67",
+      "geo_14"
+    ],
+    "damage": 45,
+    "factText": "【地理考点】夹在祁连山北麓的狭长河西走廊，凭借祁连冰雪融水的滋养形成绿洲，自古便是死锁中原通往西域的丝路绝对咽喉。"
+  },
+  {
+    "combo_id": "geo_combo_47",
+    "name": "天府之国",
+    "requires": [
+      "geo_68",
+      "geo_27"
+    ],
+    "damage": 45,
+    "factText": "【地理考点】四周大山环绕的四川紫色盆地内，深藏着一块土壤极度肥沃、水旱从人的成都平原，两千年来稳坐天府之国的宝座。"
+  },
+  {
+    "combo_id": "geo_combo_48",
+    "name": "死亡之海",
+    "requires": [
+      "geo_69",
+      "geo_24"
+    ],
+    "damage": 45,
+    "factText": "【地理考点】被彻底切断水汽的塔里木盆地中心，演化出了世界第二大流动沙漠塔克拉玛干，成为了连飞鸟都无法逾越的死亡之海。"
+  },
+  {
+    "combo_id": "geo_combo_49",
+    "name": "西北山系",
+    "requires": [
+      "geo_70",
+      "geo_72"
+    ],
+    "damage": 45,
+    "factText": "【地理考点】横贯昆仑的阶梯分界线巨龙，与盘踞在新疆北侧雄踞边界的阿尔泰山脉，以极其粗犷的笔触勾勒出大西北的恐怖地形。"
+  },
+  {
+    "combo_id": "geo_combo_50",
+    "name": "富庶水乡",
+    "requires": [
+      "geo_74",
+      "geo_11"
+    ],
+    "damage": 45,
+    "factText": "【地理考点】长江中下游平原泥沙沉积的尽头，发育出了河网极度密布的长江三角洲，这里不仅是鱼米水乡，更是中国经济最强悍的超级引擎。"
+  },
+  {
+    "combo_id": "geo_combo_51",
+    "name": "关东大地",
+    "requires": [
+      "geo_75",
+      "geo_09"
+    ],
+    "damage": 45,
+    "factText": "【地理考点】长白余脉延伸而成的辽东丘陵，与拥抱无尽黑土的东北平原，刚柔并济地撑起了我国纬度最高、物产最丰饶的东北大区版图。"
+  },
+  {
+    "combo_id": "geo_combo_52",
+    "name": "北极封锁",
+    "requires": [
+      "geo_83",
+      "geo_76",
+      "geo_77"
+    ],
+    "damage": 65,
+    "factText": "【地理考点】面积最小的北冰洋，用极端的酷寒与终年不化的坚冰，冷酷无情地将亚洲、欧洲以及北美洲的最北端死死封锁在一起。"
+  },
+  {
+    "combo_id": "geo_combo_53",
+    "name": "黑潮暖流",
+    "requires": [
+      "geo_90",
+      "geo_80"
+    ],
+    "damage": 45,
+    "factText": "【地理考点】深邃如墨的日本暖流（黑潮）在太平洋西部一路狂飙北上，携带着巨量热能，极其强硬地改写了整个东亚沿岸的气候格局。"
+  },
+  {
+    "combo_id": "curse_combo_1",
+    "name": "清创手术",
+    "requires": [
+      "curse_thrombus",
+      "bio_65",
+      "bio_66"
+    ],
+    "damage": 75,
+    "factText": "【极限反转】你精准洞悉了动脉与静脉的管壁差异结构，以不可思议的手法成功清除了阻塞血管的致命血栓！化诅咒为极效清创利刃！"
+  },
+  {
+    "combo_id": "curse_combo_2",
+    "name": "大梦初醒",
+    "requires": [
+      "curse_celestial_dream",
+      "his_01"
+    ],
+    "damage": 75,
+    "factText": "【极限反转】鸦片战争隆隆的坚船利炮，用血与火的代价彻底轰碎了清政府盲目自大的天朝上国美梦！你用最惨痛的历史教训爆发出惊天一击！"
+  },
+  {
+    "combo_id": "bio_combo_41",
+    "name": "呼吸系统",
+    "requires": [
+      "bio_127",
+      "bio_128",
+      "bio_129"
+    ],
+    "damage": 70,
+    "factText": "【生物扩展】空气在鼻腔被强制加温加湿后，穿过带有软骨防塌陷的气管通道，最终在双肺内完成了维系生命的终极气体交换神迹！"
+  },
+  {
+    "combo_id": "bio_combo_42",
+    "name": "泌尿系统",
+    "requires": [
+      "bio_131",
+      "bio_132",
+      "bio_133",
+      "bio_134"
+    ],
+    "damage": 85,
+    "factText": "【生物扩展】双肾内置的数百万微型肾单位疯狂运作，血液在肾小球被无情滤过形成原尿，又在肾小管被极限重吸收，终成尿液排出剧毒物质！"
+  },
+  {
+    "combo_id": "bio_combo_43",
+    "name": "神经与体液",
+    "requires": [
+      "bio_135",
+      "bio_136",
+      "bio_137",
+      "bio_138"
+    ],
+    "damage": 90,
+    "factText": "【生物扩展】神经元极速传导反射弧的闪电信号，配合内分泌激素在血液中的潜行调节，大脑皮层至高无上地掌控着人体的每一丝精准运转！"
+  },
+  {
+    "combo_id": "his_combo_23",
+    "name": "步入近代",
+    "requires": [
+      "his_66",
+      "his_67"
+    ],
+    "damage": 60,
+    "factText": "【历史扩展】文艺复兴用人文光芒撕裂了中世纪神学的黑暗，紧接着新航路开辟残忍地打破大洋孤立，资本主义的血腥黎明在欧洲轰然降临。"
+  },
+  {
+    "combo_id": "his_combo_24",
+    "name": "工业与革命",
+    "requires": [
+      "his_68",
+      "his_69",
+      "his_70"
+    ],
+    "damage": 80,
+    "factText": "【历史扩展】当法国大革命的断头台斩断君主头颅宣告自由，两次工业革命的蒸汽与电流则用绝对碾压的机器伟力，粗暴地重塑了全球阶级与生产力！"
+  },
+  {
+    "combo_id": "his_combo_25",
+    "name": "世界大战与冷战",
+    "requires": [
+      "his_71",
+      "his_72",
+      "his_73"
+    ],
+    "damage": 85,
+    "factText": "【历史扩展】人类在经历了两次堪称绞肉机的惨烈世界大战洗礼后，非但没等来真正的和平，反而绝望地坠入了美苏长达数十年的核威慑冷战深渊！"
+  },
+  {
+    "combo_id": "geo_combo_new_01",
+    "name": "球体铁证",
+    "requires": [
+      "geo_new_001",
+      "geo_new_002",
+      "geo_new_003"
+    ],
+    "damage": 80,
+    "factText": "【地理考点】麦哲伦九死一生的环球航行、太空视角的绝对卫星照片，加上海岸线边由远及近的帆船桅杆现象，彻底砸碎了天圆地方的愚昧假说。"
+  },
+  {
+    "combo_id": "geo_combo_new_02",
+    "name": "地球尺寸",
+    "requires": [
+      "geo_new_005",
+      "geo_new_006"
+    ],
+    "damage": 50,
+    "factText": "【地理考点】平均半径6371千米（庐山起义），赤道狂拉出4万千米（坐地日行八万里）的恐怖周长，这两个绝妙的数据精准锚定了地球的庞大身躯。"
+  },
+  {
+    "combo_id": "geo_combo_new_03",
+    "name": "经纬天网",
+    "requires": [
+      "geo_new_007",
+      "geo_new_008",
+      "geo_new_019"
+    ],
+    "damage": 85,
+    "factText": "【地理考点】所有经线皆是等长半圆死指南北，纬线则化为大小不一的圆圈牢控东西，这两者在大地上交织成不可遁形的终极定向天网。"
+  },
+  {
+    "combo_id": "geo_combo_new_04",
+    "name": "昼夜双生",
+    "requires": [
+      "geo_new_011",
+      "geo_new_012"
+    ],
+    "damage": 60,
+    "factText": "【地理考点】由于地球执拗地自转，向东永远需要增加时间，且在极点上空诡异地呈现出北极逆时针、南极顺时针的极性俯视双生奇观。"
+  },
+  {
+    "combo_id": "geo_combo_new_05",
+    "name": "四季轮转",
+    "requires": [
+      "geo_new_013",
+      "geo_new_014",
+      "geo_new_015"
+    ],
+    "damage": 90,
+    "factText": "【地理考点】地球倾斜着身子公转，逼迫太阳直射点在南北回归线间来回扫射，霸道地强制地球生物经历春分夏至秋分冬至的无情季节轮转。"
+  },
+  {
+    "combo_id": "geo_combo_new_06",
+    "name": "选址大师",
+    "requires": [
+      "geo_new_025",
+      "geo_new_026"
+    ],
+    "damage": 65,
+    "factText": "【地理考点】地形图上的工程阳谋：死死卡住峡谷口袋处拦江建坝修水库，逼迫公路必须顺着等高线蜿蜒盘旋，用人类智慧强行逆天改命。"
+  },
+  {
+    "combo_id": "geo_combo_new_07",
+    "name": "险峰绝壁",
+    "requires": [
+      "geo_new_022",
+      "geo_new_023",
+      "geo_new_024"
+    ],
+    "damage": 75,
+    "factText": "【地形判读】密陡疏缓看透坡度真谛，多线重合即是致命绝壁崖，两峰之间必藏马鞍低部。吃透这三点，等高线地形图再也无所遁形！"
+  },
+  {
+    "combo_id": "geo_combo_new_08",
+    "name": "世界大动脉",
+    "requires": [
+      "geo_new_028",
+      "geo_new_029",
+      "geo_new_030"
+    ],
+    "damage": 85,
+    "factText": "【世界地理】苏伊士、巴拿马与白令海峡，如同造物主挥下的三把巨剑，毫不留情地斩断了大陆连接，却在血泊中彻底接通了全球大洋的贸易网路！"
+  },
+  {
+    "combo_id": "geo_combo_new_09",
+    "name": "板块交响曲",
+    "requires": [
+      "geo_new_031",
+      "geo_new_034",
+      "geo_new_035"
+    ],
+    "damage": 80,
+    "factText": "【板块构造】亚欧边界强行隆起大高加索，板块交界的死亡地带地壳极其狂暴，日日夜夜激荡着地中海-喜马拉雅这条毁灭级地震带的死亡交响！"
+  },
+  {
+    "combo_id": "geo_combo_new_10",
+    "name": "特殊板块",
+    "requires": [
+      "geo_new_032",
+      "geo_new_033"
+    ],
+    "damage": 60,
+    "factText": "【板块构造】印度洋板块不务正业，不仅包揽海洋还偷走了澳洲与印度；而庞大的太平洋板块则几乎毫无杂质，是一片纯粹且无边无际的汪洋水域。"
+  },
+  {
+    "combo_id": "geo_combo_new_11",
+    "name": "热带四子",
+    "requires": [
+      "geo_new_038",
+      "geo_new_039",
+      "geo_new_040",
+      "geo_new_041"
+    ],
+    "damage": 100,
+    "factText": "【世界气候】雨林的极度湿热、草原的干湿分明、季风的暴雨旱季、沙漠的酷热绝望。这四大极端气候，共同主宰着炽热纬度上最狂野的自然法则！"
+  },
+  {
+    "combo_id": "geo_combo_new_12",
+    "name": "宗教大观园",
+    "requires": [
+      "geo_new_043",
+      "geo_new_044",
+      "geo_new_045",
+      "geo_new_046"
+    ],
+    "block": 80,
+    "factText": "【人文地理】阿拉伯白人的身影穿梭中东，基督尖塔教堂、伊斯兰星月清真寺与佛教庄严肃穆的寺庙，共同瓜分了全人类最深邃不可测的精神信仰版图。"
+  },
+  {
+    "combo_id": "geo_combo_new_13",
+    "name": "南北局势",
+    "requires": [
+      "geo_new_047",
+      "geo_new_048"
+    ],
+    "damage": 55,
+    "factText": "【国际合作】霸占高纬度的发达国家与盘踞南方的无数发展中国家，在充满火药味的“南北对话”与抱团取暖的“南南合作”中，疯狂博弈重塑世界格局！"
+  },
+  {
+    "combo_id": "geo_combo_new_14",
+    "name": "岛国生存道",
+    "requires": [
+      "geo_new_049",
+      "geo_new_050",
+      "geo_new_051"
+    ],
+    "damage": 75,
+    "factText": "【世界区域】被挤压在四大岛上的日本资源极度枯竭，只能死命保住濑户内海优良港口狂建工厂，并用不可思议的“东西方兼容”文化强行维持岛国繁荣。"
+  },
+  {
+    "combo_id": "geo_combo_new_15",
+    "name": "东南亚宝库",
+    "requires": [
+      "geo_new_052",
+      "geo_new_053"
+    ],
+    "damage": 65,
+    "factText": "【世界区域】中南半岛被大自然强行拉扯出山河相间的纵列地形，却因祸得福，疯狂孕育出了橡胶、棕榈油等令全世界眼红的超级热带经济物产宝库。"
+  },
+  {
+    "combo_id": "geo_combo_new_16",
+    "name": "欧元与铁塔",
+    "requires": [
+      "geo_new_055",
+      "geo_new_056"
+    ],
+    "damage": 60,
+    "factText": "【世界区域】欧洲西部用极其强势的统一欧元货币消除壁垒，并凭借埃菲尔铁塔等无尽底蕴，将旅游业玩到了极致，铸就了难以逾越的发达经济长城。"
+  },
+  {
+    "combo_id": "geo_combo_new_17",
+    "name": "黑非洲之殇",
+    "requires": [
+      "geo_new_057",
+      "geo_new_058"
+    ],
+    "damage": 65,
+    "factText": "【世界区域】在气候如同镜像般南北完美对称的广袤非洲，极其脆弱的“单一商品经济”始终如同诅咒，让这片大陆在人口、粮食与环境灾难中痛苦挣扎。"
+  },
+  {
+    "combo_id": "geo_combo_new_18",
+    "name": "钢铁双头鹰",
+    "requires": [
+      "geo_new_059",
+      "geo_new_060"
+    ],
+    "damage": 70,
+    "factText": "【世界区域】俄罗斯抛弃轻工业，将重工业武装到牙齿！一条西伯利亚大铁路如同一根不屈的钢铁脊梁，霸道地贯穿并强行缝合了广阔庞大的亚欧大陆桥。"
+  },
+  {
+    "combo_id": "geo_combo_new_19",
+    "name": "恒河水旱",
+    "requires": [
+      "geo_new_061",
+      "geo_new_062",
+      "geo_new_063"
+    ],
+    "damage": 85,
+    "factText": "【世界区域】脾气暴躁的西南季风稍有差池便让印度农业颗粒无收，但在这水深火热之外，班加罗尔的IT外包产业正如同开挂般悄然崛起称霸亚洲！"
+  },
+  {
+    "combo_id": "geo_combo_new_20",
+    "name": "超级大国",
+    "requires": [
+      "geo_new_064",
+      "geo_new_065",
+      "geo_new_066"
+    ],
+    "damage": 85,
+    "factText": "【世界区域】浩荡奔腾的密西西比河彻底贯穿了地跨三带的庞大美国腹地，而加州旧金山的硅谷，更是以狂暴的高新技术垄断力，傲慢地引领着全球的科技浪潮。"
+  },
+  {
+    "combo_id": "geo_combo_new_21",
+    "name": "桑巴热土",
+    "requires": [
+      "geo_new_067",
+      "geo_new_068",
+      "geo_new_069"
+    ],
+    "damage": 75,
+    "factText": "【世界区域】广阔无垠的巴西高原之上，极其复杂的多民族混血基因碰撞出狂热到极点的桑巴舞步，更让世界头号“咖啡王国”的浓郁香气霸道地飘向四海。"
+  },
+  {
+    "combo_id": "geo_combo_new_22",
+    "name": "南半球孤独大陆",
+    "requires": [
+      "geo_new_070",
+      "geo_new_071"
+    ],
+    "damage": 65,
+    "factText": "【世界区域】澳大利亚漂移孤立万年，沦为特有奇异生物最后的“活化石避难所”，却也因祸得福地坐在了装满金币的矿车上，靠着挖矿卖石暴富。"
+  },
+  {
+    "combo_id": "geo_combo_new_23",
+    "name": "极地科考",
+    "requires": [
+      "geo_new_072",
+      "geo_new_073"
+    ],
+    "damage": 60,
+    "factText": "【世界区域】人类疯狂抓住极地每年短暂到可怜的暖季窗口期，进驻没有极昼极夜庇护的长城站，在致命的冰天雪地中死磕地球这最后一片未解奥秘。"
+  },
+  {
+    "combo_id": "geo_combo_new_24",
+    "name": "疆域极点",
+    "requires": [
+      "geo_new_075",
+      "geo_new_076"
+    ],
+    "damage": 60,
+    "factText": "【中国地理】从漠河主航道中心线上那足以将血液冻结的极寒，一路向南跨越五十个纬度直插酷热的曾母暗沙，这是华夏雄鸡版图不可思议的绝对纵深。"
+  },
+  {
+    "combo_id": "geo_combo_new_25",
+    "name": "省级之最",
+    "requires": [
+      "geo_new_077",
+      "geo_new_078",
+      "geo_new_079"
+    ],
+    "damage": 80,
+    "factText": "【中国地理】新疆霸占最大面积与最长边境傲视西北，海南独揽最广跨度海域制霸南方，而云南则吸纳了数量最恐怖的少数民族，各省王牌底蕴尽显无余！"
+  },
+  {
+    "combo_id": "geo_combo_new_27",
+    "name": "水脉双骄",
+    "requires": [
+      "geo_new_082",
+      "geo_new_083",
+      "geo_new_084"
+    ],
+    "damage": 85,
+    "factText": "【中国地理】长江撕裂山脉斩获恐怖水能宝库，黄河在中游疯狂植树死死扼住泥沙喉咙，而塔里木河则抽干高山冰雪融水，誓要在死亡之海中杀出一条生路。"
+  },
+  {
+    "combo_id": "geo_combo_new_28",
+    "name": "世界屋脊的生灵",
+    "requires": [
+      "geo_new_085",
+      "geo_new_086"
+    ],
+    "block": 60,
+    "factText": "【中国地理】藏民躲进厚如城墙、小窗如眼的碉房死扛致命高寒，身下骑着耐力逆天的“高原之舟”牦牛，这是高原生灵与残酷大自然搏命后达成的生存妥协。"
+  },
+  {
+    "combo_id": "geo_combo_new_30",
+    "name": "铁路心脏",
+    "requires": [
+      "geo_new_092",
+      "geo_new_093",
+      "geo_new_094"
+    ],
+    "damage": 80,
+    "factText": "【中国地理】郑州中原定鼎、徐州咽喉锁钥、兰州西北吞吐！这三大十字枢纽如同三颗强悍无比的钢铁心脏，不分昼夜地将国家运力血液泵向神州四极。"
+  },
+  {
+    "combo_id": "geo_combo_new_31",
+    "name": "跨世纪调配",
+    "requires": [
+      "geo_new_095",
+      "geo_96"
+    ],
+    "damage": 65,
+    "factText": "【中国地理】西气东输数千公里管道横穿大漠，南水北调逆天改命让江水倒流！这两项超神级的宏伟工程，硬生生砸碎了资源空间错配的自然枷锁。"
+  },
+  {
+    "combo_id": "geo_combo_new_32",
+    "name": "申城之水",
+    "requires": [
+      "geo_new_098",
+      "geo_new_099",
+      "geo_new_100"
+    ],
+    "block": 85,
+    "factText": "【上海乡土】淀山湖死守着上海最后的天然淡水底线，而孤悬江心的青草沙水库工程，则以极高智慧强行突围，逆转了这座超大魔都面临的水质型缺水死局。"
+  },
+  {
+    "combo_id": "geo_combo_new_33",
+    "name": "东方明珠的硬核",
+    "requires": [
+      "geo_new_102",
+      "geo_new_103",
+      "geo_new_104"
+    ],
+    "damage": 95,
+    "factText": "【上海乡土】宝钢吞下海外巨量铁矿疯狂淬炼，张江高科砸钱死磕芯片硅谷，洋山深水港以霸主姿态扬帆起航！三者联手焊死了上海国际中心的无敌王座！"
+  },
+  {
+    "combo_id": "geo_combo_new_34",
+    "name": "城市软实力",
+    "requires": [
+      "geo_new_101",
+      "geo_new_105"
+    ],
+    "block": 75,
+    "factText": "【上海乡土】放弃低效种粮改走花卉蔬菜的高端城郊农业，叠加吸收暴雨的海绵城市防涝黑科技，上海硬是在寸土寸金的魔都走出了一条不可思议的生态韧性大阵。"
+  },
+  {
+    "combo_id": "geo_combo_new_35",
+    "name": "经纬交响",
+    "requires": [
+      "geo_new_009",
+      "geo_new_010"
+    ],
+    "damage": 55,
+    "factText": "【地球地图】本初子午线如同一道利剑竖直劈开东西半球的混沌，而中低高纬度的三道无形刻痕，则横向框死了地球每一寸土地的温度命运。"
+  },
+  {
+    "combo_id": "geo_combo_new_36",
+    "name": "治黄锁龙阵",
+    "requires": [
+      "geo_new_110",
+      "geo_new_111",
+      "geo_06",
+      "geo_43"
+    ],
+    "damage": 110,
+    "factText": "【地理扩展】面对黄土高原这块稍有大雨便土崩瓦解的“疏松烂摊子”，唯有在中游拼死植树种草强行锁死水土，才是拔除黄河泥沙悬河隐患的唯一解药！"
+  },
+  {
+    "combo_id": "geo_combo_new_37",
+    "name": "季风的狂怒",
+    "requires": [
+      "geo_new_112",
+      "geo_new_113",
+      "geo_30"
+    ],
+    "damage": 85,
+    "factText": "【地理扩展】喜怒无常的夏季风如果进退失常或是强弱不定，原本救命的降水将立刻化作年际变化极大的狂暴恶鬼，无情撕裂大地引发惨烈的水旱连环劫！"
+  },
+  {
+    "combo_id": "geo_combo_new_38",
+    "name": "气压风带交响",
+    "requires": [
+      "geo_new_115",
+      "geo_new_116",
+      "geo_84"
+    ],
+    "damage": 90,
+    "factText": "【地理扩展】夏季副热带高压死死压制降水带来焦热，冬季西风带则强行送上温和阵雨！两大风压带的交替接管，完美雕刻出了地中海气候诡异的雨热不同期。"
+  },
+  {
+    "combo_id": "geo_combo_new_39",
+    "name": "人口鸿沟",
+    "requires": [
+      "geo_new_114",
+      "geo_ext_heihe",
+      "geo_ext_pop_dist"
+    ],
+    "block": 75,
+    "factText": "【地理扩展】黑河—腾冲线即胡焕庸线，它绝非简单的地图划线，而是一道由高山大漠与气候自然形成的残酷结界，死死封锁了中国人口东多西少的极端失衡。"
+  },
+  {
+    "combo_id": "geo_combo_new_40",
+    "name": "峡谷截流",
+    "requires": [
+      "geo_new_118",
+      "geo_new_025",
+      "geo_44"
+    ],
+    "damage": 85,
+    "factText": "【地理扩展】在阶梯交界水能狂暴坠落之处，一旦发现内部开阔且出口如瓶颈般狭窄的“口袋形洼地”，便是人类筑造逆天大坝、腰斩江河截取电力的完美天选之地！"
+  },
+  {
+    "combo_id": "geo_combo_new_41",
+    "name": "自流绿洲",
+    "requires": [
+      "geo_new_117",
+      "geo_ext_australia",
+      "geo_ext_sheep_back"
+    ],
+    "damage": 80,
+    "factText": "【地理扩展】在澳大利亚那片热到发狂的干旱腹地，深埋地底的大自流盆地奇迹般地喷涌出无尽清泉，成为强行续命并保住“骑在羊背上国家”称号的终极底牌。"
+  },
+  {
+    "combo_id": "geo_combo_new_42",
+    "name": "亚欧黄金桥",
+    "requires": [
+      "geo_new_120",
+      "geo_new_060",
+      "geo_76",
+      "geo_77"
+    ],
+    "damage": 100,
+    "factText": "【地理扩展】全长近万公里的西伯利亚大铁路，犹如一条不可摧毁的钛合金巨龙，横亘在亚洲与欧洲组成的庞然巨兽大陆之上，强行焊成了陆地物流的最强亚欧大陆桥！"
+  },
+  {
+    "combo_id": "geo_combo_new_43",
+    "name": "高峡出平湖",
+    "requires": [
+      "geo_new_121",
+      "geo_new_124",
+      "geo_42"
+    ],
+    "damage": 85,
+    "factText": "【地理扩展】世界奇迹三峡大坝蛮横腰斩长江，硬生生压制住洪荒之力，不仅狂发电能，更极度改善了险恶的上游航运，让黄金水道彻底摆脱天险化作通途！"
+  },
+  {
+    "combo_id": "geo_combo_new_44",
+    "name": "江南水乡",
+    "requires": [
+      "geo_new_122",
+      "geo_11",
+      "geo_ext_paddy_field"
+    ],
+    "block": 80,
+    "factText": "【地理扩展】长江中下游平原被无尽的江水和漫长梅雨浸透，大自然赐予的密布河网将陆地切割得支离破碎，却也成就了水田无边、自古富甲天下的无敌鱼米之乡。"
+  },
+  {
+    "combo_id": "geo_combo_new_45",
+    "name": "蜀地沃野",
+    "requires": [
+      "geo_new_123",
+      "geo_68",
+      "geo_27"
+    ],
+    "damage": 75,
+    "factText": "【地理扩展】四面楚歌般的群山死死围堵住四川盆地，却在其中孕育了成都平原。有了都江堰的逆天加持，水旱从人不知饥馑，这才是两千年不倒的天府之国真面目。"
+  },
+  {
+    "combo_id": "geo_combo_new_46",
+    "name": "中华大粮仓",
+    "requires": [
+      "geo_new_125",
+      "geo_32",
+      "geo_ext_dry_farming",
+      "geo_ext_paddy_field"
+    ],
+    "damage": 110,
+    "factText": "【地理扩展】一条秦岭淮河，硬是把华夏大地的饭碗一劈为二：南方水光潋滟种水稻，北方黄土漫天麦浪滚！南稻北麦双核引擎，联手死保十四亿人的吃饭底线！"
+  },
+  {
+    "combo_id": "geo_combo_new_47",
+    "name": "大运河之波",
+    "requires": [
+      "geo_96",
+      "geo_new_126"
+    ],
+    "damage": 70,
+    "factText": "【地理扩展】古老的京杭大运河并未死去，在疯狂的南水北调东线工程中它再次复活觉醒，化身输送救命江水的超级动脉，疯狂润泽极度干渴的华北大地。"
+  },
+  {
+    "combo_id": "geo_combo_new_48",
+    "name": "水源保卫战",
+    "requires": [
+      "geo_new_100",
+      "geo_new_127"
+    ],
+    "block": 90,
+    "factText": "【地理扩展】当枯水期致命的咸潮夹杂着海水倒灌企图毒杀城市水源，孤悬江心的青草沙水库如同坚不可摧的孤岛堡垒，死守底线保卫了两千多万上海人的饮水生命线。"
+  },
+  {
+    "combo_id": "geo_combo_new_49",
+    "name": "都市菜篮子",
+    "requires": [
+      "geo_new_101",
+      "geo_new_128"
+    ],
+    "damage": 65,
+    "factText": "【地理扩展】抛弃廉价的传统谷物，紧贴都市千万张嗷嗷待哺的嘴巴！城郊农业极其聪明地转向暴利鲜活的花卉蔬菜与乳禽蛋奶，赚得盆满钵满稳居都市菜篮子。"
+  },
+  {
+    "combo_id": "bio_combo_new_44",
+    "name": "糖类裂解链",
+    "requires": [
+      "bio_142",
+      "bio_82",
+      "bio_83",
+      "bio_115"
+    ],
+    "damage": 105,
+    "factText": "【生物扩展】高能淀粉一入口便遭唾液淀粉酶初步碎裂成麦芽糖，落入小肠后更被胰淀粉酶彻底处刑粉碎，化为能被血液直接暴吸的微缩葡萄糖炸弹！"
+  },
+  {
+    "combo_id": "bio_combo_new_45",
+    "name": "蛋白粉碎机",
+    "requires": [
+      "bio_143",
+      "bio_84",
+      "bio_116"
+    ],
+    "damage": 85,
+    "factText": "【生物扩展】胃蛋白酶在极度强酸的地狱环境中率先发难，残忍斩断大块蛋白质化为多肽，直到进入小肠被各类肠胰酶彻底绞碎成基础构件氨基酸！"
+  },
+  {
+    "combo_id": "bio_combo_new_46",
+    "name": "极致乳化",
+    "requires": [
+      "bio_144",
+      "bio_99",
+      "bio_58",
+      "bio_139"
+    ],
+    "damage": 110,
+    "factText": "【生物扩展】不含一丝消化酶的胆汁放弃了化学伤害，转而发动物理层面的绝对乳化降维打击，直接把一大块脂肪轰成无数微小的脂肪微粒，让其防线彻底崩溃！"
+  },
+  {
+    "combo_id": "bio_combo_new_47",
+    "name": "折叠空间",
+    "requires": [
+      "bio_145",
+      "bio_118",
+      "bio_53"
+    ],
+    "damage": 80,
+    "factText": "【生物扩展】狭长的消化管内别有洞天：小肠内壁层层叠叠的环形皱襞与密密麻麻如森林般的小肠绒毛强强联手，在有限的肠道内生生创造出了极为广阔的折叠吸收空间！"
+  },
+  {
+    "combo_id": "bio_combo_new_48",
+    "name": "细胞特化舍弃",
+    "requires": [
+      "bio_146",
+      "bio_69",
+      "bio_141"
+    ],
+    "block": 85,
+    "factText": "【生物扩展】为了追求极致的气体运输效率，红细胞在成熟时极其狠心地献祭抛弃了细胞核，化身为双凹圆盘状的极限形态，换取了惊人的表面积包裹能力！"
+  },
+  {
+    "combo_id": "bio_combo_new_49",
+    "name": "猩红动脉",
+    "requires": [
+      "bio_147",
+      "bio_78",
+      "bio_110"
+    ],
+    "damage": 85,
+    "factText": "【生物扩展】暗红静脉血冲入肺部绝命深渊，血红蛋白贪婪狂吸氧气发生剧烈氧合，瞬间蜕变为鲜红夺目的氧合血红蛋白，让静脉血在此刻彻底觉醒为富氧动脉血！"
+  },
+  {
+    "combo_id": "bio_combo_new_50",
+    "name": "永不倒流",
+    "requires": [
+      "bio_148",
+      "bio_80",
+      "bio_81",
+      "bio_91"
+    ],
+    "block": 150,
+    "factText": "【生物扩展】房室瓣防守心房心室界，动脉瓣锁死心脏出口，四肢静脉瓣卡死回流退路！三大瓣膜阀门共同构建了血液循环的绝对单向铁律，谁敢倒流半步即刻绞杀！"
+  },
+  {
+    "combo_id": "bio_combo_new_51",
+    "name": "特异性兵工厂",
+    "requires": [
+      "bio_149",
+      "bio_101",
+      "bio_114"
+    ],
+    "damage": 85,
+    "factText": "【生物扩展】一旦高度危险的抗原触发警报，作为特异性免疫王牌的浆细胞兵工厂便会全面过载开动，向血液中疯狂倾泻如制导导弹般专一锁定的抗体大军！"
+  },
+  {
+    "combo_id": "bio_combo_new_52",
+    "name": "极限折叠空间",
+    "requires": [
+      "bio_150",
+      "bio_118",
+      "bio_145",
+      "bio_53"
+    ],
+    "damage": 120,
+    "factText": "【生物扩展】小肠的环形皱襞与绒毛还不够？绒毛上皮细胞表面再爆出微绒毛！这三重丧心病狂的物理极限折叠，硬是将吸收总面积暴涨了整整六百倍之多！"
+  },
+  {
+    "combo_id": "bio_combo_new_53",
+    "name": "终身免疫阵线",
+    "requires": [
+      "bio_151",
+      "bio_114",
+      "bio_101"
+    ],
+    "block": 100,
+    "factText": "【生物扩展】特异性免疫在血洗敌人的同时会在体内留下休眠的记忆细胞。当同一病原体妄图二次入侵时，它们瞬间苏醒暴走，以极快速度制造海量抗体将其扼杀在摇篮中！"
+  },
+  {
+    "combo_id": "bio_combo_new_54",
+    "name": "尿液提纯厂",
+    "requires": [
+      "bio_133",
+      "bio_154",
+      "bio_152",
+      "bio_153"
+    ],
+    "damage": 130,
+    "factText": "【生物扩展】高压血液在微小的肾小球被强行滤过挤出原尿，随后流经肾小管时，被极其贪婪地重吸收走全量的葡萄糖与大部分水，剩下的废弃剧毒瞬间浓缩沦为尿液！"
+  },
+  {
+    "combo_id": "bio_combo_new_55",
+    "name": "神经闪电网络",
+    "requires": [
+      "bio_155",
+      "bio_156",
+      "bio_137"
+    ],
+    "damage": 85,
+    "factText": "【生物扩展】感受器捕获外界刺激后秒变电信号，沿着反射弧的生物电缆以光速飙升直达大脑皮层最高中枢，大脑完成瞬间解算后再疯狂下达指令，这便是生命感知的极限网络！"
+  },
+  {
+    "combo_id": "his_combo_new_36",
+    "name": "凿空西域",
+    "requires": [
+      "his_77",
+      "his_78",
+      "his_62",
+      "his_52"
+    ],
+    "damage": 120,
+    "factText": "【历史扩展】汉武帝傲睨天下，张骞用血肉之躯生生在茫茫戈壁上“凿空”西域打通死路，这史诗般的壮举直接催生了日后连结亚欧大陆霸权版图的伟大丝绸之路！"
+  },
+  {
+    "combo_id": "his_combo_new_37",
+    "name": "永乐远航",
+    "requires": [
+      "his_79",
+      "his_63"
+    ],
+    "damage": 55,
+    "factText": "【历史扩展】迁都北京的明成祖朱棣气吞山河，令郑和率领无敌舰队七下西洋耀兵异域。这是整整提前西方大航海时代近一个世纪的最恢宏海上史诗！"
+  },
+  {
+    "combo_id": "his_combo_new_38",
+    "name": "动力革命双响炮",
+    "requires": [
+      "his_80",
+      "his_68",
+      "his_81",
+      "his_70"
+    ],
+    "damage": 130,
+    "factText": "【历史扩展】瓦特改良的蒸汽机喷吐着黑烟强行将人类拖入工业时代；紧接着爱迪生等巨匠用电流与内燃机引发第二次轰顶，两次工业革命让世界的狂奔速度直接失控！"
+  },
+  {
+    "combo_id": "his_combo_new_39",
+    "name": "正义阵线",
+    "requires": [
+      "his_82",
+      "his_72",
+      "his_19"
+    ],
+    "damage": 90,
+    "factText": "【历史扩展】中国人民深陷血肉磨坊的十四年抗战，不仅是在死保家国，更是牢牢钉死了世界反法西斯战争在东方最漫长、最惨烈、耗死百万日军主力的终极主战场！"
+  },
+  {
+    "combo_id": "his_combo_new_40",
+    "name": "长城之躯",
+    "requires": [
+      "his_83",
+      "his_42",
+      "his_40"
+    ],
+    "block": 100,
+    "factText": "【历史扩展】七七事变卢沟桥的枪声彻底击碎了妥协的幻想，国共两党搁置一切血仇再度携手，硬生生用抗日民族统一战线的千万具肉身，筑起了中华民族不倒的血肉长城！"
+  },
+  {
+    "combo_id": "his_combo_new_41",
+    "name": "红船启航",
+    "requires": [
+      "his_84",
+      "his_38",
+      "his_14"
+    ],
+    "damage": 85,
+    "factText": "【历史扩展】当巡捕的暗影逼迫中共一大从上海惊险转移至嘉兴南湖的一叶红船上秘密闭幕，中国共产党的诞生如同一道劈开黑暗深渊的刺目闪电，宣告了一个新时代的降临！"
+  },
+  {
+    "combo_id": "his_combo_new_42",
+    "name": "破晓之音",
+    "requires": [
+      "his_85",
+      "his_36",
+      "his_13"
+    ],
+    "damage": 85,
+    "factText": "【历史扩展】在最黑的夜里，新文化运动的先驱们挥舞着《新青年》怒吼出“德先生与赛先生”（民主与科学），用最沉重的大锤，一下又一下死命砸碎封建礼教的吃人枷锁！"
+  },
+  {
+    "combo_id": "his_combo_new_43",
+    "name": "轰开国门",
+    "requires": [
+      "his_87",
+      "curse_celestial_dream",
+      "his_01"
+    ],
+    "damage": 110,
+    "factText": "【极限反转】大清帝国死死关上国门躲在被窝里做着天朝上国万邦来朝的迷梦，直到鸦片战争那一排排无情的实心炮弹轰碎城门。你顿悟了落后就要挨打的真理，轰出了成吨伤害！"
+  },
+  {
+    "combo_id": "his_combo_new_44",
+    "name": "洗刷百年耻辱",
+    "requires": [
+      "his_86",
+      "his_45",
+      "his_19"
+    ],
+    "damage": 95,
+    "factText": "【历史扩展】随着法西斯日本在广播中宣布无条件投降，伟大的抗日战争作为中国近代史上首个取得完全胜利的民族解放战争，彻底用敌人的鲜血洗刷了甲午以来的百年国耻！"
+  },
+  {
+    "combo_id": "his_combo_new_45",
+    "name": "星火燎原大阵",
+    "requires": [
+      "his_88",
+      "his_17",
+      "his_74"
+    ],
+    "damage": 95,
+    "factText": "【历史扩展】大革命失败的鲜血没有吓退毛泽东，他在深山老林中的井冈山点燃了微弱却坚决的“工农武装割据”星星之火，最终这股火苗在神州大地上掀起了焚尽一切反动势力的燎原大火！"
+  },
+  {
+    "combo_id": "his_combo_new_46",
+    "name": "世界新秩序",
+    "requires": [
+      "his_73",
+      "his_89",
+      "his_90",
+      "his_91"
+    ],
+    "damage": 120,
+    "factText": "【历史扩展】美苏超级大国用核弹互指引发长达冷战的两极对峙格局；而随着苏联红旗落地轰然解体，世界加速狂奔进入不可逆转的政治多极化混战与资本无国界的经济全球化洪流！"
+  },
+  {
+    "combo_id": "geo_combo_orphan_01",
+    "name": "天际高原",
+    "requires": [
+      "geo_07",
+      "geo_08",
+      "geo_02"
+    ],
+    "damage": 75,
+    "factText": "【地理兜底】一北一南，广阔平坦跑马的内蒙古高原与喀斯特溶洞遍布极其崎岖的云贵高原，虽然画风迥异，却同属于我国地势第二级阶梯的标志性地貌。"
+  },
+  {
+    "combo_id": "geo_combo_orphan_02",
+    "name": "干湿临界点",
+    "requires": [
+      "geo_34",
+      "geo_35",
+      "geo_37"
+    ],
+    "damage": 75,
+    "factText": "【地理兜底】在降水的分水岭上，400mm等降水量线如同一道无情的天然屏障，向东滋养半湿润区农耕不绝，向西则将大地化为半干旱区，只能任由游牧民族驰骋。"
+  },
+  {
+    "combo_id": "geo_combo_orphan_03",
+    "name": "四大名号",
+    "requires": [
+      "geo_new_106",
+      "geo_new_107",
+      "geo_new_108",
+      "geo_new_109"
+    ],
+    "damage": 125,
+    "factText": "【地理兜底】高高在上的世界屋脊、残破不堪的千沟万壑、粮满仓廒的商品粮基地、深藏不露的聚宝盆——这四大终极称号，浓缩了中国壮阔山河的绝对核心特征！"
+  },
+  {
+    "combo_id": "geo_combo_orphan_04",
+    "name": "海图坐标",
+    "requires": [
+      "geo_new_004",
+      "geo_new_016",
+      "geo_new_017",
+      "geo_new_018"
+    ],
+    "damage": 110,
+    "factText": "【地理兜底】仰望月食阴影实证地球是圆，低头在地图上用比例尺丈量天地，看指向标定夺南北，再通过温度划分五带，这是所有地理学者最引以为傲的制图基本功！"
+  },
+  {
+    "combo_id": "geo_combo_orphan_05",
+    "name": "地图全要素",
+    "requires": [
+      "geo_new_020",
+      "geo_new_021",
+      "geo_new_027"
+    ],
+    "damage": 85,
+    "factText": "【地理兜底】即使是面积排名第一的亚洲与排名最后的南极，只要巧用图例注记做标记，设定等高距刻画起伏，便能将它们全部霸道地压缩在一张方寸地图之间！"
+  },
+  {
+    "combo_id": "geo_combo_orphan_06",
+    "name": "极地与宗教",
+    "requires": [
+      "geo_new_036",
+      "geo_new_037",
+      "geo_new_042",
+      "geo_new_054"
+    ],
+    "damage": 120,
+    "factText": "【地理兜底】海拔决定了山顶的冰冷，迎风坡的地形雨浇灌出绿洲。而在这些自然伟力与四大人口稠密区之外，圣城耶路撒冷静静地承载着三大宗教数千年厮杀与共存的深沉信仰。"
+  },
+  {
+    "combo_id": "geo_combo_orphan_07",
+    "name": "国之边疆",
+    "requires": [
+      "geo_new_074",
+      "geo_ext_china_location"
+    ],
+    "damage": 65,
+    "factText": "【地理兜底】中国绝不是被锁死在内陆的旱鸭子！我们海陆兼备，自北向南更拥有渤海、黄海、东海、南海四大领海构成的蓝色海上长城，死守着不容侵犯的蔚蓝国土！"
+  },
+  {
+    "combo_id": "geo_combo_orphan_08",
+    "name": "申城印记",
+    "requires": [
+      "geo_new_091",
+      "geo_new_097",
+      "geo_new_119",
+      "geo_new_104"
+    ],
+    "damage": 120,
+    "factText": "【地理兜底】看北方中关村科技狂飙，再看南方上海凭无敌的江海联运和吞吐四海的洋山港走向世界，而在这几乎全平的大都会一角，微小的佘山竟成了稀有的“魔都之巅”。"
+  },
+  {
+    "combo_id": "bio_combo_orphan_01",
+    "name": "血小板集结",
+    "requires": [
+      "bio_71",
+      "bio_146",
+      "bio_68"
+    ],
+    "damage": 85,
+    "factText": "【生物兜底】别看它无细胞核体积微小，一旦血管遭遇破损，无数血小板瞬间如疯狗般集结，配合血浆凝固死死堵住伤口，用命筑起阻止机体失血的生命大坝！"
+  },
+  {
+    "combo_id": "bio_combo_orphan_02",
+    "name": "脂类归流",
+    "requires": [
+      "bio_117",
+      "bio_89",
+      "bio_90"
+    ],
+    "damage": 80,
+    "factText": "【生物兜底】别以为所有营养都走正门！甘油和脂肪酸在被吸收后，极其狡猾地避开直接入血，而是悄然潜入淋巴循环系统，最终绕了一个大圈在颈部静脉处暗中汇合！"
+  },
+  {
+    "combo_id": "bio_combo_orphan_03",
+    "name": "消化十字路",
+    "requires": [
+      "bio_63",
+      "bio_55",
+      "bio_56"
+    ],
+    "damage": 85,
+    "factText": "【生物兜底】短小的十二指肠是体内最凶险的消化十字路口！它左右开弓，同时强行接纳肝脏空投的胆汁与胰腺倾泻的剧毒胰液，瞬间将对食物的化学屠宰推向最高潮！"
+  },
+  {
+    "combo_id": "bio_combo_orphan_04",
+    "name": "右心引擎",
+    "requires": [
+      "bio_75",
+      "bio_95",
+      "bio_94"
+    ],
+    "damage": 80,
+    "factText": "【生物兜底】右心房犹如废液池般承接着来自全身充满废气的静脉血，随后门阀洞开，右心室强力收缩泵压，将暗红的污血全部打入肺动脉，开启肺部的净化重生洗礼！"
+  },
+  {
+    "combo_id": "his_combo_orphan_01",
+    "name": "晚清余晖",
+    "requires": [
+      "his_03",
+      "his_08",
+      "his_29"
+    ],
+    "damage": 85,
+    "factText": "【历史兜底】在半殖民地半封建逐渐扼死大清命脉的绝望深渊中，太平天国与义和团这两次如暴风骤雨般的农民起义，是底层黎民不甘受辱爆发出最惨烈、最悲壮的最后挣扎与抗争！"
+  },
+  {
+    "combo_id": "his_combo_orphan_02",
+    "name": "南昌惊雷",
+    "requires": [
+      "his_15",
+      "his_16",
+      "his_14"
+    ],
+    "damage": 90,
+    "factText": "【历史兜底】轰轰烈烈的北伐战争因反动派的背叛而折戟沉沙，血雨腥风中，被逼上绝路的中国共产党在南昌城头打响了破天一枪，用子弹宣告了独立握紧枪杆子领导革命的钢铁决心！"
+  },
+  {
+    "combo_id": "his_combo_orphan_03",
+    "name": "秦汉之法",
+    "requires": [
+      "his_55",
+      "his_75",
+      "his_52",
+      "his_61"
+    ],
+    "damage": 120,
+    "factText": "【历史兜底】秦始皇用严酷的小篆强行统一文字让天下一家，汉武帝则用罢黜百家的手段彻底禁锢思想定尊儒术！两大超级帝王一文一理，联手将中华文明的大一统钢印死死打在历史长河中！"
+  },
+  {
+    "combo_id": "his_combo_orphan_04",
+    "name": "近代破晓",
+    "requires": [
+      "his_76",
+      "his_11",
+      "his_13",
+      "his_85"
+    ],
+    "damage": 115,
+    "factText": "【历史兜底】中华民国这面亚洲第一共和国的残破旗帜在风中飘摇，但很快，“德先生与赛先生”这两位西方巨灵神般的神明，伴随着新文化运动的狂风彻底撕烂了笼罩中国几千年的封建铁幕！"
+  },
+  {
+    "combo_id": "bio_combo_orphan_05",
+    "name": "极薄之墙",
+    "requires": [
+      "bio_157",
+      "bio_158",
+      "bio_130",
+      "bio_67"
+    ],
+    "damage": 95,
+    "factText": "【生物兜底】千万别小看微观结构！毛细血管壁与被其死死包裹的肺泡壁，均仅仅由极度微小的一层上皮细胞构成！这种游走在破裂边缘的极限薄度，是氧气与二氧化碳以光速交换的终极生命保障！"
+  },
+  {
+    "combo_id": "bio_combo_orphan_06",
+    "name": "暗红归流",
+    "requires": [
+      "bio_79",
+      "bio_66",
+      "bio_73"
+    ],
+    "damage": 70,
+    "factText": "【生物兜底】被细胞榨干氧气、充满废气的颜色暗红静脉血，在肌肉挤压与单向静脉瓣的严密护航下绝不后退半步，最终浩浩荡荡汇入右心，等待着被肺循环重新点燃的猩红觉醒之光！"
+  },
+  {
+    "combo_id": "bio_combo_orphan_07",
+    "name": "消化之源",
+    "requires": [
+      "bio_100",
+      "bio_59",
+      "bio_126"
+    ],
+    "damage": 80,
+    "factText": "【生物兜底】在漫长曲折且暗无天日的九米消化道中，各种高度特化的消化酶如同生化手术刀般精准介入，将人类吞下的大块食物残忍解体拆解为最小吸收单位，这便是“消化”二字所蕴含的血肉法则！"
+  },
+  {
+    "combo_id": "geo_combo_orphan_09",
+    "name": "大洋S型曲线",
+    "requires": [
+      "geo_81",
+      "geo_28",
+      "geo_50"
+    ],
+    "damage": 75,
+    "factText": "【地理兜底】虽然被南北美洲与欧非大陆挤压成S型的大西洋远在天边，但它蕴含的庞大水汽系统，其实与死死影响中国东部季风区的东南季风一样，都是维系地球这个庞然大物气候平衡不可或缺的核心拼图！"
+  },
+  {
+    "combo_id": "his_combo_orphan_05",
+    "name": "侵略者的刀叉",
+    "requires": [
+      "his_30",
+      "his_31",
+      "his_32",
+      "his_33"
+    ],
+    "damage": 100,
+    "factText": "【历史兜底】一纸纸不平等条约被强行拍在桌上！割地撕裂国土、赔款吸干国库、开埠通商倾销洋货、建立国中之国的租界！列强们把这四样武器当成进餐的刀叉，狞笑着在近代中国的躯体上疯狂切割血肉！"
+  },
+  {
+    "combo_id": "his_combo_orphan_06",
+    "name": "伟大的转折",
+    "requires": [
+      "his_94",
+      "his_93",
+      "his_92"
+    ],
+    "damage": 110,
+    "factText": "【历史兜底】从三大战役排山倒海般的军事大捷彻底粉碎蒋家王朝奠定新中国基石，到十一届三中全会毅然拨乱反正开启改革开放狂潮！这两次间隔三十年的震撼决断，硬生生拉着整个中华民族完成了从站起来到富起来的史诗级急转弯大逆袭！"
+  },
+  {
+    "combo_id": "geo_combo_orphan_10",
+    "name": "黄河新生地",
+    "requires": [
+      "geo_new_129",
+      "geo_ext_sediment",
+      "geo_43"
+    ],
+    "damage": 80,
+    "factText": "【地理兜底】暴躁的黄河滚滚东流挟裹着半个黄土高原的血脉，在冲向渤海之滨时流速骤降，巨量的泥沙在此疯狂沉积，硬生生以填海造陆的移山填海之力，每年都在为祖国版图无中生有地孕育出我国最年轻的土地——黄河三角洲！"
+  },
+  {
+    "combo_id": "geo_combo_orphan_11",
+    "name": "气候总括",
+    "requires": [
+      "geo_new_130",
+      "geo_new_131",
+      "geo_ext_weather_vs_climate"
+    ],
+    "damage": 85,
+    "factText": "【地理兜底】请记住天气如变脸般短时多变，而气候如大山般长期稳定！中国正是仰仗着这片辽阔大地上纵横交错的气候复杂多样性，再叠加举世无双的季风气候显著带来的雨热同期，才得以在千百年来死死保住了全球头号农业古国的无上王座！"
+  },
+  {
+    "combo_id": "geo_cb_01",
+    "name": "天际阶梯",
+    "requires": [
+      "geo_01",
+      "geo_05",
+      "geo_12",
+      "geo_63"
+    ],
+    "damage": 85,
+    "factText": "【地理】第一级阶梯以青藏高原为主，喜马拉雅山脉的主峰珠穆朗玛峰更是以8848.86米的高度傲视群雄。"
+  },
+  {
+    "combo_id": "geo_cb_02",
+    "name": "千沟喀斯特",
+    "requires": [
+      "geo_02",
+      "geo_06",
+      "geo_07",
+      "geo_08"
+    ],
+    "damage": 90,
+    "factText": "【地理】第二级阶梯汇集了平坦的内蒙古高原、千沟万壑的黄土高原，以及喀斯特地貌广布崎岖不平的云贵高原。"
+  },
+  {
+    "combo_id": "geo_cb_03",
+    "name": "黑土水乡",
+    "requires": [
+      "geo_03",
+      "geo_09",
+      "geo_10",
+      "geo_11"
+    ],
+    "damage": 90,
+    "factText": "【地理】第三级阶梯海拔多在500米以下，拥有黑土广布的东北平原与河网密布的长江中下游平原。"
+  },
+  {
+    "combo_id": "geo_cb_04",
+    "name": "西高东低",
+    "requires": [
+      "geo_04",
+      "geo_44",
+      "geo_70",
+      "geo_71"
+    ],
+    "damage": 85,
+    "factText": "【地理】我国地势西高东低呈阶梯状，使得大河东流，且在一二、二三级阶梯交界处蕴藏着极其庞大的水能。"
+  },
+  {
+    "combo_id": "geo_cb_05",
+    "name": "西段屏障",
+    "requires": [
+      "geo_13",
+      "geo_14",
+      "geo_15",
+      "geo_67"
+    ],
+    "damage": 80,
+    "factText": "【地理】昆仑山、祁连山与纵列的横断山脉构成了第一、二级阶梯的分界，祁连山下的河西走廊则是丝路咽喉。"
+  },
+  {
+    "combo_id": "geo_cb_06",
+    "name": "东段屏障",
+    "requires": [
+      "geo_16",
+      "geo_17",
+      "geo_18",
+      "geo_19"
+    ],
+    "damage": 80,
+    "factText": "【地理】大兴安岭、太行山、巫山和雪峰山如同坚不可摧的东部天堑，完美划分了第二、第三级阶梯。"
+  },
+  {
+    "combo_id": "geo_cb_07",
+    "name": "南北天堑",
+    "requires": [
+      "geo_20",
+      "geo_32",
+      "geo_48",
+      "geo_49",
+      "geo_61",
+      "geo_ext_800mm",
+      "geo_ext_0deg"
+    ],
+    "damage": 150,
+    "factText": "【地理】秦岭淮河线完美重合了800mm等降水量线与1月0℃等温线，死死划定了中国南北方的自然分界！"
+  },
+  {
+    "combo_id": "geo_cb_08",
+    "name": "骨干山脉",
+    "requires": [
+      "geo_21",
+      "geo_22",
+      "geo_23",
+      "geo_64",
+      "geo_65"
+    ],
+    "damage": 110,
+    "factText": "【地理】新疆的天山、内蒙古的阴山、华南的南岭以及东部的长白武夷，共同构成了中国大地的骨架。"
+  },
+  {
+    "combo_id": "geo_cb_09",
+    "name": "深渊盆地",
+    "requires": [
+      "geo_24",
+      "geo_25",
+      "geo_26",
+      "geo_69"
+    ],
+    "damage": 90,
+    "factText": "【地理】塔里木内的流动沙漠、准噶尔的缺口，以及青藏高原上被誉为聚宝盆的柴达木盆地，各具异彩。"
+  },
+  {
+    "combo_id": "geo_cb_11",
+    "name": "季风之舞",
+    "requires": [
+      "geo_28",
+      "geo_30",
+      "geo_50",
+      "geo_51"
+    ],
+    "damage": 90,
+    "factText": "【地理】太平洋吹来的东南夏季风携带着丰沛水汽，推动雨带自南向北进军，主宰了中国东部季风区的命脉。"
+  },
+  {
+    "combo_id": "geo_cb_12",
+    "name": "非季风寒流",
+    "requires": [
+      "geo_29",
+      "geo_31",
+      "geo_40",
+      "geo_54"
+    ],
+    "damage": 90,
+    "factText": "【地理】阻断了夏季风的西北非季风区，常年受温带大陆性气候与西伯利亚冬季风寒潮的残酷肆虐。"
+  },
+  {
+    "combo_id": "geo_cb_13",
+    "name": "湿润江南",
+    "requires": [
+      "geo_33",
+      "geo_38",
+      "geo_52"
+    ],
+    "damage": 75,
+    "factText": "【地理】降水大于800mm的南方湿润区，不仅拥有亚热带季风气候的恩赐，还要经受6月江南梅雨的缠绵。"
+  },
+  {
+    "combo_id": "geo_cb_15",
+    "name": "极端干旱",
+    "requires": [
+      "geo_36",
+      "geo_60",
+      "geo_ext_arid"
+    ],
+    "damage": 75,
+    "factText": "【地理】在200mm等降水量线以西，深居内陆的大西北被“干旱”这两个字彻底统治，化作漫漫黄沙戈壁。"
+  },
+  {
+    "combo_id": "geo_cb_16",
+    "name": "北方旱作",
+    "requires": [
+      "geo_39",
+      "geo_new_125",
+      "geo_ext_dry_farming"
+    ],
+    "damage": 75,
+    "factText": "【地理】秦淮以北的温带季风区降水偏少，发展出了以小麦为主的旱作农业，促成了“南稻北麦”的格局。"
+  },
+  {
+    "combo_id": "geo_cb_17",
+    "name": "高原山地",
+    "requires": [
+      "geo_41",
+      "geo_62",
+      "geo_ext_high_cold"
+    ],
+    "damage": 75,
+    "factText": "【地理】青藏地区凭借极高海拔，无视纬度法则，强行造就了独属于世界屋脊的高寒高原山地气候。"
+  },
+  {
+    "combo_id": "geo_cb_18",
+    "name": "黄金水道",
+    "requires": [
+      "geo_42",
+      "geo_ext_changjiang",
+      "geo_ext_golden_waterway"
+    ],
+    "damage": 75,
+    "factText": "【地理】长江中下游江阔水深、终年无冰冻，无与伦比的内河航运价值让它成为当之无愧的黄金水道。"
+  },
+  {
+    "combo_id": "geo_cb_19",
+    "name": "悬河咆哮",
+    "requires": [
+      "geo_43",
+      "geo_ext_huanghe",
+      "geo_ext_suspended_river"
+    ],
+    "damage": 75,
+    "factText": "【地理】黄河中游狂吸黄土高原的泥沙，在下游流速锐减疯狂沉积，硬生生将河床抬高成极度危险的地上悬河。"
+  },
+  {
+    "combo_id": "geo_cb_20",
+    "name": "季风边界",
+    "requires": [
+      "geo_45",
+      "geo_46",
+      "geo_47"
+    ],
+    "damage": 75,
+    "factText": "【地理】贺兰山、巴颜喀拉山与冈底斯山脉，连成了一道无形的叹息之墙，将太平洋的水汽死死挡在门外。"
+  },
+  {
+    "combo_id": "geo_cb_21",
+    "name": "伏旱台风",
+    "requires": [
+      "geo_53",
+      "geo_55",
+      "geo_new_113"
+    ],
+    "damage": 75,
+    "factText": "【地理】长江中下游的盛夏伏旱与东南沿海的狂暴台风，都是季风气候极度不稳定引发的致命水旱灾害。"
+  },
+  {
+    "combo_id": "geo_cb_23",
+    "name": "干湿划分",
+    "requires": [
+      "geo_58",
+      "geo_ext_qinling"
+    ],
+    "damage": 55,
+    "factText": "【地理】秦岭淮河不仅划分了南北，更是湿润与半湿润区的分界，证明了干湿分区对自然环境的决定性作用。"
+  },
+  {
+    "combo_id": "geo_cb_24",
+    "name": "东部丘陵",
+    "requires": [
+      "geo_66",
+      "geo_73",
+      "geo_75"
+    ],
+    "damage": 75,
+    "factText": "【地理】辽东丘陵与广袤的江南等东南丘陵，共同构成了我国东部第三级阶梯起伏连绵的破碎地貌。"
+  },
+  {
+    "combo_id": "geo_cb_25",
+    "name": "江海长三角",
+    "requires": [
+      "geo_74",
+      "geo_ext_shanghai",
+      "geo_new_096"
+    ],
+    "damage": 75,
+    "factText": "【地理】坐镇长江口与东海之滨的上海，依托长江三角洲腹地，拥有无可匹敌的通江达海江海联运优势。"
+  },
+  {
+    "combo_id": "geo_cb_26",
+    "name": "大陆板块",
+    "requires": [
+      "geo_76",
+      "geo_77",
+      "geo_78",
+      "geo_79"
+    ],
+    "damage": 90,
+    "factText": "【地理】广袤的亚洲、平坦的欧洲、炎热的非洲以及纵贯安第斯山脉的南美洲，构成了地球陆地的主体。"
+  },
+  {
+    "combo_id": "geo_cb_27",
+    "name": "四大洋",
+    "requires": [
+      "geo_80",
+      "geo_81",
+      "geo_82",
+      "geo_83"
+    ],
+    "damage": 90,
+    "factText": "【地理】狂暴的太平洋、S型的大西洋、受季风控制的印度洋以及极寒的北冰洋，覆盖了地球71%的表面。"
+  },
+  {
+    "combo_id": "geo_cb_29",
+    "name": "雨林与高原",
+    "requires": [
+      "geo_87",
+      "geo_new_038",
+      "geo_new_067"
+    ],
+    "damage": 75,
+    "factText": "【地理】巴西不仅拥有占据统治地位的热带草原巴西高原，更怀抱着面积世界第一的亚马孙热带雨林气候区。"
+  },
+  {
+    "combo_id": "geo_cb_30",
+    "name": "西欧温湿",
+    "requires": [
+      "geo_88",
+      "geo_91",
+      "geo_ext_europe_west"
+    ],
+    "damage": 75,
+    "factText": "【地理】在北大西洋暖流的强力增温增湿下，欧洲西部形成了极其典型的全年温和湿润温带海洋性气候。"
+  },
+  {
+    "combo_id": "geo_cb_31",
+    "name": "秘鲁咖啡",
+    "requires": [
+      "geo_89",
+      "geo_new_069"
+    ],
+    "damage": 55,
+    "factText": "【地理】秘鲁寒流的冷水上泛在南美西岸造就了超级大渔场，而东岸的巴西则靠着热带物产稳坐咖啡王国宝座。"
+  },
+  {
+    "combo_id": "geo_cb_32",
+    "name": "黑潮与岛国",
+    "requires": [
+      "geo_90",
+      "geo_ext_japan",
+      "geo_ext_processing_trade"
+    ],
+    "damage": 75,
+    "factText": "【地理】受日本暖流（黑潮）洗礼的日本岛国，虽资源贫乏却硬是开辟出了依赖海运的进口-加工-出口经济。"
+  },
+  {
+    "combo_id": "geo_cb_33",
+    "name": "港澳台",
+    "requires": [
+      "geo_92",
+      "geo_93"
+    ],
+    "damage": 55,
+    "factText": "【地理】实行一国两制的港澳与神圣不可分割的台湾省，永远是中华民族版图上璀璨夺目的明珠。"
+  },
+  {
+    "combo_id": "geo_cb_34",
+    "name": "首都水脉",
+    "requires": [
+      "geo_94",
+      "geo_95",
+      "geo_96"
+    ],
+    "damage": 75,
+    "factText": "【地理】通过逆天改命的南水北调，三江源“中华水塔”的纯净水源，正源源不断地跨越千山万水滋润首都北京。"
+  },
+  {
+    "combo_id": "geo_cb_35",
+    "name": "地球铁证",
+    "requires": [
+      "geo_new_001",
+      "geo_new_002",
+      "geo_new_003",
+      "geo_new_004"
+    ],
+    "damage": 90,
+    "factText": "【地理】麦哲伦环球、卫星照片、帆船桅杆现象与月食弧影，共同构成了彻底粉碎天圆地方假说的四大铁证。"
+  },
+  {
+    "combo_id": "geo_cb_36",
+    "name": "地球尺寸",
+    "requires": [
+      "geo_new_005",
+      "geo_new_006",
+      "geo_ext_earth"
+    ],
+    "damage": 75,
+    "factText": "【地理】平均半径6371千米，赤道狂拉出4万千米的恐怖周长，精准地描绘了这个两极稍扁的不规则球体。"
+  },
+  {
+    "combo_id": "geo_cb_37",
+    "name": "经纬天网",
+    "requires": [
+      "geo_new_007",
+      "geo_new_008",
+      "geo_new_009",
+      "geo_new_010"
+    ],
+    "damage": 90,
+    "factText": "【地理】横向成圈指示东西的纬线，与相交极点指示南北的经线，交织成了锁定地球表面每一个角落的经纬天网。"
+  },
+  {
+    "combo_id": "geo_cb_38",
+    "name": "地球自转",
+    "requires": [
+      "geo_new_011",
+      "geo_new_012",
+      "geo_ext_rotation"
+    ],
+    "damage": 75,
+    "factText": "【地理】地球自转带来的东加西减时差法则，造就了北极逆时针、南极顺时针的奇妙俯视双生视角现象。"
+  },
+  {
+    "combo_id": "geo_cb_39",
+    "name": "四季轮转",
+    "requires": [
+      "geo_new_013",
+      "geo_new_014",
+      "geo_new_015",
+      "geo_ext_revolution",
+      "geo_ext_seasons"
+    ],
+    "damage": 120,
+    "factText": "【地理】公转逼迫太阳直射点在回归线间扫射，引发了春分夏至秋分冬至的季节轮回与五带分界神迹。"
+  },
+  {
+    "combo_id": "geo_cb_40",
+    "name": "地图要素",
+    "requires": [
+      "geo_new_016",
+      "geo_new_017",
+      "geo_new_018",
+      "geo_new_019",
+      "geo_new_020"
+    ],
+    "damage": 120,
+    "factText": "【地理】图例注记标记万物，经纬网与指向标死磕方向，而比例尺则通过计算揭示了图上与现实的真实鸿沟。"
+  },
+  {
+    "combo_id": "geo_cb_41",
+    "name": "地形判读",
+    "requires": [
+      "geo_new_021",
+      "geo_new_022",
+      "geo_new_023",
+      "geo_new_024"
+    ],
+    "damage": 90,
+    "factText": "【地理】密陡疏缓看透真实坡度，重合之处即是绝壁陡崖，两峰之间必见鞍部低洼，这便是等高线的判读密码。"
+  },
+  {
+    "combo_id": "geo_cb_42",
+    "name": "工程选址",
+    "requires": [
+      "geo_new_025",
+      "geo_new_026",
+      "geo_new_118"
+    ],
+    "damage": 75,
+    "factText": "【地理】公路顺等高线盘旋保平安，而拦腰截断口袋形洼地狭窄出口建大坝，则是人类驯服江河的顶级阳谋。"
+  },
+  {
+    "combo_id": "geo_cb_43",
+    "name": "大洲分界",
+    "requires": [
+      "geo_new_027",
+      "geo_new_028",
+      "geo_new_029",
+      "geo_new_030",
+      "geo_new_031"
+    ],
+    "damage": 120,
+    "factText": "【地理】苏伊士、巴拿马与白令海峡，如同三把锋利巨剑，干脆利落地斩断了相连的大陆，重构了七大洲版图。"
+  },
+  {
+    "combo_id": "geo_cb_44",
+    "name": "板块运动",
+    "requires": [
+      "geo_new_032",
+      "geo_new_033",
+      "geo_new_034",
+      "geo_new_035"
+    ],
+    "damage": 90,
+    "factText": "【地理】地中海-喜马拉雅地震带的狂暴，正是因为处于亚欧与印度洋等板块激烈碰撞的死亡交界线上。"
+  },
+  {
+    "combo_id": "geo_cb_45",
+    "name": "气压带影响",
+    "requires": [
+      "geo_new_036",
+      "geo_new_037",
+      "geo_new_115",
+      "geo_new_116"
+    ],
+    "damage": 90,
+    "factText": "【地理】除了海拔与地形雨对局部的干涉，副高与西风带的交锋才是主宰地中海气候大范围旱涝的幕后黑手。"
+  },
+  {
+    "combo_id": "geo_cb_46",
+    "name": "热带气候",
+    "requires": [
+      "geo_new_039",
+      "geo_new_040",
+      "geo_new_041"
+    ],
+    "damage": 75,
+    "factText": "【地理】草原的干湿分明、季风的暴雨成灾、沙漠的酷热绝望，共同组成了炽热赤道两旁的狂野自然带。"
+  },
+  {
+    "combo_id": "geo_cb_47",
+    "name": "人口与宗教",
+    "requires": [
+      "geo_new_042",
+      "geo_new_043",
+      "geo_new_044",
+      "geo_new_045",
+      "geo_new_046"
+    ],
+    "damage": 120,
+    "factText": "【地理】在四大人口稠密区中，阿拉伯人信仰伊斯兰，而更广袤的大地上，基督尖塔与佛教寺庙共同瓜分了精神版图。"
+  },
+  {
+    "combo_id": "geo_cb_50",
+    "name": "东南亚枢纽",
+    "requires": [
+      "geo_new_052",
+      "geo_new_053",
+      "geo_ext_malacca"
+    ],
+    "damage": 75,
+    "factText": "【地理】山河相间的中南半岛倾泻着热带物产，而扼守此处的马六甲海峡更是掌握着全球海运的生死咽喉。"
+  },
+  {
+    "combo_id": "geo_cb_51",
+    "name": "中东争端",
+    "requires": [
+      "geo_new_054",
+      "geo_ext_middle_east",
+      "geo_ext_oil"
+    ],
+    "damage": 75,
+    "factText": "【地理】三洲五海之地的中东不仅流淌着黑色石油，还深陷耶路撒冷这块三大宗教圣地的千年流血纷争中。"
+  },
+  {
+    "combo_id": "geo_cb_52",
+    "name": "西欧经济",
+    "requires": [
+      "geo_new_055",
+      "geo_new_056",
+      "geo_ext_green_gold"
+    ],
+    "damage": 75,
+    "factText": "【地理】统一的欧元货币扫除了壁垒，极致的繁荣旅游与绿色金子般的极品牧草，铸就了欧洲西部的经济长城。"
+  },
+  {
+    "combo_id": "geo_cb_54",
+    "name": "俄罗斯工业",
+    "requires": [
+      "geo_new_059",
+      "geo_new_060",
+      "geo_new_120"
+    ],
+    "damage": 75,
+    "factText": "【地理】俄罗斯将重工业武装到牙齿，一条西伯利亚大铁路如钢铁巨龙般霸道地贯穿并强行缝合了亚欧大陆桥。"
+  },
+  {
+    "combo_id": "geo_cb_56",
+    "name": "美国大国",
+    "requires": [
+      "geo_new_064",
+      "geo_new_065",
+      "geo_new_066",
+      "geo_ext_usa_agri"
+    ],
+    "damage": 90,
+    "factText": "【地理】地跨三带的美国凭借密西西比河与高度专业化的农业带掌控粮仓，更用加州硅谷的高新技术统治了世界。"
+  },
+  {
+    "combo_id": "geo_cb_57",
+    "name": "澳洲巴西",
+    "requires": [
+      "geo_new_068",
+      "geo_new_070",
+      "geo_new_071",
+      "geo_new_117"
+    ],
+    "damage": 90,
+    "factText": "【地理】澳洲有古老活化石与大自流盆地的恩赐，巴西则在多血统混血交融中爆发出狂热桑巴，两国同样物产极其丰富。"
+  },
+  {
+    "combo_id": "geo_cb_58",
+    "name": "极地科考",
+    "requires": [
+      "geo_new_072",
+      "geo_new_073",
+      "geo_ext_antarctica"
+    ],
+    "damage": 75,
+    "factText": "【地理】人类拼死抓住南半球暖季的宝贵窗口，进驻位于南极圈外无极昼极夜的长城站，在冰封大陆极限科考。"
+  },
+  {
+    "combo_id": "geo_cb_59",
+    "name": "中国疆界",
+    "requires": [
+      "geo_new_074",
+      "geo_new_075",
+      "geo_new_076",
+      "geo_ext_china_location"
+    ],
+    "damage": 90,
+    "factText": "【地理】从漠河的极致冰封到曾母暗沙的热带岛礁，再辅以四大领海的蓝色长城，海陆兼备的中国拥有无敌纵深。"
+  },
+  {
+    "combo_id": "geo_cb_60",
+    "name": "省级特征",
+    "requires": [
+      "geo_new_077",
+      "geo_new_078",
+      "geo_new_079",
+      "geo_ext_34_provinces"
+    ],
+    "damage": 90,
+    "factText": "【地理】34个省级行政区中，新疆版图第一，海南跨海域最广，云南少数民族最多，各省王牌底蕴彻底拉满。"
+  },
+  {
+    "combo_id": "geo_cb_63",
+    "name": "雪域生灵",
+    "requires": [
+      "geo_new_085",
+      "geo_new_086",
+      "geo_ext_qinghai_tibet"
+    ],
+    "damage": 75,
+    "factText": "【地理】世界屋脊上的藏民躲进碉房死扛高寒，身旁伴随着耐力逆天的高原之舟牦牛，展现了最顽强的生存妥协。"
+  },
+  {
+    "combo_id": "geo_cb_65",
+    "name": "高新产业",
+    "requires": [
+      "geo_new_091",
+      "geo_new_103",
+      "geo_new_104"
+    ],
+    "damage": 75,
+    "factText": "【地理】北有中关村疯狂孵化科技，南有张江高科死磕芯片芯片，更有洋山深水港以霸主姿态扬帆起航连接四海！"
+  },
+  {
+    "combo_id": "geo_cb_67",
+    "name": "跨世纪调配",
+    "requires": [
+      "geo_new_095",
+      "geo_new_126"
+    ],
+    "damage": 55,
+    "factText": "【地理】西气东输数千公里横穿大漠，京杭大运河更是在南水北调中死灰复燃，两大工程逆天改命砸碎资源枷锁。"
+  },
+  {
+    "combo_id": "geo_cb_68",
+    "name": "申城水脉",
+    "requires": [
+      "geo_new_097",
+      "geo_new_098",
+      "geo_new_099",
+      "geo_new_100"
+    ],
+    "damage": 90,
+    "factText": "【地理】淀山湖死守淡水底线，青草沙孤悬江心防咸潮，双双发力逆转了上海在这平坦滩涂上面临的水质型缺水死局。"
+  },
+  {
+    "combo_id": "geo_cb_69",
+    "name": "城市发展",
+    "requires": [
+      "geo_new_101",
+      "geo_new_102",
+      "geo_new_105"
+    ],
+    "damage": 75,
+    "factText": "【地理】宝钢吞吐矿石锻造重工，城郊农业保供菜篮，叠加海绵城市防涝黑科技，上海硬是走出一条生态发展大阵。"
+  },
+  {
+    "combo_id": "geo_cb_71",
+    "name": "黄河治理",
+    "requires": [
+      "geo_new_110",
+      "geo_new_111",
+      "geo_new_129",
+      "geo_ext_sediment"
+    ],
+    "damage": 90,
+    "factText": "【地理】面对土质疏松的黄土高原，唯有在中游死保水土保持，才能控制泥沙，防止黄河三角洲因泥沙沉积而异常扩张。"
+  },
+  {
+    "combo_id": "geo_cb_72",
+    "name": "气候与人口",
+    "requires": [
+      "geo_new_112",
+      "geo_new_114",
+      "geo_ext_heihe",
+      "geo_ext_pop_dist"
+    ],
+    "damage": 90,
+    "factText": "【地理】胡焕庸线（黑河-腾冲线）如同一道叹息之墙，在年际变化极大的降水影响下，残忍划出了中国人口东密西疏的格局。"
+  },
+  {
+    "combo_id": "geo_cb_73",
+    "name": "魔都王冠",
+    "requires": [
+      "geo_new_119",
+      "geo_ext_shanghai_5_centers"
+    ],
+    "damage": 55,
+    "factText": "【地理】凭借江海联运这一无敌的地理交通王牌，上海正全速冲刺，誓要将国际经济等“五个中心”的王冠死死戴在头上！"
+  },
+  {
+    "combo_id": "geo_cb_74",
+    "name": "高峡平湖",
+    "requires": [
+      "geo_new_121",
+      "geo_new_124",
+      "geo_ext_changjiang"
+    ],
+    "damage": 75,
+    "factText": "【地理】三峡大坝蛮横腰斩长江防洪发电，极大改善了险恶的上游水文，让这条黄金水道彻底摆脱天险化作通途！"
+  },
+  {
+    "combo_id": "geo_cb_75",
+    "name": "江南水乡",
+    "requires": [
+      "geo_new_122",
+      "geo_ext_south_region",
+      "geo_ext_paddy_field"
+    ],
+    "damage": 75,
+    "factText": "【地理】南方地区充沛的降水将大地化为无边水田，鱼米之乡的美誉在千百年的农业文明浸润中熠熠生辉。"
+  },
+  {
+    "combo_id": "geo_cb_76",
+    "name": "都市农业与水源",
+    "requires": [
+      "geo_new_127",
+      "geo_new_128"
+    ],
+    "damage": 55,
+    "factText": "【地理】咸潮入侵威胁着沿海都市的水源安全，而紧贴城市的城郊农业则在夹缝中疯狂产出鲜活农产品保供城市。"
+  },
+  {
+    "combo_id": "geo_cb_78",
+    "name": "地形与水系",
+    "requires": [
+      "geo_ext_valley",
+      "geo_ext_river_origin",
+      "geo_ext_ridge"
+    ],
+    "damage": 75,
+    "factText": "【地理】向低处凸出的山脊犹如利刃劈开水系作为分水岭，而向高处凸出的山谷则是汇聚涓涓细流孕育河流的摇篮。"
+  },
+  {
+    "combo_id": "geo_cb_79",
+    "name": "水与气候",
+    "requires": [
+      "geo_ext_water_lack",
+      "geo_ext_med_climate",
+      "geo_ext_rain_heat_diff"
+    ],
+    "damage": 75,
+    "factText": "【地理】热带沙漠导致的水资源极度匮乏常引发冲突，而地中海气候那违和的“雨热不同期”则是地球气候的一个异数。"
+  },
+  {
+    "combo_id": "geo_cb_80",
+    "name": "崇明岛与比例尺",
+    "requires": [
+      "geo_ext_chongming",
+      "geo_ext_scale",
+      "geo_ext_scale_rule"
+    ],
+    "damage": 75,
+    "factText": "【地理】只要把地图的比例尺放得足够大、内容足够详略，你就能清晰地看到泥沙堆积出的崇明岛那日渐膨胀的轮廓！"
+  },
+  {
+    "combo_id": "geo_cb_81",
+    "name": "火环与咽喉",
+    "requires": [
+      "geo_ext_ring_of_fire",
+      "geo_ext_crossroads",
+      "geo_ext_plate"
+    ],
+    "damage": 75,
+    "factText": "【地理】板块交界处狂暴的环太平洋火山带与人类航运生死十字路口的马六甲，展现了地球两极分化的狂野与文明。"
+  },
+  {
+    "combo_id": "geo_cb_82",
+    "name": "农业机械化",
+    "requires": [
+      "geo_ext_mechanization",
+      "geo_ext_sheep_back"
+    ],
+    "damage": 55,
+    "factText": "【地理】从美国农场重型机械的狂轰滥炸，到澳洲骑在羊背上的畜牧帝国，科技与资源禀赋将两国的农业推向了巅峰。"
+  },
+  {
+    "combo_id": "geo_cb_83",
+    "name": "寒冷与干旱",
+    "requires": [
+      "geo_ext_extreme_cold",
+      "geo_ext_north_region",
+      "geo_ext_nw_region"
+    ],
+    "damage": 75,
+    "factText": "【地理】极地令人绝望的酷寒干燥，与西北深居内陆的极致干旱，都在残酷地考验着生命的生存极限。"
+  },
+  {
+    "combo_id": "geo_cb_85",
+    "name": "地球人文",
+    "requires": [
+      "geo_ext_land_sea_ratio",
+      "geo_ext_religion",
+      "geo_ext_language"
+    ],
+    "damage": 75,
+    "factText": "【地理】在“三分陆七分海”的地球剧场上，汉语与英语争夺话语权，三大宗教则在精神世界里划分着数十亿信徒。"
+  },
+  {
+    "combo_id": "bio_cb_01",
+    "name": "口腔与吞咽",
+    "requires": [
+      "bio_51",
+      "bio_82",
+      "bio_142",
+      "bio_85"
+    ],
+    "damage": 90,
+    "factText": "【生物】高能淀粉一入口便遭唾液淀粉酶初步碎裂成微甜的麦芽糖，随后在食管节律性的蠕动中被无情吞入胃中！"
+  },
+  {
+    "combo_id": "bio_cb_02",
+    "name": "胃液酸斩",
+    "requires": [
+      "bio_52",
+      "bio_84",
+      "bio_57",
+      "bio_140"
+    ],
+    "damage": 90,
+    "factText": "【生物】胃腺喷射出含强酸胃酸的胃液，激活胃蛋白酶在酸性地狱中率先发难，将蛋白质残忍斩断！"
+  },
+  {
+    "combo_id": "bio_cb_03",
+    "name": "小肠折叠",
+    "requires": [
+      "bio_53",
+      "bio_60",
+      "bio_145",
+      "bio_150"
+    ],
+    "damage": 90,
+    "factText": "【生物】小肠内壁层层叠叠的环形皱襞与微绒毛强强联手，在有限肠道内爆发出极限折叠空间，将吸收面积翻了数百倍！"
+  },
+  {
+    "combo_id": "bio_cb_04",
+    "name": "大肠末端",
+    "requires": [
+      "bio_54",
+      "bio_88",
+      "bio_126"
+    ],
+    "damage": 75,
+    "factText": "【生物】长达九米的消化道终局，大肠榨干水分形成粪便，而它起始端挂着的那根退化盲管阑尾发炎时却足以致命。"
+  },
+  {
+    "combo_id": "bio_cb_05",
+    "name": "极致乳化",
+    "requires": [
+      "bio_55",
+      "bio_58",
+      "bio_99",
+      "bio_144"
+    ],
+    "damage": 90,
+    "factText": "【生物】肝脏空投的胆汁放弃化学伤害，直接发动物理降维打击，瞬间将大块脂肪乳化成无数极其微小的脂肪微粒！"
+  },
+  {
+    "combo_id": "bio_cb_06",
+    "name": "消化十字路",
+    "requires": [
+      "bio_56",
+      "bio_63",
+      "bio_119",
+      "bio_120"
+    ],
+    "damage": 90,
+    "factText": "【生物】十二指肠是极其凶险的十字路口！它同时强行接纳胰腺倾泻的剧毒胰液与肠液，将化学屠宰推向最高潮！"
+  },
+  {
+    "combo_id": "bio_cb_07",
+    "name": "消化本质",
+    "requires": [
+      "bio_59",
+      "bio_100",
+      "bio_139"
+    ],
+    "damage": 75,
+    "factText": "【生物】物理消化只负责磨碎，真正的消化本质是生化手术刀般的消化酶将大分子残忍解体为能被吸收的极小单位。"
+  },
+  {
+    "combo_id": "bio_cb_09",
+    "name": "左心引擎",
+    "requires": [
+      "bio_64",
+      "bio_74",
+      "bio_102",
+      "bio_105"
+    ],
+    "damage": 90,
+    "factText": "【生物】以心尖为基准的心脏，其左心室拥有最厚实的狂暴心肌，如同重型引擎般强压泵血！"
+  },
+  {
+    "combo_id": "bio_cb_12",
+    "name": "内环境液",
+    "requires": [
+      "bio_68",
+      "bio_92",
+      "bio_97"
+    ],
+    "damage": 75,
+    "factText": "【生物】血浆渗出血管化身为组织液，在细胞间完成交换后，又暗中流入淋巴管化为淋巴，完成内环境循环的闭环。"
+  },
+  {
+    "combo_id": "bio_cb_13",
+    "name": "红细胞特化",
+    "requires": [
+      "bio_69",
+      "bio_77",
+      "bio_141",
+      "bio_146"
+    ],
+    "damage": 90,
+    "factText": "【生物】红细胞为装载更多血红蛋白，极其狠心地舍弃了细胞核，化身双凹圆盘状换取了恐怖的气体交换面积！"
+  },
+  {
+    "combo_id": "bio_cb_14",
+    "name": "免疫大军",
+    "requires": [
+      "bio_70",
+      "bio_101",
+      "bio_149",
+      "bio_151"
+    ],
+    "damage": 90,
+    "factText": "【生物】白细胞游走吞噬，而浆细胞则如兵工厂般疯狂倾泻抗体。若敌军重来，记忆细胞将瞬间苏醒镇压！"
+  },
+  {
+    "combo_id": "bio_cb_16",
+    "name": "体循环大满贯",
+    "requires": [
+      "bio_72",
+      "bio_76",
+      "bio_112",
+      "bio_103"
+    ],
+    "damage": 90,
+    "factText": "【生物】体循环狂飙：左心发力→主动脉→全身毛细血管网榨干氧气→上下腔静脉收尾回流，一气呵成！"
+  },
+  {
+    "combo_id": "bio_cb_17",
+    "name": "肺循环觉醒",
+    "requires": [
+      "bio_73",
+      "bio_95",
+      "bio_96",
+      "bio_110"
+    ],
+    "damage": 90,
+    "factText": "【生物】肺循环：污血冲入肺动脉，在肺部极限氧合觉醒为猩红热血，顺着肺静脉狂奔回心，完成救赎！"
+  },
+  {
+    "combo_id": "bio_cb_18",
+    "name": "右心回血泵",
+    "requires": [
+      "bio_75",
+      "bio_94",
+      "bio_103"
+    ],
+    "damage": 75,
+    "factText": "【生物】右心房承接腔静脉全身废气污血，随后右心室暴力收缩，将暗红血液全部打入肺动脉开启净化洗礼！"
+  },
+  {
+    "combo_id": "bio_cb_20",
+    "name": "暗红静脉流",
+    "requires": [
+      "bio_79",
+      "bio_66",
+      "bio_108"
+    ],
+    "damage": 75,
+    "factText": "【生物】被细胞彻底榨干氧气、充满废气的静脉血，在静脉管道中严格遵循单向血流方向绝不后退半步！"
+  },
+  {
+    "combo_id": "bio_cb_22",
+    "name": "糖类终点",
+    "requires": [
+      "bio_83",
+      "bio_115",
+      "bio_142"
+    ],
+    "damage": 75,
+    "factText": "【生物】麦芽糖在小肠内遭遇最致命的终极武器——胰淀粉酶，被彻底分解为能被血液暴吸的微缩葡萄糖炸弹！"
+  },
+  {
+    "combo_id": "bio_cb_25",
+    "name": "脂类暗流",
+    "requires": [
+      "bio_89",
+      "bio_117",
+      "bio_90",
+      "bio_98"
+    ],
+    "damage": 90,
+    "factText": "【生物】甘油和脂肪酸在吸收后极其狡猾地避开血液正门，潜入淋巴管参与淋巴循环，绕大圈后暗中入血！"
+  },
+  {
+    "combo_id": "bio_cb_26",
+    "name": "左房收血",
+    "requires": [
+      "bio_93",
+      "bio_96",
+      "bio_78"
+    ],
+    "damage": 75,
+    "factText": "【生物】在肺部饱吸氧气的鲜红动脉血，顺着肺静脉一路狂飙，最终稳稳注满心脏的左心房储血池。"
+  },
+  {
+    "combo_id": "bio_cb_28",
+    "name": "心动节律",
+    "requires": [
+      "bio_106",
+      "bio_111",
+      "bio_107"
+    ],
+    "damage": 75,
+    "factText": "【生物】每一次完美的心室收缩都归属于一个严密的心动周期，这永不停息的机械泵压，化作了监测生命的最强心率跳动。"
+  },
+  {
+    "combo_id": "bio_cb_29",
+    "name": "毛细网交换",
+    "requires": [
+      "bio_109",
+      "bio_67",
+      "bio_112"
+    ],
+    "damage": 75,
+    "factText": "【生物】遍布全身的毛细血管网中，血流在极细的毛细血管内龟速慢行，只为与组织细胞完成最精密极致的物质交换！"
+  },
+  {
+    "combo_id": "bio_cb_30",
+    "name": "吞噬防线",
+    "requires": [
+      "bio_113",
+      "bio_124",
+      "bio_101"
+    ],
+    "damage": 75,
+    "factText": "【生物】吞噬细胞作为非特异性免疫的天生狂战士无差别清扫战场，并向抗体系统提供着致命的敌军情报！"
+  },
+  {
+    "combo_id": "bio_cb_32",
+    "name": "绒毛吸收",
+    "requires": [
+      "bio_118",
+      "bio_60",
+      "bio_53"
+    ],
+    "damage": 75,
+    "factText": "【生物】小肠绝不仅是消化管，它内壁那一座座如钢铁森林般耸立的小肠绒毛，才是极其贪婪执行疯狂吸收的终极主场。"
+  },
+  {
+    "combo_id": "bio_cb_35",
+    "name": "肾脏净水",
+    "requires": [
+      "bio_131",
+      "bio_132",
+      "bio_133"
+    ],
+    "damage": 75,
+    "factText": "【生物】肾脏内的数百万微型肾单位疯狂运作，血液在肾小球被无情滤过形成原尿，开启净化排毒第一步！"
+  },
+  {
+    "combo_id": "bio_cb_36",
+    "name": "尿液提纯",
+    "requires": [
+      "bio_134",
+      "bio_154",
+      "bio_152",
+      "bio_153"
+    ],
+    "damage": 90,
+    "factText": "【生物】滤过作用榨出原尿，随后在肾小管被极度贪婪地重吸收走全部糖分与水分，剩下的剧毒浓缩沦为尿液！"
+  },
+  {
+    "combo_id": "bio_cb_37",
+    "name": "神经光缆",
+    "requires": [
+      "bio_135",
+      "bio_136",
+      "bio_155",
+      "bio_156"
+    ],
+    "damage": 90,
+    "factText": "【生物】感受器捕获刺激秒变电信号，由神经元组成的反向弧生物电缆以光速飙升直达大脑，引发生命感知的极限反馈！"
+  },
+  {
+    "combo_id": "bio_cb_38",
+    "name": "最高中枢",
+    "requires": [
+      "bio_137",
+      "bio_138",
+      "bio_135"
+    ],
+    "damage": 75,
+    "factText": "【生物】神经元汇聚的大脑皮层至高无上地掌控一切，配合激素调节在血液中的潜行，共同压制维持着人体精密宇宙的运转！"
+  },
+  {
+    "combo_id": "his_cb_01",
+    "name": "虎门与鸦片",
+    "requires": [
+      "his_01",
+      "his_21",
+      "his_47",
+      "curse_celestial_dream"
+    ],
+    "damage": 120,
+    "factText": "【历史反转】林则徐的虎门销烟成了借口，鸦片战争的坚船利炮彻底轰碎了天朝上国之梦，你顿悟真理打出暴击！"
+  },
+  {
+    "combo_id": "his_cb_02",
+    "name": "南京条约枷锁",
+    "requires": [
+      "his_02",
+      "his_30",
+      "his_31",
+      "his_32"
+    ],
+    "damage": 90,
+    "factText": "【历史】《南京条约》将割地、赔款与开埠通商这三大恶毒枷锁死死锁在中国身上，开启了屈辱近代史的深渊。"
+  },
+  {
+    "combo_id": "his_cb_05",
+    "name": "甲午裂岛",
+    "requires": [
+      "his_05",
+      "his_06",
+      "his_34"
+    ],
+    "damage": 75,
+    "factText": "【历史】甲午战争战败后签订的《马关条约》彻底暴露了清廷软弱，列强如饿狼扑食般掀起了划分势力范围的瓜分狂潮！"
+  },
+  {
+    "combo_id": "his_cb_07",
+    "name": "辛丑国耻",
+    "requires": [
+      "his_09",
+      "his_28",
+      "his_33"
+    ],
+    "damage": 75,
+    "factText": "【历史】八国联军攻占北京，最终签订的《辛丑条约》让中国完全坠入深渊，连列强租界都成了国中之国的毒瘤！"
+  },
+  {
+    "combo_id": "his_cb_09",
+    "name": "五四先锋",
+    "requires": [
+      "his_12",
+      "his_37",
+      "his_50"
+    ],
+    "damage": 75,
+    "factText": "【历史】五四运动绝不仅是新民主主义革命的开篇，它更熔铸了永不褪色的“爱国、进步、民主、科学”的伟大五四精神！"
+  },
+  {
+    "combo_id": "his_cb_10",
+    "name": "破晓之音",
+    "requires": [
+      "his_13",
+      "his_26",
+      "his_36",
+      "his_85"
+    ],
+    "damage": 90,
+    "factText": "【历史】陈独秀发起的新文化运动，挥舞着德先生与赛先生两面大旗，用民主与科学重锤死命砸烂了封建礼教枷锁！"
+  },
+  {
+    "combo_id": "his_cb_12",
+    "name": "大革命与南昌",
+    "requires": [
+      "his_15",
+      "his_16",
+      "his_27"
+    ],
+    "damage": 75,
+    "factText": "【历史】气势如虹的北伐战争惨遭叛变，李大钊英勇就义，被逼入绝境的共产党人在南昌起义城头打响了破天一枪！"
+  },
+  {
+    "combo_id": "his_cb_14",
+    "name": "长征转折",
+    "requires": [
+      "his_18",
+      "his_39",
+      "his_88"
+    ],
+    "damage": 75,
+    "factText": "【历史】红军长征途中血雨腥风，直到遵义会议力挽狂澜，保住了革命极其珍贵的星星之火，实现了生死攸关的伟大转折！"
+  },
+  {
+    "combo_id": "his_cb_16",
+    "name": "解放战役",
+    "requires": [
+      "his_20",
+      "his_46",
+      "his_92"
+    ],
+    "damage": 75,
+    "factText": "【历史】摧枯拉朽的解放战争中，磅礴的三大战役彻底碾碎了反动派主力，最终在1949年迎来了新中国成立的历史新纪元！"
+  },
+  {
+    "combo_id": "his_cb_17",
+    "name": "三民主义",
+    "requires": [
+      "his_35",
+      "his_25",
+      "his_11"
+    ],
+    "damage": 75,
+    "factText": "【历史】孙中山苦心孤诣提出的三民主义，成为了资产阶级革命的最高纲领，并最终指引了中华民国的艰难诞生。"
+  },
+  {
+    "combo_id": "his_cb_18",
+    "name": "血肉长城",
+    "requires": [
+      "his_40",
+      "his_41",
+      "his_83"
+    ],
+    "damage": 75,
+    "factText": "【历史】卢沟桥事变与惨绝人寰的南京大屠杀击碎了妥协幻想，抗日民族统一战线硬生生用千万具肉身筑起了不倒的长城！"
+  },
+  {
+    "combo_id": "his_cb_19",
+    "name": "敌后抗战",
+    "requires": [
+      "his_42",
+      "his_43",
+      "his_44"
+    ],
+    "damage": 75,
+    "factText": "【历史】在国共合作的大旗下，共产党深入敌后根据地开展游击战，更以百团大战给华北日寇以雷霆万钧的痛击！"
+  },
+  {
+    "combo_id": "his_cb_20",
+    "name": "大秦一统",
+    "requires": [
+      "his_51",
+      "his_53",
+      "his_55",
+      "his_65"
+    ],
+    "damage": 90,
+    "factText": "【历史】秦统一六国后，秦始皇用郡县制与统一文字等铁腕手段，将大一统的钢印死死打在两千年的华夏大地上！"
+  },
+  {
+    "combo_id": "his_cb_24",
+    "name": "永乐远航",
+    "requires": [
+      "his_63",
+      "his_79",
+      "his_56"
+    ],
+    "damage": 75,
+    "factText": "【历史】继承了明太祖霸业的明成祖气吞山河，令郑和下西洋展示大明国威，这是大航海时代前夜最恢宏的和平史诗！"
+  },
+  {
+    "combo_id": "his_cb_25",
+    "name": "盛世危机",
+    "requires": [
+      "his_64",
+      "his_87",
+      "his_01"
+    ],
+    "damage": 75,
+    "factText": "【历史】康熙帝奠定的盛世不过是封建社会的回光返照，闭关锁国的傲慢让清廷在鸦片战争面对坚船利炮时毫无还手之力。"
+  },
+  {
+    "combo_id": "his_cb_26",
+    "name": "近代曙光",
+    "requires": [
+      "his_66",
+      "his_67",
+      "his_69"
+    ],
+    "damage": 75,
+    "factText": "【历史】文艺复兴用人文撕裂神学，新航路开辟残忍连通世界，紧接着法国大革命斩首君主，欧洲资本主义血腥黎明轰然降临！"
+  },
+  {
+    "combo_id": "his_cb_28",
+    "name": "世界大战",
+    "requires": [
+      "his_71",
+      "his_72",
+      "his_82"
+    ],
+    "damage": 75,
+    "factText": "【历史】一战是帝国主义分赃的血肉磨坊，而二战则化作了全人类结成同盟共同对抗法西斯轴心的世界反法西斯战争！"
+  },
+  {
+    "combo_id": "his_cb_30",
+    "name": "小篆一统",
+    "requires": [
+      "his_75",
+      "his_55",
+      "his_51"
+    ],
+    "damage": 75,
+    "factText": "【历史】秦始皇强制推行的小篆不仅仅是为了统一文字，更是为了用相同的方块字将这片分裂千年的华夏大地在文明层面上死死焊牢！"
+  },
+  {
+    "combo_id": "his_cb_31",
+    "name": "亚洲首国",
+    "requires": [
+      "his_76",
+      "his_11",
+      "his_10"
+    ],
+    "damage": 75,
+    "factText": "【历史】辛亥革命推翻了皇权，在满目疮痍的大地上建起了中华民国，这正是傲视列强的亚洲第一共和国的不屈丰碑！"
+  },
+  {
+    "combo_id": "his_cb_32",
+    "name": "凿空西域",
+    "requires": [
+      "his_77",
+      "his_78",
+      "his_62"
+    ],
+    "damage": 75,
+    "factText": "【历史】张骞用血肉之躯在茫茫大漠中九死一生，硬生生“凿空”西域打通死路，这伟大的壮举直接催生了连结亚欧大陆的丝绸之路！"
+  },
+  {
+    "combo_id": "his_cb_33",
+    "name": "伟大转折",
+    "requires": [
+      "his_93",
+      "his_94",
+      "his_46"
+    ],
+    "damage": 75,
+    "factText": "【历史】从新中国成立让人民站起来，到十一届三中全会毅然决然开启改革开放让国家富起来，这是中华民族史诗级的伟大命运转折！"
+  },
+  {
+    "combo_id": "pdf_cb_17",
+    "name": "地图判读大师",
+    "requires": [
+      "pdf_geo_37",
+      "pdf_geo_38",
+      "pdf_geo_39"
+    ],
+    "damage": 85,
+    "factText": "【地理扩展】小比例尺看天下，大比例尺找细微！在精细的地形图上，你能一眼看穿凸高为谷的河流发源地，更能避开多线重叠的致命陡崖！"
+  },
+  {
+    "combo_id": "pdf_cb_18",
+    "name": "世界三大咽喉锁喉阵",
+    "requires": [
+      "pdf_geo_40",
+      "pdf_geo_41",
+      "pdf_geo_42"
+    ],
+    "damage": 100,
+    "factText": "【地理扩展】马六甲扼守亚洲十字路口，霍尔木兹死掐全球石油大动脉，土耳其海峡封锁黑海舰队！这三大海峡如同死神的绞索，卡住了全球贸易的咽喉！"
+  },
+  {
+    "combo_id": "pdf_cb_19",
+    "name": "被诅咒的财富",
+    "requires": [
+      "pdf_geo_51",
+      "pdf_geo_41",
+      "pdf_geo_07"
+    ],
+    "damage": 85,
+    "factText": "【地理扩展】中东地处三洲五海的兵家必争之地，虽拥有让世界眼红的石油黑金并掌控霍尔木兹油阀，却因极度缺水与伊斯兰教、基督教等复杂的宗教冲突，常年深陷战火深渊！"
+  },
+  {
+    "combo_id": "pdf_cb_20",
+    "name": "殖民地的经济枷锁",
+    "requires": [
+      "pdf_geo_43",
+      "pdf_geo_08"
+    ],
+    "damage": 65,
+    "factText": "【地理扩展】南美洲在长期被殖民中沦为了混血大熔炉；而黑非洲更惨，殖民者拍拍屁股走人后留下的“单一商品经济”，至今仍在无情吸干这片大陆的骨髓！"
+  },
+  {
+    "combo_id": "pdf_cb_21",
+    "name": "孤岛的逆袭",
+    "requires": [
+      "pdf_geo_44",
+      "pdf_geo_40"
+    ],
+    "damage": 65,
+    "factText": "【地理扩展】日本本土什么资源都没有，硬是靠着极度发达的航运穿过马六甲海峡疯狂吸血全球原料，再加工成高科技产品卖出天价，完成了岛国的经济逆袭！"
+  },
+  {
+    "combo_id": "pdf_cb_22",
+    "name": "亚洲两极季风",
+    "requires": [
+      "pdf_geo_47",
+      "pdf_geo_45"
+    ],
+    "damage": 65,
+    "factText": "【地理扩展】狂暴的西南季风在印度洋上蓄满水汽，不仅砸在印度半岛上引发洪涝，更长驱直入中南半岛，在那山河相间的深谷中冲刷出极度肥沃的热带农业区！"
+  },
+  {
+    "combo_id": "pdf_cb_23",
+    "name": "孤独大陆的矿车",
+    "requires": [
+      "pdf_geo_49",
+      "pdf_geo_50"
+    ],
+    "damage": 65,
+    "factText": "【地理扩展】漂流在南半球的澳大利亚因与世隔绝保留了无数呆萌的特有古生物，但它的经济却异常硬核——骑在羊背上剪羊毛，坐在矿车里疯狂挖铁矿石卖钱！"
+  },
+  {
+    "combo_id": "pdf_cb_24",
+    "name": "极地与冻土的抗争",
+    "requires": [
+      "pdf_geo_53",
+      "pdf_geo_46"
+    ],
+    "damage": 65,
+    "factText": "【地理扩展】南极有着能把人瞬间冻僵的酷寒烈风；而在北半球高纬度的俄罗斯，工人们在永冻土上死磕，硬生生砸出了一条连接亚欧的钢铁生命线——西伯利亚大铁路！"
+  },
+  {
+    "combo_id": "pdf_cb_25",
+    "name": "人口与民族的交响",
+    "requires": [
+      "pdf_geo_54",
+      "pdf_geo_55"
+    ],
+    "damage": 75,
+    "factText": "【地理扩展】胡焕庸线冷酷地将中国人口死死挤压在东部，但在大散居小聚居的格局下，少数民族如同璀璨的星辰般散落在广袤的西部边疆，镇守着祖国的大好河山。"
+  },
+  {
+    "combo_id": "pdf_cb_26",
+    "name": "水命双刃剑",
+    "requires": [
+      "pdf_geo_61",
+      "pdf_geo_57",
+      "pdf_geo_26",
+      "pdf_geo_27"
+    ],
+    "damage": 130,
+    "factText": "【地理扩展】夏秋暴雨导致长江极度易发洪灾防洪压力拉满；而空间上南丰北缺又逼迫国家耗资千亿，通过南水北调中线和东线工程，强行把南方洪水化作北方救命的甘泉！"
+  },
+  {
+    "combo_id": "pdf_cb_27",
+    "name": "狂暴水能截流",
+    "requires": [
+      "pdf_geo_56",
+      "pdf_geo_31",
+      "pdf_geo_30"
+    ],
+    "damage": 95,
+    "factText": "【地理扩展】长江在阶梯交界处的落差水能简直是造物主的恩赐！三峡大坝强行将其截流转化为恐怖的清洁电力，再通过西电东送工程，瞬间点亮东部沿海的万家灯火！"
+  },
+  {
+    "combo_id": "pdf_cb_28",
+    "name": "黄河冰封之灾",
+    "requires": [
+      "pdf_geo_58",
+      "geo_43"
+    ],
+    "damage": 65,
+    "factText": "【地理扩展】黄河不仅中游因水土流失成为泥沙怪物、下游变成悬河，在初冬或初春时，部分由低纬流向高纬的河段还会因冰坝阻塞爆发惨烈的凌汛决堤大灾！"
+  },
+  {
+    "combo_id": "pdf_cb_29",
+    "name": "国家底线防守",
+    "requires": [
+      "pdf_geo_60",
+      "pdf_geo_59",
+      "geo_new_125"
+    ],
+    "damage": 95,
+    "factText": "【地理扩展】无论东北的黑土还是南方的水稻土，面对极其匮乏的耕地比重，我们必须用鲜血死守18亿亩耕地红线，才能保证南稻北麦的格局永远填饱中国人的肚子！"
+  },
+  {
+    "combo_id": "pdf_cb_30",
+    "name": "魔都水脉护卫战",
+    "requires": [
+      "pdf_geo_63",
+      "pdf_geo_65"
+    ],
+    "damage": 65,
+    "factText": "【地理扩展】为了保护母亲河黄浦江不被过度索取，上海人极其大胆地在长江口江心建起青草沙水库。它能在涨潮时死死防住海水咸潮入侵，蓄下最纯净的一汪淡水！"
+  },
+  {
+    "combo_id": "pdf_cb_31",
+    "name": "东方巨港起航",
+    "requires": [
+      "pdf_geo_66",
+      "pdf_geo_67",
+      "pdf_geo_62"
+    ],
+    "damage": 95,
+    "factText": "【地理扩展】放弃淤积的河港！上海极其霸道地跨海连岛建成洋山深水港，凭借高新技术产业区的加持，全速驱动国际经济、金融、贸易、航运、科创“五个中心”的战略齿轮！"
+  },
+  {
+    "combo_id": "pdf_cb_32",
+    "name": "韧性城市结界",
+    "requires": [
+      "pdf_geo_69",
+      "pdf_geo_68",
+      "pdf_geo_64"
+    ],
+    "damage": 95,
+    "factText": "【地理扩展】暴雨来袭有海绵城市吸水防涝；断供风险有城郊农业疯狂输出菜篮子；而崇明岛则作为最后一片生态净土，构筑了上海这座超级都市坚不可摧的韧性结界！"
+  },
+  {
+    "combo_id": "pdf_cb_33",
+    "name": "切割地球的利刃",
+    "requires": [
+      "pdf_geo_36",
+      "pdf_geo_02"
+    ],
+    "damage": 75,
+    "factText": "【地理扩展】为了不硬生生劈开欧洲和非洲大陆，人类极其巧妙地避开了本初子午线，选择了20°W和160°E这两条等长的半圆经线，组成了完美的无形利刃，将地球利落地切为东西两半球！"
+  },
+  {
+    "combo_id": "pdf_cb_34",
+    "name": "世界办公室的崛起",
+    "requires": [
+      "pdf_geo_48",
+      "pdf_geo_06"
+    ],
+    "damage": 75,
+    "factText": "【地理扩展】印度凭借被殖民时期留下的英语普及底子（世界上流传最广的语言），加上极其低廉的劳动力成本，疯狂承接全球软件外包业务，硬生生砸出了一个“世界办公室”的IT帝国！"
+  },
+  {
+    "combo_id": "pdf_cb_35",
+    "name": "狂热的大熔炉",
+    "requires": [
+      "pdf_geo_52",
+      "pdf_geo_08"
+    ],
+    "damage": 75,
+    "factText": "【地理扩展】南美洲作为世界人种大熔炉，在巴西体现得淋漓尽致！来自全球的移民血脉在此疯狂交融，最终在极度狂热的桑巴舞步和狂欢节中，熔铸出了独一无二的混血文化！"
+  },
+  {
+    "combo_id": "pdf_cb_36",
+    "name": "宝岛的馈赠",
+    "requires": [
+      "pdf_geo_70",
+      "geo_93"
+    ],
+    "damage": 75,
+    "factText": "【地理扩展】孤悬海外的神圣台湾省不仅是祖国不可分割的领土！它凭借优越的热带与亚热带气候，疯狂产出稻米、甘蔗和热带水果，将“东方甜岛”与“海上米仓”的美誉死死握在手中！"
+  },
+  {
+    "combo_id": "pdf_cb_37",
+    "name": "长三角核心引擎",
+    "requires": [
+      "geo_new_089",
+      "pdf_geo_62",
+      "pdf_geo_67"
+    ],
+    "damage": 100,
+    "factText": "【地理扩展】作为中国综合实力最强的沪宁杭工业基地，不仅坐拥长三角高新技术密集区，更被上海“五个中心”的恐怖战略野心全速驱动，化作中国经济无可匹敌的核心引擎！"
+  }
+]

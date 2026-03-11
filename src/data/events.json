@@ -1,0 +1,550 @@
+[
+  {
+    "id": "darwin_ship",
+    "title": "达尔文的考察船",
+    "description": "一艘挂着「贝格尔号」旗的帆船缓缓靠岸。船舱里传来标本的福尔马林气味，一位蓄须学者邀请你登船协助整理加拉帕戈斯群岛的标本——代价是晕船带来的虚弱。",
+    "imageHint": "贝格尔号 · 生物学考察",
+    "options": [
+      { "id": "a", "text": "登船协助", "desc": "失去 15 点血量，获得强力生物卡「体循环」", "effects": [{ "type": "lose_hp", "value": 15 }, { "type": "gain_card", "cardId": "bio_72" }] },
+      { "id": "b", "text": "婉拒告别", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "darwin_finches",
+    "title": "达尔文的加拉帕戈斯群岛",
+    "description": "你看到了一群喙形各异的雀鸟，在岛上啄食不同的食物。一位学者在笔记本上记录着什么。",
+    "imageHint": "加拉帕戈斯 · 地雀",
+    "options": [
+      { "id": "a", "text": "自然选择", "desc": "消耗 10 点 HP 捕捉观察，获得生物卡「抗体」", "effects": [{ "type": "lose_hp", "value": 10 }, { "type": "gain_card", "cardId": "bio_101" }] },
+      { "id": "b", "text": "用进废退", "desc": "拉马克的错误理论，选择此项受到 15 点逻辑悖论惩罚", "effects": [{ "type": "lose_hp", "value": 15 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "qinshihuang_burn",
+    "title": "秦始皇的焚书坑",
+    "description": "时空裂隙中，你目睹秦朝儒生将竹简投入烈焰。一名御史冷眼道：「非秦记、非博士官所职，皆烧之。汝亦须焚一书，方可离去。」",
+    "imageHint": "焚书坑儒 · 历史遗迹",
+    "options": [
+      { "id": "a", "text": "焚一书，换生路", "desc": "强制删除一张卡牌，回满血量", "effects": [{ "type": "remove_card", "random": true }, { "type": "heal", "value": "full" }] },
+      { "id": "b", "text": "冒险逃脱", "desc": "失去 20 点血量，保留卡组", "effects": [{ "type": "lose_hp", "value": 20 }] }
+    ]
+  },
+  {
+    "id": "yellow_river_diversion",
+    "title": "黄河决口的抉择",
+    "description": "黄河泛滥，两岸百姓受灾。工部官员请你协助治河：要么参与疏浚消耗体力，要么献出一张「无用」的卡牌换取赈灾物资恢复元气。",
+    "imageHint": "黄河 · 地理治水",
+    "options": [
+      { "id": "a", "text": "参与疏浚", "desc": "失去 10 点血量，获得地理卡「黄河」", "effects": [{ "type": "lose_hp", "value": 10 }, { "type": "gain_card", "cardId": "geo_43" }] },
+      { "id": "b", "text": "献牌换粮", "desc": "删除一张卡牌，回复 25 点血量", "effects": [{ "type": "remove_card", "random": true }, { "type": "heal", "value": 25 }] },
+      { "id": "c", "text": "绕道离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "qinling_boundary",
+    "title": "秦岭山麓的界线",
+    "description": "你站在秦岭北麓，眼见南侧绿意葱茏、北侧草木稀疏。一位地理学者指着界碑道：「此线之南，年降水超八百毫米。」",
+    "imageHint": "秦岭—淮河线 · 南北分界",
+    "options": [
+      { "id": "a", "text": "800mm等降水量线", "desc": "正确！获得地理卡「800mm等降水量线」", "effects": [{ "type": "gain_card", "cardId": "geo_49" }] },
+      { "id": "b", "text": "400mm等降水量线", "desc": "那是季风区与非季风区分界，逻辑悖论 12 点", "effects": [{ "type": "lose_hp", "value": 12 }] },
+      { "id": "c", "text": "匆匆而过", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "yangtze_three_gorges",
+    "title": "巫山峡谷的水能",
+    "description": "长江切穿巫山，形成三峡。巨大的落差令水流咆哮，你感到一股磅礴的力量蕴藏其中。",
+    "imageHint": "巫山 · 长江三峡",
+    "options": [
+      { "id": "a", "text": "阶梯交界水能丰富", "desc": "正确！消耗 8 HP 勘测，获得「阶梯交界处水能丰富」", "effects": [{ "type": "lose_hp", "value": 8 }, { "type": "gain_card", "cardId": "geo_44" }] },
+      { "id": "b", "text": "平原流速最快", "desc": "错误：平原流速慢，逻辑悖论 10 点", "effects": [{ "type": "lose_hp", "value": 10 }] },
+      { "id": "c", "text": "乘船离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "blood_circulation_lab",
+    "title": "血液循环实验室",
+    "description": "一间昏暗的实验室里，有人体血液循环模型。左心室连接着粗大的血管，血液似乎在流动。",
+    "imageHint": "血液循环 · 解剖学",
+    "options": [
+      { "id": "a", "text": "体循环：左心室→主动脉", "desc": "正确！获得生物卡「主动脉」", "effects": [{ "type": "gain_card", "cardId": "bio_76" }] },
+      { "id": "b", "text": "肺循环：右心室→主动脉", "desc": "错误：右心室连肺动脉，逻辑悖论 14 点", "effects": [{ "type": "lose_hp", "value": 14 }] },
+      { "id": "c", "text": "退出实验室", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "stomach_digestion",
+    "title": "胃液的秘密",
+    "description": "你观察到胃壁分泌的液体正在分解一块肉。有人问：胃液能消化脂肪吗？",
+    "imageHint": "胃 · 消化",
+    "options": [
+      { "id": "a", "text": "不能，脂肪靠胆汁乳化", "desc": "正确！获得「胆汁」和「胃液」", "effects": [{ "type": "gain_card", "cardId": "bio_58" }, { "type": "gain_card", "cardId": "bio_57" }] },
+      { "id": "b", "text": "能，胃液含脂肪酶", "desc": "错误：胃蛋白酶只消化蛋白质，逻辑悖论 12 点", "effects": [{ "type": "lose_hp", "value": 12 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "monsoon_rain",
+    "title": "夏季风的推进",
+    "description": "你站在长江中下游，六月阴雨连绵。一位气象员说：「雨带在此徘徊，形成了某种现象。」",
+    "imageHint": "雨带 · 梅雨",
+    "options": [
+      { "id": "a", "text": "梅雨", "desc": "正确！获得地理卡「梅雨」", "effects": [{ "type": "gain_card", "cardId": "geo_52" }] },
+      { "id": "b", "text": "伏旱", "desc": "伏旱是 7–8 月雨带北移后才有，逻辑悖论 10 点", "effects": [{ "type": "lose_hp", "value": 10 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "opium_war_choice",
+    "title": "虎门外的硝烟",
+    "description": "你目睹林则徐在虎门销毁鸦片。一名英商冷笑道：「你们很快会付出代价。」远处海面隐约有舰船。",
+    "imageHint": "虎门销烟 · 1840",
+    "options": [
+      { "id": "a", "text": "支持禁烟", "desc": "失去 10 HP 协助搬运，获得历史卡「虎门销烟」", "effects": [{ "type": "lose_hp", "value": 10 }, { "type": "gain_card", "cardId": "his_47" }] },
+      { "id": "b", "text": "鸦片无害论", "desc": "荒谬！逻辑悖论 20 点", "effects": [{ "type": "lose_hp", "value": 20 }] },
+      { "id": "c", "text": "默然离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "plateau_altitude",
+    "title": "高原上的眩晕",
+    "description": "你登上青藏高原，呼吸急促、头痛欲裂。一位向导说：「这里平均海拔四千米以上，是我国地势第一级阶梯的主体。」",
+    "imageHint": "青藏高原 · 世界屋脊",
+    "options": [
+      { "id": "a", "text": "第一级阶梯", "desc": "正确！消耗 12 HP 适应，获得「青藏高原」", "effects": [{ "type": "lose_hp", "value": 12 }, { "type": "gain_card", "cardId": "geo_05" }] },
+      { "id": "b", "text": "第三级阶梯", "desc": "错误：第三级是平原丘陵，逻辑悖论 15 点", "effects": [{ "type": "lose_hp", "value": 15 }] },
+      { "id": "c", "text": "下山", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "small_intestine_absorption",
+    "title": "小肠的皱褶",
+    "description": "在放大镜下，小肠内壁布满绒毛和微绒毛。有人问：消化和吸收的主要场所在哪？",
+    "imageHint": "小肠 · 吸收",
+    "options": [
+      { "id": "a", "text": "小肠", "desc": "正确！获得「小肠」和「小肠绒毛」", "effects": [{ "type": "gain_card", "cardId": "bio_53" }, { "type": "gain_card", "cardId": "bio_118" }] },
+      { "id": "b", "text": "胃", "desc": "胃只初步消化蛋白质，逻辑悖论 12 点", "effects": [{ "type": "lose_hp", "value": 12 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "wuchang_uprising",
+    "title": "武昌城头的枪声",
+    "description": "1911 年 10 月 10 日，武昌城内枪声大作。革命军占领楚望台军械库，清王朝摇摇欲坠。",
+    "imageHint": "武昌起义 · 辛亥革命",
+    "options": [
+      { "id": "a", "text": "加入革命", "desc": "失去 15 HP 参加战斗，获得「武昌起义」和「辛亥革命」", "effects": [{ "type": "lose_hp", "value": 15 }, { "type": "gain_card", "cardId": "his_49" }, { "type": "gain_card", "cardId": "his_10" }] },
+      { "id": "b", "text": "保皇派", "desc": "逆历史潮流，逻辑悖论 18 点", "effects": [{ "type": "lose_hp", "value": 18 }] },
+      { "id": "c", "text": "躲藏起来", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "artery_vein_quiz",
+    "title": "血管的流向",
+    "description": "一根血管将血液从心脏送往全身，管壁厚、弹性大。这是什么血管？",
+    "imageHint": "动脉 · 血管",
+    "options": [
+      { "id": "a", "text": "动脉", "desc": "正确！获得「动脉」", "effects": [{ "type": "gain_card", "cardId": "bio_65" }] },
+      { "id": "b", "text": "静脉", "desc": "静脉将血送回心脏，逻辑悖论 10 点", "effects": [{ "type": "lose_hp", "value": 10 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "dry_wet_zones",
+    "title": "降水线的西行",
+    "description": "你从东海之滨走向西北内陆，雨水越来越少。有人问：年降水 400–800mm 是什么区？",
+    "imageHint": "干湿分区 · 降水",
+    "options": [
+      { "id": "a", "text": "半湿润区", "desc": "正确！获得「半湿润区」", "effects": [{ "type": "gain_card", "cardId": "geo_34" }] },
+      { "id": "b", "text": "干旱区", "desc": "干旱区＜200mm，逻辑悖论 12 点", "effects": [{ "type": "lose_hp", "value": 12 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "may_fourth_spirit",
+    "title": "五四街头的传单",
+    "description": "1919 年北京街头，学生们高呼「外争国权、内惩国贼」。有人塞给你一张传单。",
+    "imageHint": "五四运动 · 新民主主义革命开端",
+    "options": [
+      { "id": "a", "text": "爱国进步民主科学", "desc": "正确！获得「五四运动」和「五四精神」", "effects": [{ "type": "gain_card", "cardId": "his_12" }, { "type": "gain_card", "cardId": "his_37" }] },
+      { "id": "b", "text": "扶清灭洋", "desc": "那是义和团口号，逻辑悖论 15 点", "effects": [{ "type": "lose_hp", "value": 15 }] },
+      { "id": "c", "text": "匆匆离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "pulmonary_artery_quiz",
+    "title": "唯一输静脉血的动脉",
+    "description": "人体有一条动脉，输送的却是静脉血。它从右心室出发，通向肺部。",
+    "imageHint": "肺动脉 · 肺循环",
+    "options": [
+      { "id": "a", "text": "肺动脉", "desc": "正确！获得「肺动脉」和「肺循环」", "effects": [{ "type": "gain_card", "cardId": "bio_95" }, { "type": "gain_card", "cardId": "bio_73" }] },
+      { "id": "b", "text": "主动脉", "desc": "主动脉输动脉血，逻辑悖论 14 点", "effects": [{ "type": "lose_hp", "value": 14 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "tarim_basin_drought",
+    "title": "塔里木的烈日",
+    "description": "你置身塔克拉玛干沙漠边缘，极度干旱。向导说：「这里是我国最大盆地，年降水不足二百毫米。」",
+    "imageHint": "塔里木盆地 · 干旱区",
+    "options": [
+      { "id": "a", "text": "塔里木盆地·干旱区", "desc": "正确！消耗 10 HP 穿越，获得「塔里木盆地」和「干旱区」", "effects": [{ "type": "lose_hp", "value": 10 }, { "type": "gain_card", "cardId": "geo_24" }, { "type": "gain_card", "cardId": "geo_36" }] },
+      { "id": "b", "text": "四川盆地·湿润区", "desc": "完全搞错，逻辑悖论 18 点", "effects": [{ "type": "lose_hp", "value": 18 }] },
+      { "id": "c", "text": "原路返回", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "kang_liang_reform",
+    "title": "戊戌年的变法",
+    "description": "1898 年，光绪帝下诏变法。康有为、梁启超推动维新，保守派却密谋反扑。",
+    "imageHint": "戊戌变法 · 103天",
+    "options": [
+      { "id": "a", "text": "支持维新", "desc": "失去 12 HP 参与宣传，获得「戊戌变法」「康有为」「梁启超」", "effects": [{ "type": "lose_hp", "value": 12 }, { "type": "gain_card", "cardId": "his_07" }, { "type": "gain_card", "cardId": "his_23" }, { "type": "gain_card", "cardId": "his_24" }] },
+      { "id": "b", "text": "天不变道亦不变", "desc": "守旧思想，逻辑悖论 16 点", "effects": [{ "type": "lose_hp", "value": 16 }] },
+      { "id": "c", "text": "旁观", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "enzyme_specificity",
+    "title": "消化酶的专一",
+    "description": "三种消化液摆在面前：唾液、胃液、胰液。有人问：能将淀粉分解为麦芽糖的是？",
+    "imageHint": "消化酶 · 专一性",
+    "options": [
+      { "id": "a", "text": "唾液淀粉酶、胰淀粉酶", "desc": "正确！获得「唾液淀粉酶」「胰淀粉酶」", "effects": [{ "type": "gain_card", "cardId": "bio_82" }, { "type": "gain_card", "cardId": "bio_83" }] },
+      { "id": "b", "text": "胃蛋白酶", "desc": "胃蛋白酶消化蛋白质，逻辑悖论 12 点", "effects": [{ "type": "lose_hp", "value": 12 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "silk_road_caravan",
+    "title": "河西走廊的驼队",
+    "description": "张骞通西域后，驼队穿梭于祁连山与北山之间的狭长通道。丝绸、香料、葡萄在此交换。",
+    "imageHint": "河西走廊 · 丝绸之路",
+    "options": [
+      { "id": "a", "text": "河西走廊·丝绸之路", "desc": "正确！消耗 8 HP 随行，获得「河西走廊」和「丝绸之路」", "effects": [{ "type": "lose_hp", "value": 8 }, { "type": "gain_card", "cardId": "geo_67" }, { "type": "gain_card", "cardId": "his_62" }] },
+      { "id": "b", "text": "长江中下游平原", "desc": "地理错误，逻辑悖论 15 点", "effects": [{ "type": "lose_hp", "value": 15 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "immune_system_quiz",
+    "title": "病原体的克星",
+    "description": "病原体侵入人体后，吞噬细胞能吞噬它，抗体能识别它。哪种免疫是先天具有、对多种病原体起作用的？",
+    "imageHint": "免疫 · 非特异性",
+    "options": [
+      { "id": "a", "text": "非特异性免疫", "desc": "正确！获得「吞噬细胞」「非特异性免疫」", "effects": [{ "type": "gain_card", "cardId": "bio_113" }, { "type": "gain_card", "cardId": "bio_124" }] },
+      { "id": "b", "text": "特异性免疫", "desc": "特异性免疫针对特定抗原，逻辑悖论 12 点", "effects": [{ "type": "lose_hp", "value": 12 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "typhoon_coast",
+    "title": "东南沿海的风暴",
+    "description": "夏秋之际，热带气旋逼近海岸，狂风暴雨将至。渔民们紧急收帆。",
+    "imageHint": "台风 · 气候灾害",
+    "options": [
+      { "id": "a", "text": "台风", "desc": "正确！消耗 10 HP 协助抗灾，获得「台风」", "effects": [{ "type": "lose_hp", "value": 10 }, { "type": "gain_card", "cardId": "geo_55" }] },
+      { "id": "b", "text": "寒潮", "desc": "寒潮是冬季风南下，逻辑悖论 14 点", "effects": [{ "type": "lose_hp", "value": 14 }] },
+      { "id": "c", "text": "避入内陆", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "nanjing_treaty_shame",
+    "title": "南京城下的条约",
+    "description": "1842 年，英舰泊于南京江面。清廷被迫签约，割香港岛、赔款、五口通商。这是中国近代第一个不平等条约。",
+    "imageHint": "南京条约 · 1842",
+    "options": [
+      { "id": "a", "text": "南京条约", "desc": "正确！获得「南京条约」「鸦片战争」", "effects": [{ "type": "gain_card", "cardId": "his_02" }, { "type": "gain_card", "cardId": "his_01" }] },
+      { "id": "b", "text": "马关条约", "desc": "马关条约是 1895 年甲午战后，逻辑悖论 15 点", "effects": [{ "type": "lose_hp", "value": 15 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "rain_heat_same_period",
+    "title": "季风气候的恩赐",
+    "description": "夏季高温与多雨同时到来，稻田里禾苗疯长。一位老农说：「这就是我们这儿气候最大的好处。」",
+    "imageHint": "雨热同期 · 季风气候",
+    "options": [
+      { "id": "a", "text": "雨热同期", "desc": "正确！获得「雨热同期」「亚热带季风气候」", "effects": [{ "type": "gain_card", "cardId": "geo_59" }, { "type": "gain_card", "cardId": "geo_38" }] },
+      { "id": "b", "text": "雨热不同期", "desc": "那是地中海气候，逻辑悖论 12 点", "effects": [{ "type": "lose_hp", "value": 12 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "heart_valve_quiz",
+    "title": "心室与心房之间的瓣膜",
+    "description": "心脏内，房室瓣防止血液从心室倒流回心房。动脉瓣在哪里？",
+    "imageHint": "瓣膜 · 血流单向",
+    "options": [
+      { "id": "a", "text": "心室与动脉之间", "desc": "正确！获得「房室瓣」「动脉瓣」", "effects": [{ "type": "gain_card", "cardId": "bio_80" }, { "type": "gain_card", "cardId": "bio_81" }] },
+      { "id": "b", "text": "心房与心房之间", "desc": "不存在，逻辑悖论 12 点", "effects": [{ "type": "lose_hp", "value": 12 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "mao_zedong_jinggang",
+    "title": "井冈山的星火",
+    "description": "毛泽东在井冈山创建了第一个农村革命根据地，开辟工农武装割据道路。山路上，红旗招展。",
+    "imageHint": "井冈山根据地 · 工农武装割据",
+    "options": [
+      { "id": "a", "text": "农村包围城市", "desc": "正确！获得「井冈山根据地」", "effects": [{ "type": "gain_card", "cardId": "his_17" }] },
+      { "id": "b", "text": "城市中心论", "desc": "与井冈山道路相反，逻辑悖论 15 点", "effects": [{ "type": "lose_hp", "value": 15 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "peru_current_fish",
+    "title": "秘鲁寒流旁的渔场",
+    "description": "南美西海岸，一股向北的寒流带来上升补偿流，营养盐上涌，形成著名渔场。",
+    "imageHint": "秘鲁寒流 · 上升补偿流",
+    "options": [
+      { "id": "a", "text": "秘鲁寒流", "desc": "正确！获得「秘鲁寒流」", "effects": [{ "type": "gain_card", "cardId": "geo_89" }] },
+      { "id": "b", "text": "日本暖流", "desc": "日本暖流在太平洋西部，逻辑悖论 14 点", "effects": [{ "type": "lose_hp", "value": 14 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "bile_no_enzyme",
+    "title": "胆汁的谜题",
+    "description": "肝脏分泌的胆汁进入小肠，能帮助消化脂肪。但胆汁里不含消化酶。它是如何起作用的？",
+    "imageHint": "胆汁 · 乳化",
+    "options": [
+      { "id": "a", "text": "乳化脂肪", "desc": "正确！胆汁乳化脂肪增大接触面积，获得「胆汁」「乳化」", "effects": [{ "type": "gain_card", "cardId": "bio_58" }, { "type": "gain_card", "cardId": "bio_99" }] },
+      { "id": "b", "text": "含脂肪酶分解脂肪", "desc": "胆汁不含酶！逻辑悖论 14 点", "effects": [{ "type": "lose_hp", "value": 14 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "feudal_imperialism",
+    "title": "甲午战后的瓜分",
+    "description": "1895 年后，列强在华划分势力范围。德国占山东，俄国占东北，法国占两广云南……中国面临亡国灭种之祸。",
+    "imageHint": "甲午战争 · 马关条约",
+    "options": [
+      { "id": "a", "text": "势力范围", "desc": "正确！获得「甲午战争」「马关条约」「势力范围」", "effects": [{ "type": "gain_card", "cardId": "his_05" }, { "type": "gain_card", "cardId": "his_06" }, { "type": "gain_card", "cardId": "his_34" }] },
+      { "id": "b", "text": "租界", "desc": "租界是另一侵略形式，逻辑悖论 10 点", "effects": [{ "type": "lose_hp", "value": 10 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "duodenum_convergence",
+    "title": "十二指肠的三江汇流",
+    "description": "胃液、胰液、胆汁在十二指肠汇合。这里是小肠的起始段，消化作用最强。",
+    "imageHint": "十二指肠 · 消化汇流",
+    "options": [
+      { "id": "a", "text": "胃液胰液胆汁", "desc": "正确！获得「十二指肠」「胰液」", "effects": [{ "type": "gain_card", "cardId": "bio_63" }, { "type": "gain_card", "cardId": "bio_119" }] },
+      { "id": "b", "text": "唾液胃液肠液", "desc": "唾液在口腔，肠液在小肠中后段，逻辑悖论 12 点", "effects": [{ "type": "lose_hp", "value": 12 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "polar_front_jet",
+    "title": "秦岭—淮河的意义",
+    "description": "你站在淮河边，有人告诉你：此线大致是 1 月 0℃ 等温线、800mm 等降水量线，是我国南北重要分界。",
+    "imageHint": "秦岭—淮河线 · 南北分界",
+    "options": [
+      { "id": "a", "text": "亚热带与暖温带分界", "desc": "正确！获得「秦岭—淮河线」「一月0℃等温线」", "effects": [{ "type": "gain_card", "cardId": "geo_32" }, { "type": "gain_card", "cardId": "geo_48" }] },
+      { "id": "b", "text": "季风区与非季风区分界", "desc": "那是 400mm 线，逻辑悖论 14 点", "effects": [{ "type": "lose_hp", "value": 14 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "red_blood_cell_oxygen",
+    "title": "红细胞的使命",
+    "description": "成熟红细胞呈双凹圆盘状，无细胞核，内含血红蛋白。它的主要功能是什么？",
+    "imageHint": "红细胞 · 氧运输",
+    "options": [
+      { "id": "a", "text": "运输氧气", "desc": "正确！获得「红细胞」「血红蛋白」", "effects": [{ "type": "gain_card", "cardId": "bio_69" }, { "type": "gain_card", "cardId": "bio_77" }] },
+      { "id": "b", "text": "止血凝血", "desc": "那是血小板的功能，逻辑悖论 12 点", "effects": [{ "type": "lose_hp", "value": 12 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "long_march_choice",
+    "title": "遵义会议的光芒",
+    "description": "1935 年，红军长征途中的遵义。一场会议确立了毛泽东在党和红军中的领导地位，中国革命迎来转折。",
+    "imageHint": "遵义会议 · 伟大转折",
+    "options": [
+      { "id": "a", "text": "遵义会议", "desc": "正确！获得「遵义会议」「红军长征」", "effects": [{ "type": "gain_card", "cardId": "his_39" }, { "type": "gain_card", "cardId": "his_18" }] },
+      { "id": "b", "text": "中共一大", "desc": "中共一大 1921 年上海，逻辑悖论 15 点", "effects": [{ "type": "lose_hp", "value": 15 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "mediterranean_climate",
+    "title": "地中海沿岸的夏天",
+    "description": "你在地中海沿岸，夏季炎热干燥、冬季温和多雨。与我国季风气候截然不同。",
+    "imageHint": "地中海气候 · 雨热不同期",
+    "options": [
+      { "id": "a", "text": "地中海气候", "desc": "正确！获得「地中海气候」「夏季炎热干燥」「冬季温和多雨」", "effects": [{ "type": "gain_card", "cardId": "geo_84" }, { "type": "gain_card", "cardId": "geo_85" }, { "type": "gain_card", "cardId": "geo_86" }] },
+      { "id": "b", "text": "亚热带季风气候", "desc": "季风气候雨热同期，逻辑悖论 14 点", "effects": [{ "type": "lose_hp", "value": 14 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "triple_alliance_ww1",
+    "title": "卢沟桥的炮火",
+    "description": "1937 年 7 月 7 日，卢沟桥事变爆发。日本全面侵华开始，全国抗战由此揭开。",
+    "imageHint": "卢沟桥事变 · 全面抗战",
+    "options": [
+      { "id": "a", "text": "卢沟桥事变", "desc": "正确！失去 10 HP 投身抗战，获得「卢沟桥事变」「抗日战争」", "effects": [{ "type": "lose_hp", "value": 10 }, { "type": "gain_card", "cardId": "his_40" }, { "type": "gain_card", "cardId": "his_19" }] },
+      { "id": "b", "text": "九一八事变", "desc": "九一八是 1931 年东北，逻辑悖论 12 点", "effects": [{ "type": "lose_hp", "value": 12 }] },
+      { "id": "c", "text": "逃离", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "lymph_fat_absorption",
+    "title": "脂肪的吸收路径",
+    "description": "脂肪消化产物经小肠绒毛吸收后，多数不直接进入血液，而是先进入另一套循环系统。",
+    "imageHint": "淋巴 · 脂肪吸收",
+    "options": [
+      { "id": "a", "text": "淋巴再入血", "desc": "正确！甘油和脂肪酸经淋巴管入血，获得「淋巴」「淋巴循环」", "effects": [{ "type": "gain_card", "cardId": "bio_97" }, { "type": "gain_card", "cardId": "bio_90" }] },
+      { "id": "b", "text": "直接入肝门静脉", "desc": "葡萄糖、氨基酸才直接入血，逻辑悖论 14 点", "effects": [{ "type": "lose_hp", "value": 14 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "south_east_rain",
+    "title": "降水空间分布",
+    "description": "我国降水从东南沿海向西北内陆递减。有人问：主要影响因素是什么？",
+    "imageHint": "降水 · 海陆位置",
+    "options": [
+      { "id": "a", "text": "海陆位置与夏季风", "desc": "正确！获得「降水空间分布」「夏季风」", "effects": [{ "type": "gain_card", "cardId": "geo_56" }, { "type": "gain_card", "cardId": "geo_30" }] },
+      { "id": "b", "text": "纬度越高降水越多", "desc": "恰恰相反，逻辑悖论 15 点", "effects": [{ "type": "lose_hp", "value": 15 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "tongmenghui_revolution",
+    "title": "三民主义的旗帜",
+    "description": "孙中山提出民族、民权、民生——三民主义，作为资产阶级民主革命纲领。同盟会员们在秘密集会。",
+    "imageHint": "三民主义 · 革命纲领",
+    "options": [
+      { "id": "a", "text": "三民主义", "desc": "正确！获得「三民主义」「孙中山」", "effects": [{ "type": "gain_card", "cardId": "his_35" }, { "type": "gain_card", "cardId": "his_25" }] },
+      { "id": "b", "text": "民主与科学", "desc": "那是新文化运动口号，逻辑悖论 12 点", "effects": [{ "type": "lose_hp", "value": 12 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "liver_detox",
+    "title": "肝脏的多重功能",
+    "description": "人体最大消化腺，分泌胆汁。但它还能解毒、贮存糖原……你看到一块变质的食物被肝脏处理。",
+    "imageHint": "肝脏 · 消化与解毒",
+    "options": [
+      { "id": "a", "text": "分泌胆汁、解毒", "desc": "正确！获得「肝脏」", "effects": [{ "type": "gain_card", "cardId": "bio_55" }] },
+      { "id": "b", "text": "分泌胰液", "desc": "胰液是胰分泌的，逻辑悖论 12 点", "effects": [{ "type": "lose_hp", "value": 12 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "three_staircase_boundary",
+    "title": "二三级阶梯的分界",
+    "description": "你站在一座山脉前，它东北—西南走向，东侧是华北平原，西侧是黄土高原。这是第二、三级阶梯的分界山脉之一。",
+    "imageHint": "太行山脉 · 阶梯分界",
+    "options": [
+      { "id": "a", "text": "太行山脉", "desc": "正确！获得「太行山脉」「二三级阶梯分界线」", "effects": [{ "type": "gain_card", "cardId": "geo_17" }, { "type": "gain_card", "cardId": "geo_71" }] },
+      { "id": "b", "text": "昆仑山脉", "desc": "昆仑是一二级阶梯分界，逻辑悖论 14 点", "effects": [{ "type": "lose_hp", "value": 14 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "hemoglobin_oxygen",
+    "title": "氧合与脱氧",
+    "description": "血红蛋白在肺部与氧气结合，血液由暗红变鲜红；在组织中释放氧气，血液由鲜红变暗红。",
+    "imageHint": "血红蛋白 · 氧运输",
+    "options": [
+      { "id": "a", "text": "动脉血含氧丰富", "desc": "正确！获得「动脉血」「静脉血」「氧合」", "effects": [{ "type": "gain_card", "cardId": "bio_78" }, { "type": "gain_card", "cardId": "bio_79" }, { "type": "gain_card", "cardId": "bio_110" }] },
+      { "id": "b", "text": "静脉血含氧丰富", "desc": "完全颠倒，逻辑悖论 16 点", "effects": [{ "type": "lose_hp", "value": 16 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "new_culture_movement",
+    "title": "德先生与赛先生",
+    "description": "1915 年，陈独秀创办《新青年》，提倡民主与科学，反对封建思想。新文化运动席卷全国。",
+    "imageHint": "新文化运动 · 民主与科学",
+    "options": [
+      { "id": "a", "text": "民主与科学", "desc": "正确！获得「新文化运动」「民主与科学」", "effects": [{ "type": "gain_card", "cardId": "his_13" }, { "type": "gain_card", "cardId": "his_36" }] },
+      { "id": "b", "text": "师夷长技以制夷", "desc": "那是洋务运动思想，逻辑悖论 12 点", "effects": [{ "type": "lose_hp", "value": 12 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "polar_maritime_climate",
+    "title": "西欧的温和冬季",
+    "description": "北大西洋暖流使西欧冬季比同纬度温和得多。全年温和湿润，年较差小——这是什么气候？",
+    "imageHint": "温带海洋性气候 · 北大西洋暖流",
+    "options": [
+      { "id": "a", "text": "温带海洋性气候", "desc": "正确！获得「温带海洋性气候」「北大西洋暖流」", "effects": [{ "type": "gain_card", "cardId": "geo_91" }, { "type": "gain_card", "cardId": "geo_88" }] },
+      { "id": "b", "text": "地中海气候", "desc": "地中海气候雨热不同期，逻辑悖论 12 点", "effects": [{ "type": "lose_hp", "value": 12 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "zhenghe_voyage",
+    "title": "郑和的宝船",
+    "description": "明朝永乐年间，郑和率庞大船队七下西洋，最远达非洲东岸。这是世界航海史上的壮举。",
+    "imageHint": "郑和下西洋 · 航海壮举",
+    "options": [
+      { "id": "a", "text": "郑和下西洋", "desc": "正确！消耗 8 HP 随船远航，获得「郑和下西洋」", "effects": [{ "type": "lose_hp", "value": 8 }, { "type": "gain_card", "cardId": "his_63" }] },
+      { "id": "b", "text": "哥伦布发现美洲", "desc": "那是西方航海，逻辑悖论 10 点", "effects": [{ "type": "lose_hp", "value": 10 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "blood_flow_direction",
+    "title": "体循环的路径",
+    "description": "血液从左心室出发，经主动脉到全身毛细血管，再经上下腔静脉回到右心房。这途中发生了什么变化？",
+    "imageHint": "体循环 · 动脉血变静脉血",
+    "options": [
+      { "id": "a", "text": "动脉血变静脉血", "desc": "正确！组织消耗氧、释放二氧化碳，获得「体循环」「血流方向」", "effects": [{ "type": "gain_card", "cardId": "bio_72" }, { "type": "gain_card", "cardId": "bio_108" }] },
+      { "id": "b", "text": "静脉血变动脉血", "desc": "那是肺循环，逻辑悖论 14 点", "effects": [{ "type": "lose_hp", "value": 14 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "qin_unification",
+    "title": "秦始皇的统一",
+    "description": "公元前 221 年，秦灭六国。嬴政创皇帝制度，推行郡县制，统一文字、货币、度量衡。",
+    "imageHint": "秦统一六国 · 大一统",
+    "options": [
+      { "id": "a", "text": "郡县制·统一文字", "desc": "正确！获得「秦始皇」「郡县制」「统一文字」", "effects": [{ "type": "gain_card", "cardId": "his_51" }, { "type": "gain_card", "cardId": "his_53" }, { "type": "gain_card", "cardId": "his_55" }] },
+      { "id": "b", "text": "分封制", "desc": "秦废分封行郡县，逻辑悖论 15 点", "effects": [{ "type": "lose_hp", "value": 15 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "meridian_nonmeridian",
+    "title": "季风区与非季风区",
+    "description": "大兴安岭—阴山—贺兰山—巴颜喀拉山—冈底斯山一线以东以南，夏季风影响明显，降水丰沛；线西则反之。",
+    "imageHint": "季风区 · 分界线",
+    "options": [
+      { "id": "a", "text": "季风区·非季风区", "desc": "正确！获得「季风区」「非季风区」「400mm等降水量线」", "effects": [{ "type": "gain_card", "cardId": "geo_28" }, { "type": "gain_card", "cardId": "geo_29" }, { "type": "gain_card", "cardId": "geo_37" }] },
+      { "id": "b", "text": "湿润区与干旱区分界", "desc": "湿润干旱按 800/400/200mm 划分，逻辑悖论 12 点", "effects": [{ "type": "lose_hp", "value": 12 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "enzyme_catalysis",
+    "title": "消化的化学本质",
+    "description": "淀粉、蛋白质、脂肪都是大分子，需要酶催化分解为小分子才能吸收。消化酶有什么特点？",
+    "imageHint": "消化酶 · 专一性",
+    "options": [
+      { "id": "a", "text": "专一性·催化效率高", "desc": "正确！获得「消化酶」「消化」", "effects": [{ "type": "gain_card", "cardId": "bio_59" }, { "type": "gain_card", "cardId": "bio_100" }] },
+      { "id": "b", "text": "一种酶消化所有营养物质", "desc": "酶有专一性，逻辑悖论 14 点", "effects": [{ "type": "lose_hp", "value": 14 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  },
+  {
+    "id": "new_china_founding",
+    "title": "开国大典",
+    "description": "1949 年 10 月 1 日，毛泽东在天安门宣布中华人民共和国成立。中国人民站起来了。",
+    "imageHint": "新中国成立 · 1949",
+    "options": [
+      { "id": "a", "text": "新中国成立", "desc": "正确！获得「新中国成立」「新民主主义革命」", "effects": [{ "type": "gain_card", "cardId": "his_46" }, { "type": "gain_card", "cardId": "his_50" }] },
+      { "id": "b", "text": "中华民国成立", "desc": "那是 1912 年，逻辑悖论 15 点", "effects": [{ "type": "lose_hp", "value": 15 }] },
+      { "id": "c", "text": "离开", "desc": "无事发生", "effects": [] }
+    ]
+  }
+]

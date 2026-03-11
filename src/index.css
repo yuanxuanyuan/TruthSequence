@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-void: #0a0e14;
+  --color-cyber-dark: #0d1117;
+  --shadow-glow: 0 0 40px rgba(34, 211, 238, 0.15);
+}
+
+@layer base {
+  body {
+    @apply bg-void antialiased;
+  }
+  .font-serif {
+    font-family: "Noto Serif SC", "Source Serif 4", Georgia, serif;
+  }
+  .font-mono {
+    font-family: "JetBrains Mono", "Fira Code", monospace;
+  }
+}
+
+/* 赛博学术风背景网格 */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.drop-shadow-glow {
+  text-shadow: 0 0 30px rgba(34, 211, 238, 0.3);
+}
+
+/* 连携提示 · 手牌高亮醒目闪动 */
+@keyframes hint-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+/* 连携提示卡片外发光 */
+.hint-card-glow {
+  box-shadow: 0 0 0 4px rgba(251,191,36,0.9), 0 0 40px rgba(251,191,36,0.95), 0 0 70px rgba(251,191,36,0.6);
+  transform: scale(1.05);
+}
+
+@keyframes hint-glow {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(251,191,36,0.9), 0 0 35px rgba(251,191,36,0.9), 0 0 55px rgba(251,191,36,0.5); }
+  50% { box-shadow: 0 0 0 4px rgba(251,191,36,1), 0 0 50px rgba(251,191,36,1), 0 0 85px rgba(251,191,36,0.7); }
+}
+
+/* 真理合成台 · 虚线扫描框呼吸动画（微弱脉动，如解析中的仪器） */
+@keyframes synthesis-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.2),
+      0 0 40px rgba(34, 211, 238, 0.12),
+      inset 0 0 60px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.35),
+      0 0 50px rgba(34, 211, 238, 0.2),
+      inset 0 0 60px rgba(0, 0, 0, 0.22);
+  }
+}

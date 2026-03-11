@@ -1,0 +1,217 @@
+import { createContext, useCallback, useContext, useState } from 'react'
+import cardsData from '../data/cards.json'
+import combosData from '../data/combos.json'
+import { comboCardIds } from '../engine/evaluateCombo'
+
+export const INIT_PLAYER_HP = 100
+export const INIT_ENEMY_HP = 200
+
+const GameContext = createContext(null)
+
+function shuffle(arr) {
+  const a = [...arr]
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}
+
+function pickRandomCards(pool, n, excludeIds = []) {
+  const available = pool.filter(c => !excludeIds.includes(c.id))
+  return shuffle(available).slice(0, n).map(c => c.id)
+}
+
+export function GameProvider({ children }) {
+  const [playerHP, setPlayerHP] = useState(INIT_PLAYER_HP)
+  const [playerBlock, setPlayerBlock] = useState(0)
+  const [deck, setDeck] = useState([])
+  const [floor, setFloor] = useState(0)
+  const [currentView, setCurrentView] = useState('home')
+
+  /** 对玩家造成伤害，优先扣 block，剩余扣 HP */
+  const damagePlayer = useCallback((amount) => {
+    if (amount <= 0) return
+    setPlayerBlock(b => {
+      const afterBlock = Math.max(0, b - amount)
+      const overflow = amount - b
+      if (overflow > 0) {
+        setPlayerHP(h => Math.max(0, h - overflow))
+      }
+      return afterBlock
+    })
+  }, [])
+
+  const addPlayerBlock = useCallback((amount) => {
+    setPlayerBlock(b => b + amount)
+  }, [])
+
+  const clearPlayerBlock = useCallback(() => {
+    setPlayerBlock(0)
+  }, [])
+
+  const healPlayer = useCallback((amount) => {
+    setPlayerHP(h => Math.min(INIT_PLAYER_HP, h + amount))
+  }, [])
+
+  const [relics, setRelics] = useState([])
+  const [upgradedCards, setUpgradedCards] = useState(new Set())
+
+  const addCardToDeck = useCallback((cardId) => {
+    if (!comboCardIds.has(cardId)) return
+    setDeck(d => [...d, cardId])
+  }, [])
+
+  const removeCardFromDeck = useCallback((cardId) => {
+    setDeck(d => {
+      const idx = d.indexOf(cardId)
+      if (idx === -1) return d
+      return [...d.slice(0, idx), ...d.slice(idx + 1)]
+    })
+  }, [])
+
+  const removeRandomCardFromDeck = useCallback(() => {
+    setDeck(d => {
+      if (d.length <= 0) return d
+      const idx = Math.floor(Math.random() * d.length)
+      return [...d.slice(0, idx), ...d.slice(idx + 1)]
+    })
+  }, [])
+
+  const goToBattle = useCallback(() => setCurrentView('battle'), [])
+  const goToMap = useCallback(() => setCurrentView('map'), [])
+  const goToCardChoice = useCallback(() => setCurrentView('cardChoice'), [])
+  const goToCamp = useCallback(() => setCurrentView('camp'), [])
+  const goToEvent = useCallback(() => setCurrentView('event'), [])
+  const goToRelicReward = useCallback(() => setCurrentView('relicReward'), [])
+
+  const upgradeCard = useCallback((cardId) => {
+    setUpgradedCards(s => new Set([...s, cardId]))
+  }, [])
+
+  const addAdvancedCard = useCallback(() => {
+    const available = cardsData.filter(c => comboCardIds.has(c.id))
+    if (available.length === 0) return
+    const picked = available[Math.floor(Math.random() * available.length)]
+    setDeck(d => [...d, picked.id])
+    setUpgradedCards(s => new Set([...s, picked.id]))
+  }, [])
+
+  const addRelic = useCallback((relicId) => {
+    setRelics(r => (r.includes(relicId) ? r : [...r, relicId]))
+  }, [])
+
+  const startGame = useCallback(() => {
+    setPlayerHP(100)
+    setPlayerBlock(0)
+    const comboPool = cardsData.filter(c => comboCardIds.has(c.id))
+    const twoCardCombos = combosData.filter(c => c.requires?.length === 2)
+    const deckIds = new Set()
+    if (twoCardCombos.length > 0 && comboPool.length > 0) {
+      const shuffled = shuffle([...twoCardCombos])
+      for (let i = 0; i < 4 && deckIds.size < 8; i++) {
+        const combo = shuffled[i]
+        const valid = combo.requires.filter(id => comboPool.some(c => c.id === id))
+        if (valid.length === combo.requires.length) {
+          combo.requires.forEach(id => deckIds.add(id))
+        }
+      }
+    }
+    const remain = 10 - deckIds.size
+    if (remain > 0) {
+      const rest = comboPool.filter(c => !deckIds.has(c.id))
+      shuffle(rest).slice(0, remain).forEach(c => deckIds.add(c.id))
+    }
+    setDeck(shuffle([...deckIds]))
+    setFloor(0)
+    setRelics([])
+    setUpgradedCards(new Set())
+    setCurrentView('map')
+  }, [])
+
+  const startTestGame = useCallback((subject) => {
+    setPlayerHP(100)
+    setPlayerBlock(0)
+    const validSubjects = subject === '' ? ['地理', '生物', '历史'] : [subject]
+    const comboPool = cardsData.filter(c => comboCardIds.has(c.id) && validSubjects.includes(c.subject))
+    const deckIds = comboPool.length > 0 ? comboPool.map(c => c.id) : []
+    setDeck(shuffle(deckIds))
+    setFloor(0)
+    setRelics([])
+    setUpgradedCards(new Set())
+    setCurrentView('battle')
+  }, [])
+
+  const finishCardChoice = useCallback((cardId) => {
+    addCardToDeck(cardId)
+    setFloor(f => f + 1)
+    setCurrentView('map')
+  }, [addCardToDeck])
+
+  const finishCamp = useCallback(() => {
+    setFloor(f => f + 1)
+    setCurrentView('map')
+  }, [])
+
+  const finishEvent = useCallback(() => {
+    setFloor(f => f + 1)
+    setCurrentView('map')
+  }, [])
+
+  const finishRelicReward = useCallback((relicId) => {
+    if (relicId) addRelic(relicId)
+    setFloor(f => f + 1)
+    setCurrentView('map')
+  }, [addRelic])
+
+  const value = {
+    playerHP,
+    playerBlock,
+    setPlayerHP,
+    deck,
+    setDeck,
+    floor,
+    setFloor,
+    currentView,
+    setCurrentView,
+    damagePlayer,
+    addPlayerBlock,
+    clearPlayerBlock,
+    addCardToDeck,
+    removeCardFromDeck,
+    removeRandomCardFromDeck,
+    goToBattle,
+    goToMap,
+    goToCardChoice,
+    goToCamp,
+    goToEvent,
+    goToRelicReward,
+    relics,
+    addRelic,
+    finishCardChoice,
+    finishCamp,
+    finishEvent,
+    finishRelicReward,
+    healPlayer,
+    upgradeCard,
+    addAdvancedCard,
+    upgradedCards,
+    startGame,
+    startTestGame,
+    INIT_PLAYER_HP,
+    INIT_ENEMY_HP,
+    cardsData,
+  }
+
+  return (
+    <GameContext.Provider value={value}>
+      {children}
+    </GameContext.Provider>
+  )
+}
+
+export function useGame() {
+  const ctx = useContext(GameContext)
+  if (!ctx) throw new Error('useGame must be used within GameProvider')
+  return ctx
+}

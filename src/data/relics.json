@@ -1,0 +1,20 @@
+[
+  {
+    "id": "zhenghe_compass",
+    "name": "郑和的罗盘",
+    "desc": "所有地理 Combo 伤害 +30%",
+    "icon": "Compass"
+  },
+  {
+    "id": "microscope",
+    "name": "显微镜",
+    "desc": "2 卡连击伤害翻倍",
+    "icon": "Microscope"
+  },
+  {
+    "id": "broken_watch",
+    "name": "破损的怀表",
+    "desc": "悖论反噬伤害减半",
+    "icon": "Clock"
+  }
+]
