@@ -59,7 +59,7 @@ export function MapView() {
       <div className="absolute inset-0 bg-gradient-to-b from-cyan-950/20 via-transparent to-slate-900/40" />
 
       {/* 顶部状态栏 */}
-      <header className="relative z-10 flex justify-between items-center px-8 py-6 border-b border-cyan-500/20">
+      <header className="relative z-10 flex justify-between items-center px-4 sm:px-8 py-4 sm:py-6 border-b border-cyan-500/20">
         <div className="flex items-center gap-6">
           <div className="font-mono text-cyan-400/80">
             <span className="text-slate-500">层数 </span>

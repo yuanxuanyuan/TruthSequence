@@ -65,7 +65,7 @@ export function EventView() {
       <div className="absolute inset-0 bg-grid opacity-20" />
       <div className="absolute inset-0 bg-gradient-to-b from-violet-950/30 via-slate-900/40 to-void" />
 
-      <main className="relative z-10 flex-1 flex flex-col md:flex-row gap-6 p-6 max-w-5xl mx-auto w-full">
+      <main className="relative z-10 flex-1 flex flex-col md:flex-row gap-4 sm:gap-6 p-4 sm:p-6 max-w-5xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}

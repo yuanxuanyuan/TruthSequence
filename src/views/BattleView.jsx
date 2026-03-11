@@ -497,8 +497,8 @@ export function BattleView() {
       <div className="absolute inset-0 bg-gradient-to-b from-cyan-950/20 via-transparent to-slate-900/40" />
 
       {/* 顶部 HP */}
-      <header className="relative z-10 flex justify-between items-center px-8 py-6 border-b border-cyan-500/20">
-        <div className="flex items-center gap-4">
+      <header className="relative z-10 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 px-4 py-4 sm:px-8 sm:py-6 border-b border-cyan-500/20">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-4">
           <RelicBar relicIds={relics} />
           <Heart className="w-6 h-6 text-rose-400" />
           <span className="font-mono text-lg">玩家</span>
@@ -508,22 +508,22 @@ export function BattleView() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setSyllabusOpen(true)}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-cyan-500/20 border border-cyan-400/40 hover:bg-cyan-500/30 transition-colors"
+            className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 rounded-lg bg-cyan-500/20 border border-cyan-400/40 hover:bg-cyan-500/30 transition-colors"
             title="玩法帮助"
           >
-            <Info className="w-5 h-5 text-cyan-400" />
-            <span className="font-mono text-sm text-cyan-300">玩法帮助</span>
+            <Info className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400 shrink-0" />
+            <span className="font-mono text-xs sm:text-sm text-cyan-300 hidden sm:inline">玩法帮助</span>
           </motion.button>
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={useComboHint}
             disabled={hintRemaining <= 0}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border transition-colors ${hintRemaining > 0 ? 'bg-amber-500/20 border-amber-400/40 hover:bg-amber-500/30' : 'bg-slate-700/50 border-slate-500/30 cursor-not-allowed opacity-60'}`}
+            className={`flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 rounded-lg border transition-colors ${hintRemaining > 0 ? 'bg-amber-500/20 border-amber-400/40 hover:bg-amber-500/30' : 'bg-slate-700/50 border-slate-500/30 cursor-not-allowed opacity-60'}`}
             title={hintRemaining > 0 ? `连携提示（剩余 ${hintRemaining} 次）` : '提示已用完'}
           >
-            <Info className={`w-5 h-5 ${hintRemaining > 0 ? 'text-amber-400' : 'text-slate-500'}`} />
-            <span className={`font-mono text-sm ${hintRemaining > 0 ? 'text-amber-300' : 'text-slate-500'}`}>连携提示 ({hintRemaining})</span>
+            <Info className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 ${hintRemaining > 0 ? 'text-amber-400' : 'text-slate-500'}`} />
+            <span className={`font-mono text-xs sm:text-sm ${hintRemaining > 0 ? 'text-amber-300' : 'text-slate-500'}`}>({hintRemaining})</span>
           </motion.button>
           {playerBlock > 0 && (
             <span className="flex items-center gap-1 text-cyan-400">
@@ -532,7 +532,7 @@ export function BattleView() {
             </span>
           )}
         </div>
-        <div className="flex flex-col items-end gap-1">
+        <div className="flex flex-row sm:flex-col items-center sm:items-end gap-2 sm:gap-1 self-end sm:self-auto">
           {/* 敌人攻击与防御（同时显示） */}
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1 text-rose-400">
@@ -573,10 +573,10 @@ export function BattleView() {
         </div>
       </header>
 
-      <section className="relative z-10 flex-1 flex flex-col items-center justify-center py-8">
-        <p className="font-mono text-cyan-400/80 text-sm tracking-[0.3em] mb-4">真理合成台</p>
+      <section className="relative z-10 flex-1 flex flex-col items-center justify-center py-4 sm:py-8 px-2 sm:px-0">
+        <p className="font-mono text-cyan-400/80 text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] mb-2 sm:mb-4">真理合成台</p>
         <div
-          className={`relative p-8 rounded-xl border-2 border-dashed bg-slate-900/60 backdrop-blur-md transition-all duration-500 animate-[synthesis-pulse_3s_ease-in-out_infinite]
+          className={`relative p-4 sm:p-8 rounded-xl border-2 border-dashed bg-slate-900/60 backdrop-blur-md transition-all duration-500 animate-[synthesis-pulse_3s_ease-in-out_infinite] w-full max-w-full sm:max-w-none
             ${resonanceGlow === '历史' ? 'border-amber-400/80 shadow-[0_0_100px_rgba(251,191,36,0.6),inset_0_0_60px_rgba(251,191,36,0.2)]' : ''}
             ${resonanceGlow === '地理' ? 'border-cyan-400/80 shadow-[0_0_100px_rgba(34,211,238,0.6),inset_0_0_60px_rgba(59,130,246,0.2)]' : ''}
             ${resonanceGlow === '生物' ? 'border-emerald-400/80 shadow-[0_0_100px_rgba(52,211,153,0.6),inset_0_0_60px_rgba(52,211,153,0.2)]' : ''}
@@ -588,7 +588,7 @@ export function BattleView() {
           <div className="absolute -bottom-px -left-px w-10 h-10 border-l-2 border-b-2 border-dashed border-cyan-400/50 rounded-bl" />
           <div className="absolute -bottom-px -right-px w-10 h-10 border-r-2 border-b-2 border-dashed border-cyan-400/50 rounded-br" />
 
-          <div className="flex gap-4 justify-center items-center min-h-[140px] min-w-[320px]">
+          <div className="flex gap-2 sm:gap-4 justify-center items-center min-h-[120px] sm:min-h-[140px] min-w-0 sm:min-w-[320px]">
             <AnimatePresence mode="popLayout">
               {synthesisCards.map(card => (
                 <motion.div
@@ -607,19 +607,19 @@ export function BattleView() {
               {Array.from({ length: 4 - synthesisCards.length }).map((_, i) => (
                 <div
                   key={`slot-${i}`}
-                  className="w-20 min-w-20 aspect-[7/12] rounded-lg border border-dashed border-cyan-500/30 bg-cyan-500/5"
+                  className="w-16 min-w-16 sm:w-20 sm:min-w-20 aspect-[7/12] rounded-lg border border-dashed border-cyan-500/30 bg-cyan-500/5 shrink-0"
                 />
               ))}
             </AnimatePresence>
           </div>
 
-          <div className="flex justify-center gap-4 mt-6 flex-wrap">
+          <div className="flex justify-center gap-2 sm:gap-4 mt-4 sm:mt-6 flex-wrap">
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={validateLogic}
               disabled={synthesis.length === 0 || validatingRef.current || isValidating}
-              className="px-8 py-3 font-mono text-sm tracking-widest rounded-lg
+              className="px-5 sm:px-8 py-2.5 sm:py-3 font-mono text-xs sm:text-sm tracking-widest rounded-lg
                 bg-cyan-600/80 hover:bg-cyan-500/90 disabled:bg-slate-700/50 disabled:cursor-not-allowed
                 border border-cyan-400/50 text-cyan-100
                 shadow-[0_0_20px_rgba(34,211,238,0.2)]
@@ -632,7 +632,7 @@ export function BattleView() {
               whileTap={!rethinkUsed ? { scale: 0.98 } : {}}
               onClick={rethinkHand}
               disabled={rethinkUsed}
-              className={`px-8 py-3 font-mono text-sm tracking-widest rounded-lg border transition-colors
+              className={`px-5 sm:px-8 py-2.5 sm:py-3 font-mono text-xs sm:text-sm tracking-widest rounded-lg border transition-colors
                 ${rethinkUsed
                   ? 'bg-slate-700/50 border-slate-500/30 text-slate-500 cursor-not-allowed'
                   : 'bg-violet-600/80 hover:bg-violet-500/90 border-violet-400/50 text-violet-100'
@@ -669,7 +669,7 @@ export function BattleView() {
             className="fixed top-16 left-1/2 -translate-x-1/2 z-[9997] pointer-events-none"
           >
             <div
-              className={`px-8 py-4 rounded-xl font-serif text-xl md:text-2xl font-bold text-center
+              className={`px-4 sm:px-8 py-3 sm:py-4 rounded-xl font-serif text-lg sm:text-xl md:text-2xl font-bold text-center max-w-[95vw]
                 ${resonanceToast.subject === '历史' ? 'bg-amber-900/95 border-2 border-amber-400/80 text-amber-100 shadow-[0_0_60px_rgba(251,191,36,0.5)]' : ''}
                 ${resonanceToast.subject === '地理' ? 'bg-cyan-900/95 border-2 border-cyan-400/80 text-cyan-100 shadow-[0_0_60px_rgba(34,211,238,0.5)]' : ''}
                 ${resonanceToast.subject === '生物' ? 'bg-emerald-900/95 border-2 border-emerald-400/80 text-emerald-100 shadow-[0_0_60px_rgba(52,211,153,0.5)]' : ''}
@@ -691,16 +691,16 @@ export function BattleView() {
             exit={{ opacity: 0, y: -20 }}
             className="fixed top-16 left-1/2 -translate-x-1/2 z-[9999] pointer-events-none"
           >
-            <div className="px-8 py-4 rounded-xl bg-rose-900/95 border-2 border-rose-400/80 text-rose-100 font-mono text-2xl font-bold shadow-[0_0_60px_rgba(244,63,94,0.6)]">
+            <div className="px-4 sm:px-8 py-3 sm:py-4 rounded-xl bg-rose-900/95 border-2 border-rose-400/80 text-rose-100 font-mono text-lg sm:text-2xl font-bold shadow-[0_0_60px_rgba(244,63,94,0.6)] max-w-[95vw] text-center">
               {enemy?.name ?? '敌人'} 对你造成 {attackDamageToast} 点伤害
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      <footer className="relative z-10 border-t border-cyan-500/20 bg-slate-950/60 backdrop-blur py-6 min-h-[180px]">
-        <div className="flex items-center justify-center gap-6 mb-4">
-          <div className="flex items-center gap-4">
+      <footer className="relative z-10 border-t border-cyan-500/20 bg-slate-950/60 backdrop-blur py-4 sm:py-6 min-h-[160px] sm:min-h-[180px]">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mb-3 sm:mb-4 px-2">
+          <div className="flex items-center gap-3 sm:gap-4 flex-wrap justify-center">
             <span className="flex items-center gap-2 text-rose-400">
               <Swords className="w-4 h-4" />
               <span className="font-mono text-sm">瞬击</span>
@@ -716,7 +716,7 @@ export function BattleView() {
             手牌区 · 抽牌堆 {drawPile.length} / 弃牌堆 {discardPile.length}
           </span>
         </div>
-        <div className="flex justify-center gap-4 px-4 overflow-visible pt-10 pb-2">
+        <div className="flex justify-start sm:justify-center gap-2 sm:gap-4 px-2 sm:px-4 overflow-x-auto overflow-y-visible pt-6 sm:pt-10 pb-2 -mx-2 sm:mx-0 flex-nowrap" style={{ WebkitOverflowScrolling: 'touch' }}>
           <AnimatePresence mode="popLayout">
             {handCards.map((card, i) => (
               <motion.div
@@ -748,7 +748,7 @@ export function BattleView() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/70 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/70 backdrop-blur-sm overflow-y-auto"
             onClick={() => setSyllabusOpen(false)}
           >
             <motion.div
@@ -757,7 +757,7 @@ export function BattleView() {
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: 'spring', damping: 25 }}
               onClick={e => e.stopPropagation()}
-              className="max-w-xl w-full rounded-xl border-2 border-cyan-500/50 bg-slate-900/95 p-6 shadow-2xl shadow-[0_0_40px_rgba(34,211,238,0.2)]"
+              className="max-w-xl w-full rounded-xl border-2 border-cyan-500/50 bg-slate-900/95 p-4 sm:p-6 shadow-2xl shadow-[0_0_40px_rgba(34,211,238,0.2)] my-auto"
             >
               <div className="flex justify-between items-start mb-4">
                 <h3 className="font-serif text-xl font-bold text-cyan-300">玩法帮助</h3>
@@ -808,7 +808,7 @@ export function BattleView() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/70 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/70 backdrop-blur-sm overflow-y-auto"
             onClick={closeModal}
           >
             <motion.div
@@ -817,7 +817,7 @@ export function BattleView() {
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: 'spring', damping: 25 }}
               onClick={e => e.stopPropagation()}
-              className={`max-w-lg w-full rounded-xl border-2 p-6 shadow-2xl ${
+              className={`max-w-lg w-full rounded-xl border-2 p-4 sm:p-6 shadow-2xl ${
                 modal.type === 'success'
                   ? 'bg-slate-900/95 border-cyan-500/50 shadow-[0_0_40px_rgba(34,211,238,0.2)]'
                   : 'bg-slate-900/95 border-rose-500/50 shadow-[0_0_40px_rgba(244,63,94,0.2)]'

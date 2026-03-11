@@ -45,7 +45,7 @@ export function RelicRewardView() {
         <p className="font-mono text-amber-400/70 text-sm tracking-widest">选择一件遗物</p>
       </div>
 
-      <div className="relative z-10 flex gap-8 justify-center flex-wrap px-6">
+      <div className="relative z-10 flex gap-4 sm:gap-8 justify-center flex-wrap px-4 sm:px-6">
         {options.length === 0 ? (
           <div className="flex flex-col items-center gap-4">
             <p className="text-slate-400">已集齐所有遗物</p>

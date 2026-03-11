@@ -122,7 +122,7 @@ export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comb
     ${style.border} ${style.hoverBorder} ${style.shadow} ${style.hoverShadow}
     transition-all duration-200
     ${disabled ? 'opacity-60 cursor-not-allowed' : ''}
-    ${isCompact ? 'w-20 min-w-20' : 'w-24 min-w-24'}
+    ${isCompact ? 'w-16 min-w-16 sm:w-20 sm:min-w-20' : 'w-20 min-w-20 sm:w-24 sm:min-w-24'}
     ${showGlow ? 'ring-2 ring-amber-400/60 shadow-[0_0_15px_rgba(251,191,36,0.3)]' : ''}
   `
   const aspectClass = 'aspect-[7/12]'

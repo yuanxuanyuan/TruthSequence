@@ -37,7 +37,7 @@ export function CardChoiceView() {
         <p className="font-mono text-cyan-400/70 text-sm tracking-widest">选择一张卡牌加入卡组</p>
       </div>
 
-      <div className="relative z-10 flex gap-8 justify-center flex-wrap px-6">
+      <div className="relative z-10 flex gap-4 sm:gap-8 justify-center flex-wrap px-4 sm:px-6">
         <AnimatePresence mode="popLayout">
           {options.map((card, i) => (
             <motion.div

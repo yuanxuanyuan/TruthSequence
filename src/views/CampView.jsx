@@ -62,9 +62,9 @@ export function CampView() {
         <p className="mt-2 text-slate-400 text-sm">HP {playerHP} / {INIT_PLAYER_HP}</p>
       </header>
 
-      <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-6">
+      <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 sm:px-6">
         {!choice && !done && (
-          <div className="relative w-96 h-72 flex items-center justify-center">
+          <div className="relative w-full max-w-96 min-h-72 flex items-center justify-center">
             {/* 三足鼎立布局：上、左下、右下 */}
             <motion.button
               whileHover={{ scale: 1.05 }}

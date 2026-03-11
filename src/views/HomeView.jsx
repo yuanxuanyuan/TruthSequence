@@ -55,7 +55,7 @@ export function HomeView() {
   ]
 
   return (
-    <div className="min-h-screen bg-void text-white flex flex-col items-center justify-center relative overflow-hidden">
+      <div className="min-h-screen bg-void text-white flex flex-col items-center justify-center relative overflow-hidden px-4 sm:px-0">
       {/* 背景 */}
       <div className="absolute inset-0 bg-grid opacity-20" />
       <div className="absolute inset-0 bg-gradient-to-b from-cyan-950/30 via-slate-900/50 to-void" />
