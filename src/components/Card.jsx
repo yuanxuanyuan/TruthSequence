@@ -134,9 +134,17 @@ export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comb
   const RIGHT_BUFFER = 280
   const tooltipStyle = tooltipRect && typeof window !== 'undefined'
     ? (() => {
+        const winW = window.innerWidth
+        const isMobile = winW < 640
+        if (isMobile) {
+          return {
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+          }
+        }
         const cardCenter = tooltipRect.left + tooltipRect.width / 2
         const cardRight = tooltipRect.right
-        const winW = window.innerWidth
         let left = cardCenter
         let transform = 'translate(-50%, -100%)'
         if (cardRight > winW - RIGHT_BUFFER || cardCenter + TOOLTIP_HALF > winW - MARGIN) {
