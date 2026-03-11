@@ -46,6 +46,16 @@
   50% { box-shadow: 0 0 0 4px rgba(251,191,36,1), 0 0 50px rgba(251,191,36,1), 0 0 85px rgba(251,191,36,0.7); }
 }
 
+/* 卡片左上角学科标签 · 残缺故障风格（色偏碎裂感） */
+.text-fragment {
+  text-shadow:
+    -0.5px 0 rgba(255, 80, 120, 0.3),
+    0.6px 0 rgba(80, 255, 255, 0.35),
+    0 0 2px rgba(0, 0, 0, 0.25);
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+
 /* 真理合成台 · 虚线扫描框呼吸动画（微弱脉动，如解析中的仪器） */
 @keyframes synthesis-pulse {
   0%, 100% {

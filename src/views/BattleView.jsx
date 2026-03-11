@@ -71,16 +71,18 @@ function pickRandomEnemy() {
 }
 
 export function BattleView() {
-  const { playerHP, playerBlock, damagePlayer, addPlayerBlock, clearPlayerBlock, deck, relics, goToCardChoice, goToRelicReward, upgradedCards } = useGame()
+  const { playerHP, playerBlock, damagePlayer, addPlayerBlock, clearPlayerBlock, deck, relics, goToCardChoice, goToRelicReward, goToHome, upgradedCards } = useGame()
   const [modal, setModal] = useState(null)
   const [syllabusOpen, setSyllabusOpen] = useState(false)
   const [hintRemaining, setHintRemaining] = useState(HINTS_PER_BATTLE)
   const [hintHighlightCards, setHintHighlightCards] = useState([])
   const [hintToast, setHintToast] = useState(null)
   const hintClearRef = useRef(null)
+  const validatingRef = useRef(false)
+  const [isValidating, setIsValidating] = useState(false)
   const [rethinkUsed, setRethinkUsed] = useState(false)
-  const [sacrificeSelected, setSacrificeSelected] = useState(new Set())
-  const [sacrificeMode, setSacrificeMode] = useState(false)
+  const [attackDamageToast, setAttackDamageToast] = useState(null)
+  const [gameOverOpen, setGameOverOpen] = useState(false)
   const battleWonRef = useRef(false)
 
   // 卡牌循环
@@ -249,8 +251,6 @@ export function BattleView() {
     setDiscardPile([])
     setSynthesis([])
     setRethinkUsed(false)
-    setSacrificeSelected(new Set())
-    setSacrificeMode(false)
     setHintRemaining(HINTS_PER_BATTLE)
     setHintHighlightCards([])
     setHintToast(null)
@@ -259,6 +259,12 @@ export function BattleView() {
   useEffect(() => () => {
     if (hintClearRef.current) clearTimeout(hintClearRef.current)
   }, [])
+
+  useEffect(() => {
+    if (playerHP <= 0 && enemy && !battleWonRef.current) {
+      setGameOverOpen(true)
+    }
+  }, [playerHP, enemy])
 
   const useComboHint = useCallback(() => {
     if (hintRemaining <= 0) return
@@ -290,7 +296,11 @@ export function BattleView() {
   const handCards = hand.map(id => cardsById[id]).filter(Boolean)
   const synthesisCards = synthesis.map(id => cardsById[id]).filter(Boolean)
 
-  const nextIntent = enemy && enemy.actions[enemyActionIndex % enemy.actions.length]
+  const nextAttackValue = useMemo(() => {
+    if (!enemy?.actions) return 0
+    const intent = enemy.actions[enemyActionIndex % enemy.actions.length]
+    return intent?.type === 'attack' ? intent.value : 0
+  }, [enemy, enemyActionIndex])
 
   const moveToSynthesis = (cardId) => {
     if (synthesis.length >= 4) return
@@ -314,8 +324,40 @@ export function BattleView() {
     setModal(null)
   }
 
+  const runEnemyTurn = useCallback((baseHand, baseDrawPile, baseDiscardPile) => {
+    if (!enemy) return
+    const intent = enemy.actions[enemyActionIndex % enemy.actions.length]
+    setEnemyBlock(intent?.type === 'defend' ? intent.value : 0)
+    if (intent?.type === 'attack') {
+      damagePlayer(intent.value)
+      setAttackDamageToast(intent.value)
+      setTimeout(() => setAttackDamageToast(null), 2500)
+    }
+    setEnemyActionIndex(i => i + 1)
+    let currentHand = [...baseHand]
+    let toDiscard = []
+    if (intent?.type === 'discard' && intent.value > 0) {
+      toDiscard = shuffle([...baseHand]).slice(0, Math.min(intent.value, baseHand.length))
+      currentHand = baseHand.filter(id => !toDiscard.includes(id))
+    }
+    const combinedDiscard = [...baseDiscardPile, ...toDiscard, ...currentHand]
+    let dp = baseDrawPile
+    if (intent?.type === 'curse' && comboCardIds.has(intent.value)) dp = [...baseDrawPile, intent.value]
+    const drawCount = Math.max(1, HAND_SIZE - (intent?.type === 'discard' ? (intent.value ?? 0) : 0))
+    const { drawn, drawPile: rawDp, discardPile: rawDcp } = drawCards(dp, combinedDiscard, drawCount)
+    drawn.filter(id => id === 'curse_celestial_dream').forEach(() => damagePlayer(2))
+    const ensured = ensureHandHasComboWithPiles(drawn, rawDp, rawDcp)
+    setDrawPile(ensured.drawPile)
+    setDiscardPile(ensured.discardPile)
+    clearPlayerBlock()
+    setHand(ensured.hand)
+  }, [enemy, enemyActionIndex, damagePlayer, clearPlayerBlock, ensureHandHasComboWithPiles])
+
   const validateLogic = () => {
     if (synthesis.length === 0) return
+    if (validatingRef.current) return
+    validatingRef.current = true
+    setIsValidating(true)
     const result = evaluateCombo(synthesis, undefined, relics)
     const combinedDiscard = [...discardPile, ...synthesis]
     const combinedPool = shuffle([...hand, ...drawPile])
@@ -346,73 +388,18 @@ export function BattleView() {
       damagePlayer(result.backlashDamage)
       setModal({ type: 'fail', message: result.message, backlashDamage: result.backlashDamage })
     }
+    // 延后执行敌人回合，避免与 modal 的 state 更新冲突，确保玩家 HP 正确扣减
+    const h = ensured.hand
+    const dp = ensured.drawPile
+    const dcp = ensured.discardPile
+    setTimeout(() => {
+      runEnemyTurn(h, dp, dcp)
+      validatingRef.current = false
+      setIsValidating(false)
+    }, 0)
   }
 
-  const endTurn = () => {
-    if (!enemy) return
-    const intent = nextIntent
-    setEnemyBlock(0)
-    if (intent?.type === 'attack') damagePlayer(intent.value)
-    if (intent?.type === 'defend') setEnemyBlock(b => b + intent.value)
-    setEnemyActionIndex(i => i + 1)
-    let currentHand = [...hand]
-    let toDiscard = []
-    if (intent?.type === 'discard' && intent.value > 0) {
-      toDiscard = shuffle([...hand]).slice(0, Math.min(intent.value, hand.length))
-      currentHand = hand.filter(id => !toDiscard.includes(id))
-    }
-    const combinedDiscard = [...discardPile, ...toDiscard, ...currentHand]
-    let dp = drawPile
-    if (intent?.type === 'curse' && comboCardIds.has(intent.value)) dp = [...drawPile, intent.value]
-    const drawCount = Math.max(1, HAND_SIZE - (intent?.type === 'discard' ? (intent.value ?? 0) : 0))
-    const { drawn, drawPile: rawDp, discardPile: rawDcp } = drawCards(dp, combinedDiscard, drawCount)
-    drawn.filter(id => id === 'curse_celestial_dream').forEach(() => damagePlayer(2))
-    const ensured = ensureHandHasComboWithPiles(drawn, rawDp, rawDcp)
-    setDrawPile(ensured.drawPile)
-    setDiscardPile(ensured.discardPile)
-    clearPlayerBlock()
-    setHand(drawn)
-  }
-
-  const handleHandCardClick = (cardId) => {
-    if (sacrificeMode) {
-      toggleSacrificeSelect(cardId)
-    } else {
-      moveToSynthesis(cardId)
-    }
-  }
-
-  const toggleSacrificeSelect = (cardId) => {
-    setSacrificeSelected(s => {
-      const next = new Set(s)
-      if (next.has(cardId)) next.delete(cardId)
-      else next.add(cardId)
-      return next
-    })
-  }
-
-  const sacrificeDiscard = () => {
-    if (sacrificeSelected.size === 0) {
-      setSacrificeMode(m => !m)
-      if (!sacrificeMode) setSacrificeSelected(new Set())
-      return
-    }
-    const toDiscard = [...sacrificeSelected]
-    const discardSet = new Set(toDiscard)
-    const damagePerCard = 2
-    const totalDamage = damagePerCard * toDiscard.length
-    damagePlayer(totalDamage)
-    setSacrificeSelected(new Set())
-    const combinedDiscard = [...discardPile, ...toDiscard]
-    const { drawn, drawPile: rawDp, discardPile: rawDcp } = drawCards(drawPile, combinedDiscard, toDiscard.length)
-    const keptHand = hand.filter(id => !discardSet.has(id))
-    const baseHand = [...keptHand, ...drawn]
-    const ensured = ensureHandHasComboWithPiles(baseHand, rawDp, rawDcp)
-    setDrawPile(ensured.drawPile)
-    setDiscardPile(ensured.discardPile)
-    setHand(ensured.hand)
-    setSacrificeMode(false)
-  }
+  const handleHandCardClick = (cardId) => moveToSynthesis(cardId)
 
   const rethinkHand = () => {
     if (rethinkUsed) return
@@ -469,56 +456,42 @@ export function BattleView() {
           )}
         </div>
         <div className="flex flex-col items-end gap-1">
-          {/* 敌人意图 */}
-          {nextIntent && (
-            <div className={`flex items-center gap-2 px-3 py-1 rounded-lg ${
-              nextIntent.type === 'attack'
-                ? 'bg-rose-500/20 border border-rose-400/50'
-                : nextIntent.type === 'curse'
-                  ? 'bg-violet-500/20 border border-violet-400/50'
-                  : nextIntent.type === 'discard'
-                    ? 'bg-amber-500/20 border border-amber-400/50'
-                    : 'bg-cyan-500/20 border border-cyan-400/50'
-            }`}>
-              {nextIntent.type === 'attack' ? (
-                <Swords className="w-4 h-4 text-rose-400" />
-              ) : nextIntent.type === 'curse' ? (
-                <Skull className="w-4 h-4 text-violet-400" />
-              ) : nextIntent.type === 'discard' ? (
-                <X className="w-4 h-4 text-amber-400" />
-              ) : (
-                <Shield className="w-4 h-4 text-cyan-400" />
-              )}
-              <span className="font-mono text-sm">{nextIntent.desc ?? nextIntent.value}</span>
-            </div>
-          )}
+          {/* 敌人攻击与防御（同时显示） */}
+          <div className="flex items-center gap-4">
+            <span className="flex items-center gap-1 text-rose-400">
+              <Swords className="w-4 h-4" />
+              <span className="font-mono font-bold tabular-nums">{nextAttackValue}</span>
+            </span>
+            <span className="flex items-center gap-1 text-cyan-400">
+              <Shield className="w-4 h-4" />
+              <span className="font-mono font-bold tabular-nums">{enemyBlock}</span>
+            </span>
+          </div>
           <div className="flex flex-col sm:flex-row items-end gap-2">
             <div className="flex items-center gap-2">
               <span className="text-3xl sm:text-4xl min-w-[2rem] text-center" title={enemy.name}>
                 {enemy.avatar ? String(enemy.avatar) : <Zap className="w-8 h-8 text-amber-400 inline" />}
               </span>
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-1">
                 <span className="font-mono text-lg font-bold text-amber-200">{enemy.name}</span>
-                <div className="flex items-baseline gap-1">
-                  <span className="font-mono text-xl font-bold text-amber-300 tabular-nums">{enemyHP}</span>
-                  <span className="text-slate-500 font-mono text-sm">/ {enemy.hp}</span>
+                <div className="relative w-48 sm:w-56 h-8 rounded-full bg-slate-700 overflow-hidden flex items-center justify-center">
+                  <motion.div
+                    className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-amber-600 to-amber-400"
+                    initial={false}
+                    animate={{ width: `${Math.max(0, (enemyHP / enemy.hp) * 100)}%` }}
+                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                  />
+                  <span
+                    className="relative z-10 font-mono text-base sm:text-lg font-black tabular-nums text-yellow-400"
+                    style={{
+                      textShadow: '1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 0 0 #000, -1px 0 0 #000, 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 2px 0 0 #000, -2px 0 0 #000',
+                    }}
+                  >
+                    {enemyHP} / {enemy.hp}
+                  </span>
                 </div>
               </div>
             </div>
-            <div className="w-32 sm:w-40 h-2 rounded-full bg-slate-700 overflow-hidden">
-              <motion.div
-                className="h-full rounded-full bg-gradient-to-r from-amber-600 to-amber-400"
-                initial={false}
-                animate={{ width: `${Math.max(0, (enemyHP / enemy.hp) * 100)}%` }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
-              />
-            </div>
-            {enemyBlock > 0 && (
-              <span className="flex items-center gap-1 text-cyan-400">
-                <Shield className="w-5 h-5" />
-                <span className="font-mono font-bold tabular-nums">{enemyBlock}</span>
-              </span>
-            )}
           </div>
         </div>
       </header>
@@ -563,7 +536,7 @@ export function BattleView() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={validateLogic}
-              disabled={synthesis.length === 0}
+              disabled={synthesis.length === 0 || validatingRef.current || isValidating}
               className="px-8 py-3 font-mono text-sm tracking-widest rounded-lg
                 bg-cyan-600/80 hover:bg-cyan-500/90 disabled:bg-slate-700/50 disabled:cursor-not-allowed
                 border border-cyan-400/50 text-cyan-100
@@ -571,16 +544,6 @@ export function BattleView() {
                 transition-colors"
             >
               验证逻辑
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={endTurn}
-              className="px-8 py-3 font-mono text-sm tracking-widest rounded-lg
-                bg-amber-600/80 hover:bg-amber-500/90 border border-amber-400/50 text-amber-100
-                transition-colors"
-            >
-              结束回合
             </motion.button>
             <motion.button
               whileHover={!rethinkUsed ? { scale: 1.02 } : {}}
@@ -596,23 +559,6 @@ export function BattleView() {
             >
               整理思绪
             </motion.button>
-            <motion.button
-              whileHover={{ scale: sacrificeSelected.size > 0 ? 1.02 : 1 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={sacrificeDiscard}
-              className={`px-8 py-3 font-mono text-sm tracking-widest rounded-lg border transition-colors
-                ${sacrificeMode || sacrificeSelected.size > 0
-                  ? 'bg-rose-600/80 hover:bg-rose-500/90 border-rose-400/50 text-rose-100'
-                  : 'bg-slate-700/50 hover:bg-slate-600/60 border-slate-500/40 text-slate-300'
-                }`}
-              title="选择手牌献祭：每弃 1 张受到 2 点伤害，并重抽等量新牌"
-            >
-              {sacrificeSelected.size > 0
-                ? `献祭弃牌 (${sacrificeSelected.size}张)`
-                : sacrificeMode
-                  ? '献祭弃牌 · 点击手牌选择'
-                  : '献祭弃牌'}
-            </motion.button>
           </div>
         </div>
       </section>
@@ -627,6 +573,22 @@ export function BattleView() {
             className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-lg bg-amber-900/90 border border-amber-400/50 text-amber-200 font-mono text-sm shadow-lg"
           >
             {hintToast}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* BOSS 伤害提示 - 从屏幕上方弹出，最高层级 */}
+      <AnimatePresence>
+        {attackDamageToast != null && (
+          <motion.div
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed top-16 left-1/2 -translate-x-1/2 z-[9999] pointer-events-none"
+          >
+            <div className="px-8 py-4 rounded-xl bg-rose-900/95 border-2 border-rose-400/80 text-rose-100 font-mono text-2xl font-bold shadow-[0_0_60px_rgba(244,63,94,0.6)]">
+              {enemy?.name ?? '敌人'} 对你造成 {attackDamageToast} 点伤害
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -648,7 +610,7 @@ export function BattleView() {
                 transition={{ type: 'spring', stiffness: 300, damping: 24 }}
               >
                 <div
-                  className={`relative rounded-lg transition-all duration-300 ${sacrificeSelected.has(card.id) ? 'ring-2 ring-rose-400 ring-offset-2 ring-offset-slate-950' : ''} ${hintHighlightCards.includes(String(card.id)) ? 'hint-card-glow' : ''}`}
+                  className={`relative rounded-lg transition-all duration-300 ${hintHighlightCards.includes(String(card.id)) ? 'hint-card-glow' : ''}`}
                   style={hintHighlightCards.includes(String(card.id)) ? { boxShadow: '0 0 0 4px rgba(251,191,36,0.9), 0 0 40px rgba(251,191,36,0.95), 0 0 70px rgba(251,191,36,0.6)' } : undefined}
                   onClick={() => handleHandCardClick(card.id)}
                 >
@@ -688,7 +650,7 @@ export function BattleView() {
                 <ol className="list-decimal list-inside space-y-2">
                   <li>将关联知识点拖入合成台验证。</li>
                   <li>正确则造成巨额 Combo 伤害；乱拼引发悖论反噬扣血。</li>
-                  <li>若无法组合，可单卡验证或结束回合；也可使用【献祭弃牌】卖血换牌。</li>
+                  <li>若无法组合，可单卡验证；每次验证后敌人会对你发动攻击。</li>
                 </ol>
                 <p className="text-slate-400 text-xs pt-1">以下为与本局牌组相关的 Combo 配方示例，可作为开卷考试参考：</p>
                 <div className="max-h-48 overflow-y-auto space-y-2 pr-1 scrollbar-thin">
@@ -780,6 +742,37 @@ export function BattleView() {
                 } transition-colors`}
               >
                 确认
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* 战斗失败 */}
+      <AnimatePresence>
+        {gameOverOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[9998] flex items-center justify-center p-6 bg-black/80 backdrop-blur-sm"
+            onClick={() => { setGameOverOpen(false); goToHome() }}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: 'spring', damping: 25 }}
+              onClick={e => e.stopPropagation()}
+              className="max-w-md w-full rounded-xl border-2 border-rose-500/50 bg-slate-900/95 p-6 shadow-2xl shadow-[0_0_40px_rgba(244,63,94,0.2)]"
+            >
+              <h3 className="font-serif text-2xl font-bold text-rose-400 mb-3">战斗失败</h3>
+              <p className="text-slate-300 mb-6">你的生命值归零，被敌人击败了……</p>
+              <button
+                onClick={() => { setGameOverOpen(false); goToHome() }}
+                className="w-full py-3 rounded-lg font-mono text-sm bg-rose-600/80 hover:bg-rose-500 text-rose-100 transition-colors"
+              >
+                返回首页
               </button>
             </motion.div>
           </motion.div>

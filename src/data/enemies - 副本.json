@@ -1,0 +1,140 @@
+[
+  {
+    "id": "mock_exam",
+    "name": "模拟卷怪",
+    "hp": 50,
+    "avatar": "📝",
+    "actions": [
+      { "type": "attack", "value": 10 },
+      { "type": "defend", "value": 5 },
+      { "type": "attack", "value": 15 }
+    ]
+  },
+  {
+    "id": "forget_demon",
+    "name": "遗忘心魔",
+    "hp": 60,
+    "avatar": "😵",
+    "actions": [
+      { "type": "defend", "value": 8 },
+      { "type": "attack", "value": 12 },
+      { "type": "attack", "value": 8 }
+    ]
+  },
+  {
+    "id": "mutant_helicobacter",
+    "name": "变异的幽门螺杆菌",
+    "hp": 560,
+    "boss": true,
+    "avatar": "🌀",
+    "subject": "生物",
+    "actions": [
+      { "type": "curse", "value": "curse_stomachache", "desc": "塞入胃痛诅咒" },
+      { "type": "attack", "value": 8 },
+      { "type": "curse", "value": "curse_stomachache", "desc": "塞入胃痛诅咒" },
+      { "type": "attack", "value": 12 }
+    ]
+  },
+  {
+    "id": "iron_hooves",
+    "name": "列强的铁蹄",
+    "hp": 700,
+    "boss": true,
+    "avatar": "╰(‵□′)╯",
+    "subject": "历史",
+    "actions": [
+      { "type": "attack", "value": 28 },
+      { "type": "attack", "value": 22 },
+      { "type": "attack", "value": 25 },
+      { "type": "attack", "value": 30 }
+    ]
+  },
+  {
+    "id": "terrain_titan",
+    "name": "地貌巨灵",
+    "hp": 630,
+    "boss": true,
+    "avatar": "ಠ_ಠ",
+    "subject": "地理",
+    "actions": [
+      { "type": "defend", "value": 15 },
+      { "type": "attack", "value": 18 },
+      { "type": "defend", "value": 12 },
+      { "type": "attack", "value": 24 }
+    ]
+  },
+  {
+    "id": "ventricular_tyrant",
+    "name": "心室暴君",
+    "hp": 595,
+    "boss": true,
+    "avatar": "♥‿♥",
+    "subject": "生物",
+    "actions": [
+      { "type": "curse", "value": "curse_thrombus", "desc": "塞入血栓诅咒" },
+      { "type": "attack", "value": 14 },
+      { "type": "curse", "value": "curse_thrombus", "desc": "塞入血栓诅咒" },
+      { "type": "attack", "value": 18 }
+    ]
+  },
+  {
+    "id": "climate_chaos",
+    "name": "干湿失衡者",
+    "hp": 616,
+    "boss": true,
+    "avatar": "（　ﾟДﾟ）",
+    "subject": "地理",
+    "actions": [
+      { "type": "attack", "value": 20 },
+      { "type": "defend", "value": 18 },
+      { "type": "attack", "value": 22 },
+      { "type": "attack", "value": 16 }
+    ]
+  },
+  {
+    "id": "ghost_isolation",
+    "name": "闭关锁国的幽灵",
+    "hp": 770,
+    "boss": true,
+    "avatar": "👻",
+    "subject": "历史",
+    "actions": [
+      { "type": "defend", "value": 25 },
+      { "type": "curse", "value": "curse_celestial_dream", "desc": "塞入天朝上国之梦" },
+      { "type": "defend", "value": 22 },
+      { "type": "defend", "value": 28 },
+      { "type": "curse", "value": "curse_celestial_dream", "desc": "塞入天朝上国之梦" }
+    ]
+  },
+  {
+    "id": "frenzied_helicobacter",
+    "name": "狂暴的幽门螺杆菌",
+    "hp": 490,
+    "boss": true,
+    "avatar": "ꐦ°᷄д°᷅",
+    "subject": "生物",
+    "actions": [
+      { "type": "attack", "value": 6 },
+      { "type": "curse", "value": "curse_stomachache", "desc": "塞入胃痛诅咒" },
+      { "type": "attack", "value": 8 },
+      { "type": "attack", "value": 6 },
+      { "type": "curse", "value": "curse_stomachache", "desc": "塞入胃痛诅咒" },
+      { "type": "attack", "value": 10 }
+    ]
+  },
+  {
+    "id": "elnino_beast",
+    "name": "厄尔尼诺巨兽",
+    "hp": 665,
+    "boss": true,
+    "avatar": "🐉",
+    "subject": "地理",
+    "actions": [
+      { "type": "attack", "value": 32 },
+      { "type": "discard", "value": 2, "desc": "随机丢弃2张手牌" },
+      { "type": "attack", "value": 28 },
+      { "type": "discard", "value": 1, "desc": "随机丢弃1张手牌" },
+      { "type": "attack", "value": 35 }
+    ]
+  }
+]

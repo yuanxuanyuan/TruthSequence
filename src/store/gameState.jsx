@@ -23,35 +23,34 @@ function pickRandomCards(pool, n, excludeIds = []) {
 }
 
 export function GameProvider({ children }) {
-  const [playerHP, setPlayerHP] = useState(INIT_PLAYER_HP)
-  const [playerBlock, setPlayerBlock] = useState(0)
+  const [playerCombat, setPlayerCombat] = useState({ hp: INIT_PLAYER_HP, block: 0 })
+  const playerHP = playerCombat.hp
+  const playerBlock = playerCombat.block
   const [deck, setDeck] = useState([])
   const [floor, setFloor] = useState(0)
   const [currentView, setCurrentView] = useState('home')
 
-  /** 对玩家造成伤害，优先扣 block，剩余扣 HP */
+  /** 对玩家造成伤害，优先扣 block，剩余扣 HP（单次 state 更新，避免 Strict Mode 双倍伤害） */
   const damagePlayer = useCallback((amount) => {
     if (amount <= 0) return
-    setPlayerBlock(b => {
-      const afterBlock = Math.max(0, b - amount)
-      const overflow = amount - b
-      if (overflow > 0) {
-        setPlayerHP(h => Math.max(0, h - overflow))
-      }
-      return afterBlock
+    setPlayerCombat(prev => {
+      const afterBlock = Math.max(0, prev.block - amount)
+      const overflow = Math.max(0, amount - prev.block)
+      const afterHP = Math.max(0, prev.hp - overflow)
+      return { hp: afterHP, block: afterBlock }
     })
   }, [])
 
   const addPlayerBlock = useCallback((amount) => {
-    setPlayerBlock(b => b + amount)
+    setPlayerCombat(prev => ({ ...prev, block: prev.block + amount }))
   }, [])
 
   const clearPlayerBlock = useCallback(() => {
-    setPlayerBlock(0)
+    setPlayerCombat(prev => ({ ...prev, block: 0 }))
   }, [])
 
   const healPlayer = useCallback((amount) => {
-    setPlayerHP(h => Math.min(INIT_PLAYER_HP, h + amount))
+    setPlayerCombat(prev => ({ ...prev, hp: Math.min(INIT_PLAYER_HP, prev.hp + amount) }))
   }, [])
 
   const [relics, setRelics] = useState([])
@@ -79,6 +78,7 @@ export function GameProvider({ children }) {
   }, [])
 
   const goToBattle = useCallback(() => setCurrentView('battle'), [])
+  const goToHome = useCallback(() => setCurrentView('home'), [])
   const goToMap = useCallback(() => setCurrentView('map'), [])
   const goToCardChoice = useCallback(() => setCurrentView('cardChoice'), [])
   const goToCamp = useCallback(() => setCurrentView('camp'), [])
@@ -102,8 +102,7 @@ export function GameProvider({ children }) {
   }, [])
 
   const startGame = useCallback(() => {
-    setPlayerHP(100)
-    setPlayerBlock(0)
+    setPlayerCombat({ hp: 100, block: 0 })
     const comboPool = cardsData.filter(c => comboCardIds.has(c.id))
     const twoCardCombos = combosData.filter(c => c.requires?.length === 2)
     const deckIds = new Set()
@@ -130,8 +129,7 @@ export function GameProvider({ children }) {
   }, [])
 
   const startTestGame = useCallback((subject) => {
-    setPlayerHP(100)
-    setPlayerBlock(0)
+    setPlayerCombat({ hp: 100, block: 0 })
     const validSubjects = subject === '' ? ['地理', '生物', '历史'] : [subject]
     const comboPool = cardsData.filter(c => comboCardIds.has(c.id) && validSubjects.includes(c.subject))
     const deckIds = comboPool.length > 0 ? comboPool.map(c => c.id) : []
@@ -167,7 +165,6 @@ export function GameProvider({ children }) {
   const value = {
     playerHP,
     playerBlock,
-    setPlayerHP,
     deck,
     setDeck,
     floor,
@@ -181,6 +178,7 @@ export function GameProvider({ children }) {
     removeCardFromDeck,
     removeRandomCardFromDeck,
     goToBattle,
+    goToHome,
     goToMap,
     goToCardChoice,
     goToCamp,

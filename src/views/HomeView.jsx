@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Hand } from 'lucide-react'
 import { useGame } from '../store/gameState.jsx'
 
 function FloatingShape({ delay, duration, x, y, size, opacity }) {
@@ -36,8 +37,14 @@ const TEST_SUBJECTS = [
 ]
 
 export function HomeView() {
-  const { startGame, startTestGame } = useGame()
+  const { startTestGame } = useGame()
   const [testOpen, setTestOpen] = useState(false)
+  const [toast, setToast] = useState(null)
+
+  const showComingSoon = () => {
+    setToast('敬请期待')
+    setTimeout(() => setToast(null), 1500)
+  }
 
   const shapes = [
     { delay: 0, duration: 8, x: 10, y: 20, size: 80, opacity: 0.15 },
@@ -99,7 +106,7 @@ export function HomeView() {
           transition={{ delay: 0.6, duration: 0.5 }}
           whileHover={{ scale: 1.03, boxShadow: '0 0 30px rgba(34,211,238,0.3)' }}
           whileTap={{ scale: 0.98 }}
-          onClick={startGame}
+          onClick={showComingSoon}
           className="px-12 py-4 font-mono text-lg tracking-widest rounded-lg
             bg-cyan-600/80 hover:bg-cyan-500/90 border border-cyan-400/50 text-cyan-100
             transition-colors"
@@ -111,26 +118,44 @@ export function HomeView() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.5 }}
-          disabled
+          whileTap={{ scale: 0.98 }}
+          onClick={showComingSoon}
           className="px-12 py-4 font-mono text-lg tracking-widest rounded-lg
-            bg-slate-700/40 border border-slate-500/30 text-slate-400 cursor-not-allowed"
+            bg-slate-700/40 border border-slate-500/30 text-slate-400 cursor-pointer hover:bg-slate-700/50"
         >
-          真理图鉴
+          真理图鉴 · 敬请期待
         </motion.button>
 
-        <motion.button
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.75, duration: 0.5 }}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          onClick={() => setTestOpen(t => !t)}
-          className="px-12 py-4 font-mono text-lg tracking-widest rounded-lg
-            bg-amber-800/40 hover:bg-amber-700/50 border border-amber-500/40 text-amber-200
-            transition-colors"
-        >
-          测试模式 {testOpen ? '▲' : '▼'}
-        </motion.button>
+        <div className="flex items-center justify-center gap-3 -ml-4">
+          <motion.div
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.9, duration: 0.4 }}
+            className="flex items-center justify-center"
+            style={{ transformOrigin: 'right center' }}
+          >
+            <motion.div
+              animate={{ x: [0, 6, 0], scale: [1, 1.05, 1] }}
+              transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+              className="text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]"
+            >
+              <Hand className="w-8 h-8 -scale-x-100" strokeWidth={2} />
+            </motion.div>
+          </motion.div>
+          <motion.button
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.75, duration: 0.5 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => setTestOpen(t => !t)}
+            className="px-12 py-4 font-mono text-lg tracking-widest rounded-lg
+              bg-amber-800/40 hover:bg-amber-700/50 border border-amber-500/40 text-amber-200
+              transition-colors"
+          >
+            测试模式 {testOpen ? '▲' : '▼'}
+          </motion.button>
+        </div>
         <AnimatePresence>
           {testOpen && (
             <motion.div
@@ -165,13 +190,29 @@ export function HomeView() {
           transition={{ delay: 0.8, duration: 0.5 }}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
+          onClick={showComingSoon}
           className="px-12 py-4 font-mono text-lg tracking-widest rounded-lg
             bg-slate-800/60 hover:bg-slate-700/70 border border-slate-500/40 text-slate-300
             transition-colors"
         >
-          系统设置
+          系统设置 · 敬请期待
         </motion.button>
       </nav>
+
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 px-6 py-3 rounded-lg
+              bg-amber-900/95 border border-amber-400/50 text-amber-200 font-mono text-lg
+              shadow-[0_0_30px_rgba(251,191,36,0.3)]"
+          >
+            {toast}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

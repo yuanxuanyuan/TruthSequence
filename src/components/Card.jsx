@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -83,6 +83,15 @@ export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comb
   const [showTooltip, setShowTooltip] = useState(false)
   const delayRef = useRef(null)
   const cardRef = useRef(null)
+
+  const typeLabel = useMemo(() => {
+    const t = card?.type ?? ''
+    if (!t || t.length <= 1) return t
+    let seed = 0
+    for (let i = 0; i < (card?.id ?? '').length; i++) seed += (card.id.charCodeAt(i) ?? 0)
+    const idx = Math.abs(seed) % t.length
+    return t[idx]
+  }, [card?.type, card?.id])
 
   const hideTooltip = useCallback(() => {
     if (delayRef.current) {
@@ -196,7 +205,7 @@ export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comb
               )}
             </span>
           )}
-          <span className="text-[10px] text-cyan-400/90 font-mono leading-tight shrink-0">{card.type}</span>
+          <span className="text-[10px] text-cyan-400/90 font-mono leading-tight shrink-0 text-fragment">{typeLabel}</span>
           {card.desc && (
             <div className="flex-1 min-h-0 flex items-center -ml-[10px] -mr-[20px] -mt-[30px] -mb-[30px] px-2">
               <p className="w-full text-[11px] text-slate-500 leading-snug line-clamp-3 overflow-hidden text-left">

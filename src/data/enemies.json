@@ -1,140 +1,142 @@
 [
   {
-    "id": "mock_exam",
-    "name": "模拟卷怪",
-    "hp": 50,
-    "avatar": "📝",
-    "actions": [
-      { "type": "attack", "value": 10 },
-      { "type": "defend", "value": 5 },
-      { "type": "attack", "value": 15 }
-    ]
-  },
-  {
-    "id": "forget_demon",
-    "name": "遗忘心魔",
-    "hp": 60,
-    "avatar": "😵",
-    "actions": [
-      { "type": "defend", "value": 8 },
-      { "type": "attack", "value": 12 },
-      { "type": "attack", "value": 8 }
-    ]
-  },
-  {
-    "id": "mutant_helicobacter",
-    "name": "变异的幽门螺杆菌",
-    "hp": 560,
+    "id": "fool_king_out_of_loop",
+    "name": "在状况内外横跳的傻王",
+    "hp": 850,
     "boss": true,
-    "avatar": "🌀",
-    "subject": "生物",
+    "avatar": "🫨",
+    "subject": "懵懵懂懂",
     "actions": [
-      { "type": "curse", "value": "curse_stomachache", "desc": "塞入胃痛诅咒" },
-      { "type": "attack", "value": 8 },
-      { "type": "curse", "value": "curse_stomachache", "desc": "塞入胃痛诅咒" },
-      { "type": "attack", "value": 12 }
+      { "type": "attack", "value": 5 },
+      { "type": "defend", "value": 50 },
+      { "type": "curse", "value": "curse_celestial_dream", "desc": "发呆中，拉你一起做白日梦" },
+      { "type": "attack", "value": 35 }
     ]
   },
   {
-    "id": "iron_hooves",
-    "name": "列强的铁蹄",
-    "hp": 700,
+    "id": "pigeon_cat_cardboard",
+    "name": "沉迷纸箱无法自拔的鸠猫",
+    "hp": 780,
     "boss": true,
-    "avatar": "╰(‵□′)╯",
-    "subject": "历史",
+    "avatar": "📦",
+    "subject": "猫体工学",
     "actions": [
-      { "type": "attack", "value": 28 },
+      { "type": "attack", "value": 18 },
+      { "type": "defend", "value": 25 },
       { "type": "attack", "value": 22 },
-      { "type": "attack", "value": 25 },
-      { "type": "attack", "value": 30 }
+      { "type": "defend", "value": 25 }
     ]
   },
   {
-    "id": "terrain_titan",
-    "name": "地貌巨灵",
-    "hp": 630,
+    "id": "amao_deadline",
+    "name": "永远在赶DDL的阿毛",
+    "hp": 720,
     "boss": true,
-    "avatar": "ಠ_ಠ",
-    "subject": "地理",
+    "avatar": "😵‍💫",
+    "subject": "拖延症学",
+    "actions": [
+      { "type": "defend", "value": 40 },
+      { "type": "curse", "value": "curse_stomachache", "desc": "把他的死线焦虑传染给你" },
+      { "type": "attack", "value": 12 },
+      { "type": "defend", "value": 10 }
+    ]
+  },
+  {
+    "id": "thug_goji",
+    "name": "保温杯里泡枸杞的暴徒",
+    "hp": 888,
+    "boss": true,
+    "avatar": "🍵",
+    "subject": "朋克养生",
+    "actions": [
+      { "type": "attack", "value": 30 },
+      { "type": "attack", "value": 5 },
+      { "type": "defend", "value": 35 },
+      { "type": "attack", "value": 25 }
+    ]
+  },
+  {
+    "id": "yellow_fish_flat",
+    "name": "咸鱼翻面依旧是咸鱼的黄鱼",
+    "hp": 888,
+    "boss": true,
+    "avatar": "🐟",
+    "subject": "躺平哲学",
     "actions": [
       { "type": "defend", "value": 15 },
+      { "type": "defend", "value": 15 },
+      { "type": "attack", "value": 1 },
+      { "type": "defend", "value": 15 }
+    ]
+  },
+  {
+    "id": "ashoe_untied",
+    "name": "鞋带永远系不紧的阿鞋",
+    "hp": 888,
+    "boss": true,
+    "avatar": "👟",
+    "subject": "平地摔跤学",
+    "actions": [
+      { "type": "defend", "value": 20 },
+      { "type": "attack", "value": 15 },
+      { "type": "curse", "value": "curse_celestial_dream", "desc": "摔了一跤导致眼冒金星" },
+      { "type": "attack", "value": 20 }
+    ]
+  },
+  {
+    "id": "nippon_color_blind",
+    "name": "被甲方要求五彩斑斓黑的立邦",
+    "hp": 888,
+    "boss": true,
+    "avatar": "🎨",
+    "subject": "打回重做",
+    "actions": [
+      { "type": "defend", "value": 30 },
+      { "type": "attack", "value": 15 },
       { "type": "attack", "value": 18 },
-      { "type": "defend", "value": 12 },
-      { "type": "attack", "value": 24 }
+      { "type": "defend", "value": 25 }
     ]
   },
   {
-    "id": "ventricular_tyrant",
-    "name": "心室暴君",
-    "hp": 595,
+    "id": "captain_gate_lost",
+    "name": "在机场找不到登机口的机长",
+    "hp": 888,
     "boss": true,
-    "avatar": "♥‿♥",
-    "subject": "生物",
+    "avatar": "🧭",
+    "subject": "迷路学",
     "actions": [
-      { "type": "curse", "value": "curse_thrombus", "desc": "塞入血栓诅咒" },
-      { "type": "attack", "value": 14 },
-      { "type": "curse", "value": "curse_thrombus", "desc": "塞入血栓诅咒" },
-      { "type": "attack", "value": 18 }
+      { "type": "defend", "value": 50 },
+      { "type": "defend", "value": 50 },
+      { "type": "defend", "value": 50 },
+      { "type": "attack", "value": 66 }
     ]
   },
   {
-    "id": "climate_chaos",
-    "name": "干湿失衡者",
-    "hp": 616,
+    "id": "pig_demon_diet",
+    "name": "发誓明天一定减肥的猪刚鬣",
+    "hp": 888,
     "boss": true,
-    "avatar": "（　ﾟДﾟ）",
-    "subject": "地理",
+    "avatar": "🐷",
+    "subject": "玄学减脂",
     "actions": [
-      { "type": "attack", "value": 20 },
-      { "type": "defend", "value": 18 },
-      { "type": "attack", "value": 22 },
-      { "type": "attack", "value": 16 }
+      { "type": "attack", "value": 25 },
+      { "type": "defend", "value": 10 },
+      { "type": "curse", "value": "curse_thrombus", "desc": "吃太多不想动，塞入久坐血栓" },
+      { "type": "attack", "value": 20 }
     ]
   },
   {
-    "id": "ghost_isolation",
-    "name": "闭关锁国的幽灵",
-    "hp": 770,
+    "id": "zion_low_battery",
+    "name": "电量永远只剩1%的锡安",
+    "hp": 888,
     "boss": true,
-    "avatar": "👻",
-    "subject": "历史",
+    "avatar": "🪫",
+    "subject": "低电量焦虑",
     "actions": [
-      { "type": "defend", "value": 25 },
-      { "type": "curse", "value": "curse_celestial_dream", "desc": "塞入天朝上国之梦" },
-      { "type": "defend", "value": 22 },
-      { "type": "defend", "value": 28 },
-      { "type": "curse", "value": "curse_celestial_dream", "desc": "塞入天朝上国之梦" }
-    ]
-  },
-  {
-    "id": "frenzied_helicobacter",
-    "name": "狂暴的幽门螺杆菌",
-    "hp": 490,
-    "boss": true,
-    "avatar": "ꐦ°᷄д°᷅",
-    "subject": "生物",
-    "actions": [
-      { "type": "attack", "value": 6 },
-      { "type": "curse", "value": "curse_stomachache", "desc": "塞入胃痛诅咒" },
-      { "type": "attack", "value": 8 },
-      { "type": "attack", "value": 6 },
-      { "type": "curse", "value": "curse_stomachache", "desc": "塞入胃痛诅咒" },
-      { "type": "attack", "value": 10 }
-    ]
-  },
-  {
-    "id": "elnino_beast",
-    "name": "厄尔尼诺巨兽",
-    "hp": 665,
-    "boss": true,
-    "avatar": "🐉",
-    "subject": "地理",
-    "actions": [
-      { "type": "attack", "value": 32 },
-      { "type": "discard", "value": 2, "desc": "随机丢弃2张手牌" },
+      { "type": "defend", "value": 20 },
+      { "type": "curse", "value": "curse_celestial_dream", "desc": "强制开启省电睡眠模式" },
       { "type": "attack", "value": 28 },
-      { "type": "discard", "value": 1, "desc": "随机丢弃1张手牌" },
-      { "type": "attack", "value": 35 }
+      { "type": "attack", "value": 15 }
     ]
   }
 ]
