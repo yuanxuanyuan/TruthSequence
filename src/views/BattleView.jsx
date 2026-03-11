@@ -71,7 +71,7 @@ function pickRandomEnemy() {
 }
 
 export function BattleView() {
-  const { playerHP, playerBlock, damagePlayer, addPlayerBlock, clearPlayerBlock, deck, relics, goToCardChoice, goToRelicReward, goToHome, upgradedCards } = useGame()
+  const { playerHP, playerBlock, damagePlayer, addPlayerBlock, clearPlayerBlock, healPlayer, deck, relics, goToCardChoice, goToRelicReward, goToHome, upgradedCards } = useGame()
   const [modal, setModal] = useState(null)
   const [syllabusOpen, setSyllabusOpen] = useState(false)
   const [hintRemaining, setHintRemaining] = useState(HINTS_PER_BATTLE)
@@ -83,7 +83,55 @@ export function BattleView() {
   const [rethinkUsed, setRethinkUsed] = useState(false)
   const [attackDamageToast, setAttackDamageToast] = useState(null)
   const [gameOverOpen, setGameOverOpen] = useState(false)
+  const [attackBonus, setAttackBonus] = useState(0) // 学科共鸣：下一回合攻击力加成
+  const [resonanceToast, setResonanceToast] = useState(null) // { subject, name, effect }
+  const [resonanceGlow, setResonanceGlow] = useState(null)
+  const resonanceClearRef = useRef(null)
+  const topToastQueueRef = useRef([]) // 屏幕上方提示队列，按顺序显示
+  const topToastProcessingRef = useRef(false)
   const battleWonRef = useRef(false)
+
+  const RESONANCE_CONFIG = useMemo(() => ({
+    历史: { name: '以史为鉴', color: 'amber', css: 'from-amber-400/90 to-amber-600/90' },
+    地理: { name: '大地的厚载', color: 'blue', css: 'from-blue-400/90 to-cyan-500/90' },
+    生物: { name: '细胞的增殖', color: 'green', css: 'from-emerald-400/90 to-green-600/90' },
+  }), [])
+
+  const processTopToastQueue = useCallback(() => {
+    if (topToastProcessingRef.current || topToastQueueRef.current.length === 0) return
+    const item = topToastQueueRef.current.shift()
+    if (!item) {
+      topToastProcessingRef.current = false
+      return
+    }
+    topToastProcessingRef.current = true
+    if (item.type === 'resonance') {
+      setResonanceGlow(item.subject)
+      setResonanceToast({ subject: item.subject, name: item.name, effect: item.effect })
+      const duration = 2800
+      if (resonanceClearRef.current) clearTimeout(resonanceClearRef.current)
+      resonanceClearRef.current = setTimeout(() => {
+        setResonanceToast(null)
+        setResonanceGlow(null)
+        resonanceClearRef.current = null
+        if (item.onAfter) item.onAfter()
+        topToastProcessingRef.current = false
+        if (topToastQueueRef.current.length > 0) processTopToastQueue()
+      }, duration)
+    } else if (item.type === 'attack') {
+      setAttackDamageToast(item.value)
+      setTimeout(() => {
+        setAttackDamageToast(null)
+        topToastProcessingRef.current = false
+        if (topToastQueueRef.current.length > 0) processTopToastQueue()
+      }, 2500)
+    }
+  }, [])
+
+  const queueTopToast = useCallback((item) => {
+    topToastQueueRef.current.push(item)
+    processTopToastQueue()
+  }, [processTopToastQueue])
 
   // 卡牌循环
   const [drawPile, setDrawPile] = useState([])
@@ -247,10 +295,11 @@ export function BattleView() {
     setEnemyHP(e.hp)
     setEnemyBlock(0)
     setDrawPile(finalDrawPile)
-    setHand(handToUse)
+    setHand(shuffle(handToUse))
     setDiscardPile([])
     setSynthesis([])
     setRethinkUsed(false)
+    setAttackBonus(0)
     setHintRemaining(HINTS_PER_BATTLE)
     setHintHighlightCards([])
     setHintToast(null)
@@ -258,6 +307,7 @@ export function BattleView() {
 
   useEffect(() => () => {
     if (hintClearRef.current) clearTimeout(hintClearRef.current)
+    if (resonanceClearRef.current) clearTimeout(resonanceClearRef.current)
   }, [])
 
   useEffect(() => {
@@ -330,8 +380,8 @@ export function BattleView() {
     setEnemyBlock(intent?.type === 'defend' ? intent.value : 0)
     if (intent?.type === 'attack') {
       damagePlayer(intent.value)
-      setAttackDamageToast(intent.value)
-      setTimeout(() => setAttackDamageToast(null), 2500)
+      queueTopToast({ type: 'attack', value: intent.value })
+      clearPlayerBlock() // 仅敌人攻击后清空护盾
     }
     setEnemyActionIndex(i => i + 1)
     let currentHand = [...baseHand]
@@ -349,9 +399,8 @@ export function BattleView() {
     const ensured = ensureHandHasComboWithPiles(drawn, rawDp, rawDcp)
     setDrawPile(ensured.drawPile)
     setDiscardPile(ensured.discardPile)
-    clearPlayerBlock()
-    setHand(ensured.hand)
-  }, [enemy, enemyActionIndex, damagePlayer, clearPlayerBlock, ensureHandHasComboWithPiles])
+    setHand(shuffle(ensured.hand))
+  }, [enemy, enemyActionIndex, damagePlayer, clearPlayerBlock, ensureHandHasComboWithPiles, queueTopToast])
 
   const validateLogic = () => {
     if (synthesis.length === 0) return
@@ -366,16 +415,51 @@ export function BattleView() {
     const ensured = ensureHandHasComboWithPiles(drawn, rawDp, rawDcp, new Set(synthesis))
     setDrawPile(ensured.drawPile)
     setDiscardPile(ensured.discardPile)
-    setHand(ensured.hand)
+    setHand(shuffle(ensured.hand))
     setSynthesis([])
     if (result.success) {
-      const dmg = result.damage ?? 0
+      let dmg = result.damage ?? 0
+      let blockAdd = result.block ?? 0
+      // 学科共鸣判定：synthesis 中卡牌同学科且至少 2 张
+      const subjects = synthesis.map(id => cardsById[id]?.subject).filter(Boolean)
+      const isPure = subjects.length >= 2 && subjects.every(s => s === subjects[0])
+      const subject = isPure ? subjects[0] : null
+      const config = subject && RESONANCE_CONFIG[subject]
+      const h = ensured.hand
+      const dp = ensured.drawPile
+      const dcp = ensured.discardPile
+
+      const doRunEnemyTurn = () => {
+        runEnemyTurn(h, dp, dcp)
+        validatingRef.current = false
+        setIsValidating(false)
+      }
+      if (config) {
+        if (subject === '历史') {
+          const bonus = 8 + Math.floor(Math.random() * 13)
+          setAttackBonus(bonus)
+          queueTopToast({ type: 'resonance', subject, name: config.name, effect: `下回合瞬击 +${bonus}`, onAfter: doRunEnemyTurn })
+        } else if (subject === '地理') {
+          const bonus = 8 + Math.floor(Math.random() * 13)
+          addPlayerBlock(bonus)
+          queueTopToast({ type: 'resonance', subject, name: config.name, effect: `获得 ${bonus} 点护盾`, onAfter: doRunEnemyTurn })
+        } else if (subject === '生物') {
+          const heal = 6 + Math.floor(Math.random() * 13)
+          healPlayer(heal)
+          queueTopToast({ type: 'resonance', subject, name: config.name, effect: `恢复 ${heal} 点生命`, onAfter: doRunEnemyTurn })
+        }
+      } else {
+        setTimeout(doRunEnemyTurn, 0)
+      }
+      // 消耗本回合的攻击加成
+      dmg += attackBonus
+      if (attackBonus > 0) setAttackBonus(0)
+      if (blockAdd > 0) addPlayerBlock(blockAdd)
       const afterBlock = Math.max(0, enemyBlock - dmg)
       const overflow = Math.max(0, dmg - enemyBlock)
       const newEnemyHP = Math.max(0, enemyHP - overflow)
       setEnemyBlock(afterBlock)
       setEnemyHP(newEnemyHP)
-      if (result.block > 0) addPlayerBlock(result.block)
       setModal({
         type: 'success',
         factText: result.factText,
@@ -387,16 +471,9 @@ export function BattleView() {
     } else {
       damagePlayer(result.backlashDamage)
       setModal({ type: 'fail', message: result.message, backlashDamage: result.backlashDamage })
-    }
-    // 延后执行敌人回合，避免与 modal 的 state 更新冲突，确保玩家 HP 正确扣减
-    const h = ensured.hand
-    const dp = ensured.drawPile
-    const dcp = ensured.discardPile
-    setTimeout(() => {
-      runEnemyTurn(h, dp, dcp)
       validatingRef.current = false
       setIsValidating(false)
-    }, 0)
+    }
   }
 
   const handleHandCardClick = (cardId) => moveToSynthesis(cardId)
@@ -408,7 +485,7 @@ export function BattleView() {
     const ensured = ensureHandHasComboWithPiles(drawn, rawDp, rawDcp)
     setDrawPile(ensured.drawPile)
     setDiscardPile(ensured.discardPile)
-    setHand(ensured.hand)
+    setHand(shuffle(ensured.hand))
     setRethinkUsed(true)
   }
 
@@ -498,9 +575,14 @@ export function BattleView() {
 
       <section className="relative z-10 flex-1 flex flex-col items-center justify-center py-8">
         <p className="font-mono text-cyan-400/80 text-sm tracking-[0.3em] mb-4">真理合成台</p>
-        <div className="relative p-8 rounded-xl border-2 border-dashed border-cyan-400/50 bg-slate-900/60 backdrop-blur-md
-          shadow-[0_0_0_1px_rgba(34,211,238,0.2),0_0_40px_rgba(34,211,238,0.12),inset_0_0_60px_rgba(0,0,0,0.2)]
-          transition-shadow duration-300 animate-[synthesis-pulse_3s_ease-in-out_infinite]">
+        <div
+          className={`relative p-8 rounded-xl border-2 border-dashed bg-slate-900/60 backdrop-blur-md transition-all duration-500 animate-[synthesis-pulse_3s_ease-in-out_infinite]
+            ${resonanceGlow === '历史' ? 'border-amber-400/80 shadow-[0_0_100px_rgba(251,191,36,0.6),inset_0_0_60px_rgba(251,191,36,0.2)]' : ''}
+            ${resonanceGlow === '地理' ? 'border-cyan-400/80 shadow-[0_0_100px_rgba(34,211,238,0.6),inset_0_0_60px_rgba(59,130,246,0.2)]' : ''}
+            ${resonanceGlow === '生物' ? 'border-emerald-400/80 shadow-[0_0_100px_rgba(52,211,153,0.6),inset_0_0_60px_rgba(52,211,153,0.2)]' : ''}
+            ${!resonanceGlow ? 'border-cyan-400/50 shadow-[0_0_0_1px_rgba(34,211,238,0.2),0_0_40px_rgba(34,211,238,0.12),inset_0_0_60px_rgba(0,0,0,0.2)]' : ''}
+          `}
+        >
           <div className="absolute -top-px -left-px w-10 h-10 border-l-2 border-t-2 border-dashed border-cyan-400/50 rounded-tl" />
           <div className="absolute -top-px -right-px w-10 h-10 border-r-2 border-t-2 border-dashed border-cyan-400/50 rounded-tr" />
           <div className="absolute -bottom-px -left-px w-10 h-10 border-l-2 border-b-2 border-dashed border-cyan-400/50 rounded-bl" />
@@ -577,6 +659,29 @@ export function BattleView() {
         )}
       </AnimatePresence>
 
+      {/* 学科共鸣提示 - 屏幕偏上，含效果说明 */}
+      <AnimatePresence>
+        {resonanceToast && (
+          <motion.div
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed top-16 left-1/2 -translate-x-1/2 z-[9997] pointer-events-none"
+          >
+            <div
+              className={`px-8 py-4 rounded-xl font-serif text-xl md:text-2xl font-bold text-center
+                ${resonanceToast.subject === '历史' ? 'bg-amber-900/95 border-2 border-amber-400/80 text-amber-100 shadow-[0_0_60px_rgba(251,191,36,0.5)]' : ''}
+                ${resonanceToast.subject === '地理' ? 'bg-cyan-900/95 border-2 border-cyan-400/80 text-cyan-100 shadow-[0_0_60px_rgba(34,211,238,0.5)]' : ''}
+                ${resonanceToast.subject === '生物' ? 'bg-emerald-900/95 border-2 border-emerald-400/80 text-emerald-100 shadow-[0_0_60px_rgba(52,211,153,0.5)]' : ''}
+              `}
+            >
+              <p>{resonanceToast.subject}共鸣：{resonanceToast.name}</p>
+              <p className="text-base md:text-lg font-mono mt-2 opacity-90">{resonanceToast.effect}</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* BOSS 伤害提示 - 从屏幕上方弹出，最高层级 */}
       <AnimatePresence>
         {attackDamageToast != null && (
@@ -594,9 +699,23 @@ export function BattleView() {
       </AnimatePresence>
 
       <footer className="relative z-10 border-t border-cyan-500/20 bg-slate-950/60 backdrop-blur py-6 min-h-[180px]">
-        <p className="font-mono text-cyan-400/60 text-xs tracking-[0.2em] text-center mb-4">
-          手牌区 · 抽牌堆 {drawPile.length} / 弃牌堆 {discardPile.length}
-        </p>
+        <div className="flex items-center justify-center gap-6 mb-4">
+          <div className="flex items-center gap-4">
+            <span className="flex items-center gap-2 text-rose-400">
+              <Swords className="w-4 h-4" />
+              <span className="font-mono text-sm">瞬击</span>
+              <span className="font-mono font-bold tabular-nums">{attackBonus}</span>
+            </span>
+            <span className="flex items-center gap-2 text-cyan-400">
+              <Shield className="w-4 h-4" />
+              <span className="font-mono text-sm">护盾</span>
+              <span className="font-mono font-bold tabular-nums">{playerBlock}</span>
+            </span>
+          </div>
+          <span className="font-mono text-cyan-400/60 text-xs tracking-[0.2em]">
+            手牌区 · 抽牌堆 {drawPile.length} / 弃牌堆 {discardPile.length}
+          </span>
+        </div>
         <div className="flex justify-center gap-4 px-4 overflow-visible pt-10 pb-2">
           <AnimatePresence mode="popLayout">
             {handCards.map((card, i) => (
@@ -722,6 +841,10 @@ export function BattleView() {
                     {modal.damage > 0 && modal.block > 0 && ' · '}
                     {modal.block > 0 && <>获得 <span className="font-mono font-bold text-cyan-300">{modal.block}</span> 点护盾</>}
                     {modal.damage === 0 && modal.block === 0 && '连击命中'}
+                  </p>
+                  <p className="text-slate-400 text-sm mb-3 flex items-center gap-4">
+                    <span>当前 瞬击 <span className="font-mono font-bold text-rose-400">{attackBonus}</span></span>
+                    <span>护盾 <span className="font-mono font-bold text-cyan-400">{playerBlock}</span></span>
                   </p>
                   <p className="text-slate-200 text-[17px] sm:text-lg leading-loose max-h-56 overflow-y-auto">
                     {renderFactText(modal.factText)}

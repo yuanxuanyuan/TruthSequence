@@ -4248,5 +4248,457 @@
     ],
     "damage": 100,
     "factText": "【地理扩展】作为中国综合实力最强的沪宁杭工业基地，不仅坐拥长三角高新技术密集区，更被上海“五个中心”的恐怖战略野心全速驱动，化作中国经济无可匹敌的核心引擎！"
+  },
+  {
+    "combo_id": "geo_cb_new_13",
+    "name": "热带风情与北归线",
+    "requires": ["geo_new_30", "geo_new_07", "geo_new_02"],
+    "damage": 85,
+    "factText": "【全境覆盖】北回归线贯穿台粤桂云，加上全境位于热带的海南省，这些地区充沛的光热造就了我国极其丰富的水果与农作物带！"
+  },
+  {
+    "combo_id": "geo_cb_new_14",
+    "name": "华夏民俗万花筒",
+    "requires": ["geo_new_10", "geo_new_31"],
+    "damage": 75,
+    "factText": "【人文引申】56个民族大散居小聚居。泼水节的热带狂欢、那达慕的草原竞技、雪顿节的高原信仰，民俗的背后全是地理气候的倒影。"
+  },
+  {
+    "combo_id": "geo_cb_new_15",
+    "name": "三大地形骨架",
+    "requires": ["geo_new_32", "geo_new_33", "geo_new_34"],
+    "damage": 95,
+    "factText": "【地理之魂】东西走向的山脉挡风，东北西南走向的山脉分阶梯，弧形的喜马拉雅撑起屋脊。它们编织了中国自然环境的底层代码！"
+  },
+  {
+    "combo_id": "geo_cb_new_16",
+    "name": "长江综合治理",
+    "requires": ["geo_new_18", "geo_new_37"],
+    "damage": 85,
+    "factText": "【治水大局】以宜昌、湖口为界，上游建三峡用其水能，中游退耕还湖治洪涝，下游江阔水深行大船，黄金水道实至名归。"
+  },
+  {
+    "combo_id": "geo_cb_new_17",
+    "name": "黄河综合治理",
+    "requires": ["geo_new_19", "geo_new_38"],
+    "damage": 85,
+    "factText": "【治水大局】以河口、桃花峪为界，黄河之病在下游“地上河”，但治黄之本却在中游黄土高原的植树种草保持水土！"
+  },
+  {
+    "combo_id": "geo_cb_new_18",
+    "name": "西北双骄",
+    "requires": ["geo_new_35", "geo_new_40", "geo_new_17"],
+    "damage": 90,
+    "factText": "【大美边疆】在干旱的内流区中，不仅孕育了耐旱的细毛羊，更有额尔齐斯河如奇迹般向北奔流，成为我国唯一注入北冰洋的河流！"
+  },
+  {
+    "combo_id": "geo_cb_new_19",
+    "name": "中国铁路十字星",
+    "requires": ["geo_new_41", "geo_new_42", "geo_new_27"],
+    "damage": 100,
+    "factText": "【大国动脉】京广、京沪等贯穿南北，陇海-兰新连接东西，并在中东部地区交织出极其密集的十字枢纽，驱动着世界第二大经济体高速狂飙！"
+  },
+  {
+    "combo_id": "geo_cb_new_20",
+    "name": "灾害双煞与最强护盾",
+    "requires": ["geo_new_43", "geo_new_44", "geo_new_45"],
+    "damage": 90,
+    "factText": "【引申考法】东南沿海防台风，西南山区防泥石流。但更强的是我国的科技护盾：气象卫星预警与全民防灾演练机制！"
+  }
+,
+  {
+    "combo_id": "geo_cb_new_21",
+    "name": "秦淮线终极定义",
+    "requires": ["geo_new_47", "geo_new_48", "geo_new_49"],
+    "damage": 100,
+    "factText": "【地理分水岭】一条秦岭淮河线，完美重叠了0℃和800mm界线，将中国的气温、降水、建筑、甚至人们胃里的主食，一劈两半！"
+  },
+  {
+    "combo_id": "geo_cb_new_22",
+    "name": "划定中国十字准星",
+    "requires": ["geo_new_50", "geo_new_51", "geo_new_47"],
+    "damage": 85,
+    "factText": "【空间构建】气候主导的秦淮线、季风降水主导的400mm线、地形海拔主导的阶梯界线，共同画出了中国四大地理单元的十字准星！"
+  },
+  {
+    "combo_id": "geo_cb_new_23",
+    "name": "冰与火的东北粮仓",
+    "requires": ["geo_new_52", "geo_new_53", "geo_new_54"],
+    "damage": 90,
+    "factText": "【逆境突围】虽然漫长寒冷让民居必须厚墙陡顶、工业面临老化，但东北凭借黑土广布与“雨热同期”的季风外挂，硬生生砸出了高纬度水稻奇迹！"
+  },
+  {
+    "combo_id": "geo_cb_new_24",
+    "name": "黄淮大地水土劫",
+    "requires": ["geo_new_55", "geo_new_56", "geo_new_57"],
+    "damage": 95,
+    "factText": "【生态联防】华北平原因工业人口密集而春旱严重，黄土高原因土质暴雨而千沟万壑，面对这方水土劫难，唯有梯田打坝植树种草才能逆天改命！"
+  },
+  {
+    "combo_id": "geo_cb_new_25",
+    "name": "南国水土大图鉴",
+    "requires": ["geo_new_59", "geo_new_61", "geo_new_60"],
+    "damage": 85,
+    "factText": "【繁华南国】长三角用综合工业领跑全局，大西南在紫色盆地和喀斯特溶洞中孕育天府之国，而珠三角则用桑基鱼塘与外向代工杀向全球市场。"
+  },
+  {
+    "combo_id": "geo_cb_new_26",
+    "name": "粤港澳超级湾区",
+    "requires": ["geo_new_60", "geo_new_62"],
+    "damage": 80,
+    "factText": "【经济双引擎】珠三角提供广袤腹地和世界工厂，港澳通过“上天下海”提供国际金融与休闲旅游，前店后厂，无缝融合！"
+  },
+  {
+    "combo_id": "geo_cb_new_27",
+    "name": "宝岛台湾全息扫描",
+    "requires": ["geo_new_63", "geo_new_64"],
+    "damage": 85,
+    "factText": "【祖国宝岛】东部用高耸的玉山阻挡太平洋台风，孕育了垂直植物园；西部用平缓的平原种植甘蔗水稻，更孵化了傲视全球的芯片工业！"
+  },
+  {
+    "combo_id": "geo_cb_new_28",
+    "name": "西北大漠生机密码",
+    "requires": ["geo_new_65", "geo_new_66", "geo_new_67"],
+    "damage": 95,
+    "factText": "【沙海突围】内蒙古因为距海遥远上演了植被退化论；但在新疆“三山夹两盆”的格局中，雪水融化叠加剧烈的昼夜温差，硬是催生出了甜到极致的绿洲神话！"
+  },
+  {
+    "combo_id": "geo_cb_new_29",
+    "name": "世界屋脊生存法则",
+    "requires": ["geo_new_68", "geo_new_69", "geo_new_70"],
+    "damage": 95,
+    "factText": "【极限高寒】在太阳暴晒的缺氧高原上，牦牛死守高寒草场，人类退守气温稍高的河谷种青稞，而三江源的雪水与跨越冻土的青藏铁路则维系着这片圣地的脉搏。"
+  },
+  {
+    "combo_id": "geo_cb_new_30",
+    "name": "超级大区大挪移",
+    "requires": ["geo_new_71", "geo_new_72", "geo_new_73"],
+    "damage": 100,
+    "factText": "【国运工程】长江水上京解华北之渴，西北天然气东送驱散雾霾，三峡绿电点亮长三角黑夜。跨域资源调配的极致，是真正的国家大局观！"
+  },
+  {
+    "combo_id": "geo_cb_new_31",
+    "name": "科技中枢与数字强国",
+    "requires": ["geo_new_58", "geo_new_74"],
+    "damage": 85,
+    "factText": "【降维打击】北京不仅有政治中心的庄严，更以中关村为核心向天空发射北斗导航，用前沿数字互联技术直接下沉赋能广袤的乡村振兴！"
+  }
+,
+  {
+    "combo_id": "geo_cb_new_32",
+    "name": "全视之眼导航网",
+    "requires": ["geo_new_77", "geo_new_78", "geo_new_79"],
+    "damage": 95,
+    "factText": "【空间制霸】经纬交织，用0°和20°W/160°E的仁慈之刃切开东西南北半球，外加“小小东大大西”口诀，无人能在地球上隐身！"
+  },
+  {
+    "combo_id": "geo_cb_new_33",
+    "name": "降维绘图大师",
+    "requires": ["geo_new_80", "geo_new_81", "geo_new_82"],
+    "damage": 85,
+    "factText": "【地理魔术】用地图三要素将大千世界微缩于纸上，比例尺控制宏观微观的转换，等高线则把千沟万壑强行拍扁！"
+  },
+  {
+    "combo_id": "geo_cb_new_34",
+    "name": "日月星辰的推手",
+    "requires": ["geo_new_83", "geo_new_84", "geo_new_85", "geo_new_86"],
+    "damage": 110,
+    "factText": "【星体奥秘】自转撕裂昼夜，公转驱动四季！夏至日不光让北半球白昼最长，还让正午太阳最高、你的影子缩到极短！"
+  },
+  {
+    "combo_id": "geo_cb_new_35",
+    "name": "蓝星造物主",
+    "requires": ["geo_new_75", "geo_new_76", "geo_new_87", "geo_new_88"],
+    "damage": 105,
+    "factText": "【起源级连携】在这颗两极稍扁且被七分海洋包裹的星球上，恰到好处的温度与液态水孕育了生命，亚洲与南极洲则霸占了陆地极值！"
+  },
+  {
+    "combo_id": "geo_cb_new_36",
+    "name": "撕裂地壳的伤痕",
+    "requires": ["geo_new_92", "geo_new_93", "geo_new_94"],
+    "damage": 90,
+    "factText": "【地质狂怒】喜马拉雅的鱼化石诉说着沧海桑田，魏格纳的漂移假说终于揭开了六大板块互相碰撞引发连环地震的恐怖真相！"
+  },
+  {
+    "combo_id": "geo_cb_new_37",
+    "name": "气象局长三板斧",
+    "requires": ["geo_new_95", "geo_new_96", "geo_new_97"],
+    "damage": 90,
+    "factText": "【规律掌控】穿透变化多端的天气表象，死死捏住“纬度、海陆、海拔”气温三定律与“迎风沿海”降水法则，预测天地气象！"
+  },
+  {
+    "combo_id": "geo_cb_new_38",
+    "name": "气候神探终极公式",
+    "requires": ["geo_new_98", "geo_new_99", "geo_new_100"],
+    "damage": 100,
+    "factText": "【满分必杀技】第一步15℃以温定热带，第二步以水定型！不仅能抓出地中海气候这个冬雨奇葩，更能秒杀季风与草原的混淆题！"
+  },
+  {
+    "combo_id": "geo_cb_new_39",
+    "name": "绝境求生图谱",
+    "requires": ["geo_new_96", "geo_new_97", "geo_new_102"],
+    "damage": 85,
+    "factText": "【多线重叠】海拔降温法则造就了高寒，背风极地造就了干旱寒冷，而这些极端气候区，正是地球上人迹罕至的四大绝对无人区！"
+  },
+  {
+    "combo_id": "geo_cb_new_40",
+    "name": "文明聚落选址学",
+    "requires": ["geo_new_82", "geo_new_106", "geo_new_105"],
+    "damage": 85,
+    "factText": "【多线重叠】避开密集的陡坡等高线，在平坦沿河处建立乡村聚落，随后吞噬资源进化成大都市，但也随之引爆了交通与污染的城市病！"
+  },
+  {
+    "combo_id": "geo_cb_new_41",
+    "name": "反常识人类基因库",
+    "requires": ["geo_new_102", "geo_new_103", "geo_new_104"],
+    "damage": 80,
+    "factText": "【陷阱猎手】人稠地广的印度满是白种人！冰天雪地的北极因纽特人是黄种人！外加大航海时代强行把英语塞给全球的殖民扩张史！"
+  },
+  {
+    "combo_id": "geo_cb_new_42",
+    "name": "大航海与新世界",
+    "requires": ["geo_new_75", "geo_new_104", "geo_new_107"],
+    "damage": 95,
+    "factText": "【大跨度联动】从麦哲伦证实地球是圆的开始，航海巨舰将英语与基督教带向全球，更直接撕裂了如今北方发达、南方发展中的世界阶级格局！"
+  },
+  {
+    "combo_id": "geo_cb_new_43",
+    "name": "全球命运共同体",
+    "requires": ["geo_new_101", "geo_new_107", "geo_new_108"],
+    "damage": 90,
+    "factText": "【宏观经济】发达国家面临老龄化但手握高科技；发展中国家人口爆炸却只能卖矿。唯一的出路是联合国与WTO介入下的南北对话！"
+  }
+,
+  {
+    "combo_id": "geo_cb_new_44",
+    "name": "亚洲之王的全息拼图",
+    "requires": ["geo_new_109", "geo_new_110", "geo_new_111", "geo_new_112"],
+    "damage": 105,
+    "factText": "【大洲霸主】用不可思议的广袤面积与极值湖泊，配合中部隆起的地势让大江大河向四周辐射，硬生生砸碎了亚欧非的边界！"
+  },
+  {
+    "combo_id": "geo_cb_new_45",
+    "name": "非洲双面矛盾体",
+    "requires": ["geo_new_114", "geo_new_116"],
+    "damage": 85,
+    "factText": "【反常识猎手】赤道上竟然耸立着终年积雪的乞力马扎罗！而世界最长的尼罗河，流量却被短了截的刚果河按在地上摩擦，只因气候的无情剥夺！"
+  },
+  {
+    "combo_id": "geo_cb_new_46",
+    "name": "大迁徙的生存齿轮",
+    "requires": ["geo_new_113", "geo_new_115", "geo_new_117"],
+    "damage": 90,
+    "factText": "【生态链锁】在高原大陆上，不仅人类深陷卖矿与人口爆炸的穷循环，连动物都必须遵循南北半球干湿季相反的铁律，日夜迁徙以求生！"
+  },
+  {
+    "combo_id": "geo_cb_new_47",
+    "name": "扼住世界咽喉的双子星",
+    "requires": ["geo_new_118", "geo_new_121"],
+    "damage": 100,
+    "factText": "【战略绝杀】东边是扼住东亚十字路口命脉的马六甲，西边是锁死中东无数黑金的霍尔木兹油阀！谁控制了它们，谁就控制了全球航运的心跳。"
+  },
+  {
+    "combo_id": "geo_cb_new_48",
+    "name": "东南亚热带生存学",
+    "requires": ["geo_new_119", "geo_new_120"],
+    "damage": 85,
+    "factText": "【区域联动】避开马来群岛的火山地震，华人们沿着中南半岛山河相间的河谷一路向下，在肥沃的河口三角洲种满水稻与橡胶！"
+  },
+  {
+    "combo_id": "geo_cb_new_49",
+    "name": "欧洲列强底层逻辑",
+    "requires": ["geo_new_123", "geo_new_124", "geo_new_133"],
+    "damage": 95,
+    "factText": "【富强密码】低平的地形让多瑙河与莱茵河疯狂通航，温带海洋性气候让牧草多汁，加之德国鲁尔区与慕尼黑的工业引擎，彻底引爆了西欧经济圈！"
+  },
+  {
+    "combo_id": "geo_cb_new_50",
+    "name": "极地冰封王座与窗口",
+    "requires": ["geo_new_125", "geo_new_126", "geo_new_127"],
+    "damage": 90,
+    "factText": "【极限挑战】无论是因纽特人的北冰洋还是企鹅的南极大陆，人类科考船都必须算准极昼与极地夏日的黄金时间，才能抵御风库与白色荒漠的咆哮！"
+  },
+  {
+    "combo_id": "geo_cb_new_51",
+    "name": "日本制造的被动防线",
+    "requires": ["geo_new_128", "geo_new_129"],
+    "damage": 80,
+    "factText": "【岛国图存】脚下是活火山与地震带，家里又没矿，逼得日本工业只能死死龟缩在太平洋和濑户内海沿岸的港口大口呼吸，大进大出！"
+  },
+  {
+    "combo_id": "geo_cb_new_52",
+    "name": "印度季风大盲盒",
+    "requires": ["geo_new_130", "geo_new_131"],
+    "damage": 85,
+    "factText": "【因地制宜】西南季风的暴怒与干旱，逼得印度人把喜水的水稻放平原、耐旱的小麦丢德干西北、喜光的棉花种在中西部，精密排布农业版图！"
+  },
+  {
+    "combo_id": "geo_cb_new_53",
+    "name": "埃及生命水管与截流",
+    "requires": ["geo_new_134", "geo_new_135"],
+    "damage": 85,
+    "factText": "【沙漠绿洲】在97%是沙漠的地狱开局下，尼罗河是唯一的血脉。而阿斯旺大坝如同巨大的心脏起搏器，用灌溉与发电让这个金字塔古国重获新生！"
+  },
+  {
+    "combo_id": "geo_cb_new_54",
+    "name": "北美巨无霸底牌",
+    "requires": ["geo_new_136", "geo_new_137"],
+    "damage": 95,
+    "factText": "【超级大国】拥有大平原、密西西比河与五大湖的奢华农业底座，再叠加以旧金山硅谷为尖刀的无死角高新工业体系，这是不可撼动的超级底牌！"
+  },
+  {
+    "combo_id": "geo_cb_new_55",
+    "name": "澳洲独占大陆风云",
+    "requires": ["geo_new_138", "geo_new_139"],
+    "damage": 90,
+    "factText": "【自成一派】独霸大陆，西边挖铁矿，东边看大堡礁，中间用大自流盆地的水疯狂养羊！但看似完美的天堂，却常常在干热季被恐怖的丛林大火吞噬！"
+  },
+  {
+    "combo_id": "geo_cb_new_56",
+    "name": "全球高新科技三巨头",
+    "requires": ["geo_new_132", "geo_new_133", "geo_new_137"],
+    "damage": 110,
+    "factText": "【跨界顶配大乱斗】当美国的硅谷研发出底层架构，德国的慕尼黑制造出高精尖微电子，最后由印度的世界办公室完成海量软件外包，全球科技产业链完美闭环！"
+  }
+,
+  {
+    "combo_id": "geo_cb_new_57",
+    "name": "上帝视角的定位术",
+    "requires": ["geo_new_141", "geo_new_142", "geo_new_143"],
+    "damage": 95,
+    "factText": "【地图制霸】用比例尺控制宏观与微观，用经纬网进行无死角覆盖，最后用20°W与160°E的温情一刀完美切出东西半球！"
+  },
+  {
+    "combo_id": "geo_cb_new_58",
+    "name": "星体气候与人类基因",
+    "requires": ["geo_new_153", "geo_new_155", "geo_new_156"],
+    "damage": 105,
+    "factText": "【底层逻辑】公转导致五带，海拔迎风坡决定雨热。而这一切气象法则，最终不仅重塑了墙厚窗小的民居，更决定了你今天吃米还是吃面！"
+  },
+  {
+    "combo_id": "geo_cb_new_59",
+    "name": "全球贫富与人文大网",
+    "requires": ["geo_new_144", "geo_new_157"],
+    "damage": 85,
+    "factText": "【人类社会】人口死死扎堆在中低纬度平原，发达与发展中国家在这里进行着南北对话，同时交织着英语、汉语与三大宗教的文明碰撞。"
+  },
+  {
+    "combo_id": "geo_cb_new_60",
+    "name": "资源诅咒与国运反转",
+    "requires": ["geo_new_145", "geo_new_149", "geo_new_152"],
+    "damage": 110,
+    "factText": "【大国战略对比】日本没矿只能死守港口疯狂加工出口；而俄罗斯和澳洲依靠极其恐怖的地雷资源库，生生砸出了重工业巨兽与矿车富豪！"
+  },
+  {
+    "combo_id": "geo_cb_new_61",
+    "name": "世界顶级农业版图",
+    "requires": ["geo_new_146", "geo_new_147", "geo_new_150"],
+    "damage": 95,
+    "factText": "【硬核农业】印度在水旱盲盒里精算小麦与水稻；埃及在死亡沙漠里靠尼罗河榨出长绒棉；而美国直接掏出机械化大军推平了中央平原！"
+  },
+  {
+    "combo_id": "geo_cb_new_62",
+    "name": "华夏开局的六神装",
+    "requires": ["geo_new_158", "geo_new_159", "geo_new_160"],
+    "damage": 90,
+    "factText": "【天胡开局】北温带好气候+海陆兼备双线通商！配合行政区四个最值，以及西高东低的三级阶梯骨架，构筑了中国不可撼动的国运基盘！"
+  },
+  {
+    "combo_id": "geo_cb_new_63",
+    "name": "秦淮剑气与强国基建",
+    "requires": ["geo_new_161", "geo_new_163"],
+    "damage": 95,
+    "factText": "【空间经济学】秦淮线一剑劈开农耕的“北麦南稻”；而在此之上，四大工业基地如火如荼，配合“空急路短水铁重”的交通网疯狂造血！"
+  },
+  {
+    "combo_id": "geo_cb_new_64",
+    "name": "黄河劫与千沟万壑",
+    "requires": ["geo_new_162", "geo_new_167"],
+    "damage": 90,
+    "factText": "【灾难与救赎】风吹来的黄土高原因为暴雨和滥砍被撕裂成千沟万壑；泥沙冲入黄河化作悬崖般的地上河！唯一的救赎就是退耕还林打坝淤地！"
+  },
+  {
+    "combo_id": "geo_cb_new_65",
+    "name": "大美边疆的冰与火",
+    "requires": ["geo_new_164", "geo_new_165"],
+    "damage": 85,
+    "factText": "【极致反差】新疆的大漠干旱靠雪水育绿洲；西双版纳被热带季风雨林浸透；而青藏高原的缺氧高寒逼得青稞只能躲进河谷求生！"
+  },
+  {
+    "combo_id": "geo_cb_new_66",
+    "name": "城建双子与人地协调",
+    "requires": ["geo_new_140", "geo_new_166"],
+    "damage": 80,
+    "factText": "【文明演进】北京保留故宫古韵同时狂点国际外交；港澳在弹丸之地疯狂填海造陆点出金融航运，这正是人类用智慧达到人地协调的极限操作！"
+  },
+  {
+    "combo_id": "geo_cb_ext_01",
+    "name": "长江水系与湖泊双雄",
+    "requires": ["geo_new_36", "geo_new_37"],
+    "damage": 70,
+    "factText": "【江河湖网】鄱阳湖作为长江水系最大淡水湖，与长江分段治理紧密相连；青海湖则是内流区咸水湖代表，二者勾勒出我国湖泊的咸淡双极。"
+  },
+  {
+    "combo_id": "geo_cb_ext_02",
+    "name": "湖泊尺度：中国与亚洲",
+    "requires": ["geo_new_36", "geo_new_112"],
+    "damage": 75,
+    "factText": "【湖泊版图】中国有青海湖、鄱阳湖的咸淡双雄；亚洲则有里海、贝加尔湖、死海等世界级魔幻湖泊，共同书写水体的尺度传奇。"
+  },
+  {
+    "combo_id": "geo_cb_ext_03",
+    "name": "从资源产地到高新突围",
+    "requires": ["geo_new_39", "geo_new_46"],
+    "damage": 75,
+    "factText": "【产业演进】煤油气与渔场遵循传统空间分布；而高新产业不依赖资源，靠人才与科技打破「东密西疏」的工业布局僵局。"
+  },
+  {
+    "combo_id": "geo_cb_ext_04",
+    "name": "长三角高新霸主",
+    "requires": ["geo_new_46", "geo_new_59"],
+    "damage": 80,
+    "factText": "【产业引擎】长三角是我国最大综合性工业基地，配合电子、信息、新材料等高新产业，共同驱动中国经济核心引擎。"
+  },
+  {
+    "combo_id": "geo_cb_ext_05",
+    "name": "三大洲际咽喉与运河",
+    "requires": ["geo_new_89", "geo_new_028", "geo_new_029"],
+    "damage": 90,
+    "factText": "【全球枢纽】乌拉尔—苏伊士—巴拿马勾勒洲际边界；苏伊士运河与巴拿马运河则是人类开凿的超级咽喉，重塑世界航运格局。"
+  },
+  {
+    "combo_id": "geo_cb_ext_06",
+    "name": "七分海洋与四大洋格局",
+    "requires": ["geo_new_90", "geo_new_154"],
+    "damage": 80,
+    "factText": "【海陆格局】七分海洋三分陆地，四大洋各有性格；板块交界处活跃，乌拉尔、苏伊士、巴拿马等边界裂痕书写着海陆重构史诗。"
+  },
+  {
+    "combo_id": "geo_cb_ext_07",
+    "name": "陆海地形全图",
+    "requires": ["geo_new_91", "geo_new_32", "geo_new_33"],
+    "damage": 85,
+    "factText": "【地形骨架】陆上有五大地形与山脉骨架；海底则有大陆架、大陆坡、海沟与海岭。陆海一体，方能读懂地球表面密码。"
+  },
+  {
+    "combo_id": "geo_cb_ext_08",
+    "name": "德日制造双雄",
+    "requires": ["geo_new_148", "geo_new_145"],
+    "damage": 85,
+    "factText": "【制造业对比】德国坐镇欧洲十字路口，鲁尔区是世界工业摇篮；日本资源贫乏却靠港口加工出口称雄，两大制造强国路径迥异。"
+  },
+  {
+    "combo_id": "geo_cb_ext_09",
+    "name": "雨林与沙漠的极端生存",
+    "requires": ["geo_new_151", "geo_new_147"],
+    "damage": 85,
+    "factText": "【南北极境】巴西坐拥亚马孙雨林却面临砍伐危机；埃及在死亡沙漠里靠尼罗河榨出长绒棉。一湿一干，演绎人地博弈极限。"
+  },
+  {
+    "combo_id": "geo_cb_ext_10",
+    "name": "海陆边界大解析",
+    "requires": ["geo_new_89", "geo_new_154"],
+    "damage": 85,
+    "factText": "【边界密码】七分海三分陆，板块交界处极度活跃。乌拉尔—苏伊士—巴拿马勾勒三大洲际咽喉，硬生生切开亚欧、亚非与南北美！"
   }
 ]
