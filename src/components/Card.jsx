@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const TOOLTIP_DELAY_MS = 300
+const LONG_PRESS_MS = 500
 
 /**
  * 塔罗牌比例卡牌 (约 7:12) · 赛博学术风玻璃拟物化 · 含详情提示框
@@ -82,6 +83,9 @@ export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comb
 
   const [showTooltip, setShowTooltip] = useState(false)
   const delayRef = useRef(null)
+  const longPressTimerRef = useRef(null)
+  const longPressShownRef = useRef(false)
+  const ignoreNextClickRef = useRef(false)
   const cardRef = useRef(null)
 
   const typeLabel = useMemo(() => {
@@ -98,6 +102,11 @@ export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comb
       clearTimeout(delayRef.current)
       delayRef.current = null
     }
+    if (longPressTimerRef.current) {
+      clearTimeout(longPressTimerRef.current)
+      longPressTimerRef.current = null
+    }
+    longPressShownRef.current = false
     setShowTooltip(false)
   }, [])
 
@@ -110,9 +119,62 @@ export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comb
     }, TOOLTIP_DELAY_MS)
   }, [disabled])
 
+  const handlePointerDown = useCallback((e) => {
+    if (disabled) return
+    if (e.pointerType === 'touch') {
+      longPressShownRef.current = false
+      if (longPressTimerRef.current) clearTimeout(longPressTimerRef.current)
+      longPressTimerRef.current = setTimeout(() => {
+        longPressTimerRef.current = null
+        longPressShownRef.current = true
+        setShowTooltip(true)
+      }, LONG_PRESS_MS)
+    } else {
+      startTooltipDelay()
+    }
+  }, [disabled, startTooltipDelay])
+
+  const handlePointerUp = useCallback((e) => {
+    if (e.pointerType === 'touch') {
+      if (longPressTimerRef.current) {
+        clearTimeout(longPressTimerRef.current)
+        longPressTimerRef.current = null
+      }
+      if (longPressShownRef.current) {
+        ignoreNextClickRef.current = true
+      }
+    } else {
+      hideTooltip()
+    }
+  }, [hideTooltip])
+
+  const handlePointerLeave = useCallback((e) => {
+    if (e.pointerType === 'touch') {
+      if (longPressTimerRef.current) {
+        clearTimeout(longPressTimerRef.current)
+        longPressTimerRef.current = null
+      }
+    } else {
+      hideTooltip()
+    }
+  }, [hideTooltip])
+
+  const handleClick = useCallback((e) => {
+    if (disabled) return
+    if (ignoreNextClickRef.current) {
+      ignoreNextClickRef.current = false
+      e.preventDefault()
+      e.stopPropagation()
+      return
+    }
+    hideTooltip()
+    onClick?.(e)
+  }, [disabled, onClick, hideTooltip])
+
   useEffect(() => {
     return () => {
       if (delayRef.current) clearTimeout(delayRef.current)
+      if (longPressTimerRef.current) clearTimeout(longPressTimerRef.current)
     }
   }, [])
 
@@ -172,13 +234,13 @@ export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comb
         whileHover={!disabled && { scale: 1.03, y: -2 }}
         whileTap={!disabled && { scale: 0.98 }}
         className={`${baseClass} ${aspectClass}`}
-        onClick={disabled ? undefined : onClick}
+        onClick={handleClick}
         onMouseEnter={startTooltipDelay}
         onMouseLeave={hideTooltip}
-        onPointerDown={startTooltipDelay}
-        onPointerUp={hideTooltip}
-        onPointerLeave={hideTooltip}
-        onPointerCancel={hideTooltip}
+        onPointerDown={handlePointerDown}
+        onPointerUp={handlePointerUp}
+        onPointerLeave={handlePointerLeave}
+        onPointerCancel={handlePointerUp}
       >
         <div className={`absolute inset-0 bg-gradient-to-b ${style.accent}`} />
         {/* 学科底框色条：左侧色带 */}
@@ -240,15 +302,26 @@ export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comb
         createPortal(
           <AnimatePresence>
             {showTooltip && card && (
-              <motion.div
-                key="card-tooltip"
-                initial={{ opacity: 0, y: 4, scale: 0.96 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 4, scale: 0.96 }}
-                transition={{ duration: 0.15, ease: 'easeOut' }}
-                className="fixed z-[9999] pointer-events-none"
-                style={tooltipStyle}
-              >
+              <>
+                {typeof window !== 'undefined' && window.innerWidth < 640 && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="fixed inset-0 z-[9998] bg-black/40"
+                    onClick={hideTooltip}
+                    style={{ pointerEvents: 'auto' }}
+                  />
+                )}
+                <motion.div
+                  key="card-tooltip"
+                  initial={{ opacity: 0, y: 4, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 4, scale: 0.96 }}
+                  transition={{ duration: 0.15, ease: 'easeOut' }}
+                  className="fixed z-[9999] pointer-events-none"
+                  style={tooltipStyle}
+                >
                 <div
                   className="w-[296px] min-w-[260px] max-w-[min(296px,92vw)] rounded-lg border border-cyan-500/50 bg-slate-900/95 backdrop-blur-md
                     shadow-[0_0_0_1px_rgba(34,211,238,0.2),0_0_20px_rgba(34,211,238,0.15)]
@@ -264,6 +337,7 @@ export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comb
                   </p>
                 </div>
               </motion.div>
+              </>
             )}
           </AnimatePresence>,
           document.body
