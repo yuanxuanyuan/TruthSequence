@@ -141,6 +141,8 @@ export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comb
         longPressTimerRef.current = null
       }
       if (longPressShownRef.current) {
+        longPressShownRef.current = false
+        setShowTooltip(false)
         ignoreNextClickRef.current = true
       }
     } else {
@@ -198,13 +200,7 @@ export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comb
     ? (() => {
         const winW = window.innerWidth
         const isMobile = winW < 640
-        if (isMobile) {
-          return {
-            left: '50%',
-            top: '50%',
-            transform: 'translate(-50%, -50%)',
-          }
-        }
+        if (isMobile) return {}
         const cardCenter = tooltipRect.left + tooltipRect.width / 2
         const cardRight = tooltipRect.right
         let left = cardCenter
@@ -301,31 +297,25 @@ export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comb
       {typeof document !== 'undefined' &&
         createPortal(
           <AnimatePresence>
-            {showTooltip && card && (
-              <>
-                {typeof window !== 'undefined' && window.innerWidth < 640 && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="fixed inset-0 z-[9998] bg-black/40"
-                    onClick={hideTooltip}
-                    style={{ pointerEvents: 'auto' }}
-                  />
-                )}
-                <motion.div
-                  key="card-tooltip"
-                  initial={{ opacity: 0, y: 4, scale: 0.96 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 4, scale: 0.96 }}
-                  transition={{ duration: 0.15, ease: 'easeOut' }}
-                  className="fixed z-[9999] pointer-events-none"
-                  style={tooltipStyle}
-                >
+            {showTooltip && card && (() => {
+              const isMobile = typeof window !== 'undefined' && window.innerWidth < 640
+              return (
+              <motion.div
+                key="card-tooltip"
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.15, ease: 'easeOut' }}
+                className={isMobile ? 'fixed inset-0 z-[9999] pointer-events-none flex items-center justify-center p-4' : 'fixed z-[9999] pointer-events-none'}
+                style={isMobile ? undefined : tooltipStyle}
+              >
                 <div
-                  className="w-[296px] min-w-[260px] max-w-[min(296px,92vw)] rounded-lg border border-cyan-500/50 bg-slate-900/95 backdrop-blur-md
+                  className={`rounded-lg border border-cyan-500/50 bg-slate-900/95 backdrop-blur-md
                     shadow-[0_0_0_1px_rgba(34,211,238,0.2),0_0_20px_rgba(34,211,238,0.15)]
-                    p-4 text-base"
+                    p-4 text-base
+                    ${isMobile
+                      ? 'w-full max-w-[min(296px,calc(100vw-2rem))] max-h-[min(70vh,400px)] overflow-y-auto'
+                      : 'w-[296px] min-w-[260px] max-w-[min(296px,92vw)]'}`}
                 >
                   <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent" />
                   <p className="text-sm text-cyan-400/90 font-mono mb-1.5">{card.type}</p>
@@ -337,8 +327,8 @@ export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comb
                   </p>
                 </div>
               </motion.div>
-              </>
-            )}
+              )
+            })()}
           </AnimatePresence>,
           document.body
         )}
