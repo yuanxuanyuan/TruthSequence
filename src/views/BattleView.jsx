@@ -492,12 +492,12 @@ export function BattleView() {
   if (!enemy) return null
 
   return (
-    <div className="min-h-screen bg-void text-white flex flex-col relative overflow-hidden">
+    <div className="h-screen min-h-0 sm:min-h-screen sm:h-auto bg-void text-white flex flex-col relative overflow-y-auto overflow-x-hidden sm:overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-20" />
       <div className="absolute inset-0 bg-gradient-to-b from-cyan-950/20 via-transparent to-slate-900/40" />
 
       {/* 顶部 HP */}
-      <header className="relative z-10 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 px-4 py-4 sm:px-8 sm:py-6 border-b border-cyan-500/20">
+      <header className="relative z-10 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 px-4 py-4 sm:px-8 sm:py-6 border-b border-cyan-500/20 flex-shrink-0">
         <div className="flex flex-wrap items-center gap-2 sm:gap-4">
           <RelicBar relicIds={relics} />
           <Heart className="w-6 h-6 text-rose-400" />
@@ -573,10 +573,10 @@ export function BattleView() {
         </div>
       </header>
 
-      <section className="relative z-10 flex-1 flex flex-col items-center justify-center py-4 sm:py-8 px-2 sm:px-0">
+      <section className="relative z-10 flex-1 min-h-0 flex flex-col items-center justify-center py-3 sm:py-8 px-2 sm:px-0 overflow-visible">
         <p className="font-mono text-cyan-400/80 text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] mb-2 sm:mb-4">真理合成台</p>
         <div
-          className={`relative p-4 sm:p-8 rounded-xl border-2 border-dashed bg-slate-900/60 backdrop-blur-md transition-all duration-500 animate-[synthesis-pulse_3s_ease-in-out_infinite] w-full max-w-full sm:max-w-none
+          className={`relative p-2 sm:p-8 rounded-xl border-2 border-dashed bg-slate-900/60 backdrop-blur-md transition-all duration-500 animate-[synthesis-pulse_3s_ease-in-out_infinite] w-full max-w-[calc(100vw-1rem)] sm:max-w-none box-border
             ${resonanceGlow === '历史' ? 'border-amber-400/80 shadow-[0_0_100px_rgba(251,191,36,0.6),inset_0_0_60px_rgba(251,191,36,0.2)]' : ''}
             ${resonanceGlow === '地理' ? 'border-cyan-400/80 shadow-[0_0_100px_rgba(34,211,238,0.6),inset_0_0_60px_rgba(59,130,246,0.2)]' : ''}
             ${resonanceGlow === '生物' ? 'border-emerald-400/80 shadow-[0_0_100px_rgba(52,211,153,0.6),inset_0_0_60px_rgba(52,211,153,0.2)]' : ''}
@@ -588,7 +588,7 @@ export function BattleView() {
           <div className="absolute -bottom-px -left-px w-10 h-10 border-l-2 border-b-2 border-dashed border-cyan-400/50 rounded-bl" />
           <div className="absolute -bottom-px -right-px w-10 h-10 border-r-2 border-b-2 border-dashed border-cyan-400/50 rounded-br" />
 
-          <div className="flex gap-2 sm:gap-4 justify-center items-center min-h-[120px] sm:min-h-[140px] min-w-0 sm:min-w-[320px]">
+          <div className="flex gap-1.5 sm:gap-4 justify-center items-center min-h-[100px] sm:min-h-[140px] min-w-0 sm:min-w-[320px] overflow-visible">
             <AnimatePresence mode="popLayout">
               {synthesisCards.map(card => (
                 <motion.div
@@ -607,7 +607,7 @@ export function BattleView() {
               {Array.from({ length: 4 - synthesisCards.length }).map((_, i) => (
                 <div
                   key={`slot-${i}`}
-                  className="w-16 min-w-16 sm:w-20 sm:min-w-20 aspect-[7/12] rounded-lg border border-dashed border-cyan-500/30 bg-cyan-500/5 shrink-0"
+                  className="w-14 min-w-14 sm:w-20 sm:min-w-20 aspect-[7/12] rounded-lg border border-dashed border-cyan-500/30 bg-cyan-500/5 shrink-0"
                 />
               ))}
             </AnimatePresence>
@@ -698,7 +698,7 @@ export function BattleView() {
         )}
       </AnimatePresence>
 
-      <footer className="relative z-10 border-t border-cyan-500/20 bg-slate-950/60 backdrop-blur py-4 sm:py-6 min-h-[160px] sm:min-h-[180px]">
+      <footer className="relative z-10 border-t border-cyan-500/20 bg-slate-950/60 backdrop-blur py-3 sm:py-6 flex-shrink-0">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mb-3 sm:mb-4 px-2">
           <div className="flex items-center gap-3 sm:gap-4 flex-wrap justify-center">
             <span className="flex items-center gap-2 text-rose-400">
@@ -716,7 +716,7 @@ export function BattleView() {
             手牌区 · 抽牌堆 {drawPile.length} / 弃牌堆 {discardPile.length}
           </span>
         </div>
-        <div className="flex justify-start sm:justify-center gap-2 sm:gap-4 px-2 sm:px-4 overflow-x-auto overflow-y-visible pt-6 sm:pt-10 pb-2 -mx-2 sm:mx-0 flex-nowrap" style={{ WebkitOverflowScrolling: 'touch' }}>
+        <div className="flex justify-start sm:justify-center gap-2 sm:gap-4 px-2 sm:px-4 overflow-x-auto overflow-y-visible pt-4 sm:pt-10 pb-2 -mx-2 sm:mx-0 flex-nowrap min-h-0" style={{ WebkitOverflowScrolling: 'touch' }}>
           <AnimatePresence mode="popLayout">
             {handCards.map((card, i) => (
               <motion.div
