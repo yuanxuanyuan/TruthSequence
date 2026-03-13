@@ -66,12 +66,14 @@ function drawCards(drawPile, discardPile, n) {
   return { drawn, drawPile: remaining, discardPile: discard }
 }
 
-function pickRandomEnemy() {
-  return enemiesData[Math.floor(Math.random() * enemiesData.length)]
+function pickRandomEnemy(onlyBoss = false) {
+  const pool = onlyBoss ? enemiesData.filter(e => e.boss) : enemiesData
+  if (pool.length === 0) return enemiesData[0]
+  return pool[Math.floor(Math.random() * pool.length)]
 }
 
 export function BattleView() {
-  const { playerHP, playerBlock, damagePlayer, addPlayerBlock, clearPlayerBlock, healPlayer, deck, relics, goToCardChoice, goToRelicReward, goToHome, upgradedCards } = useGame()
+  const { playerHP, playerBlock, damagePlayer, addPlayerBlock, clearPlayerBlock, healPlayer, deck, relics, goToCardChoice, goToCardUpgradeResult, goToHome, upgradedCards, cardBonuses, levelUpRandomCards, forceBossBattle, clearForceBossBattle } = useGame()
   const [modal, setModal] = useState(null)
   const [syllabusOpen, setSyllabusOpen] = useState(false)
   const [hintRemaining, setHintRemaining] = useState(HINTS_PER_BATTLE)
@@ -80,7 +82,9 @@ export function BattleView() {
   const hintClearRef = useRef(null)
   const validatingRef = useRef(false)
   const [isValidating, setIsValidating] = useState(false)
-  const [rethinkUsed, setRethinkUsed] = useState(false)
+  const EVENT_CHARGE_MAX = 4
+  const [eventCharge, setEventCharge] = useState(4)
+  const [randomEventToast, setRandomEventToast] = useState(null) // { name, effect }
   const [attackDamageToast, setAttackDamageToast] = useState(null)
   const [gameOverOpen, setGameOverOpen] = useState(false)
   const [attackBonus, setAttackBonus] = useState(0) // 学科共鸣：下一回合攻击力加成
@@ -125,6 +129,13 @@ export function BattleView() {
         topToastProcessingRef.current = false
         if (topToastQueueRef.current.length > 0) processTopToastQueue()
       }, 2500)
+    } else if (item.type === 'random_event') {
+      setRandomEventToast({ name: item.name, effect: item.effect })
+      setTimeout(() => {
+        setRandomEventToast(null)
+        topToastProcessingRef.current = false
+        if (topToastQueueRef.current.length > 0) processTopToastQueue()
+      }, 2200)
     }
   }, [])
 
@@ -283,7 +294,8 @@ export function BattleView() {
   // 战斗初始化 + 首次抽牌
   useEffect(() => {
     clearPlayerBlock()
-    const e = pickRandomEnemy()
+    const e = pickRandomEnemy(forceBossBattle)
+    if (forceBossBattle) clearForceBossBattle()
     const shuffledDeck = shuffle([...deck])
     const firstDraw = drawCards(shuffledDeck, [], HAND_SIZE)
     const ensured = ensureHandHasCombo(firstDraw.drawn, shuffledDeck)
@@ -298,11 +310,12 @@ export function BattleView() {
     setHand(shuffle(handToUse))
     setDiscardPile([])
     setSynthesis([])
-    setRethinkUsed(false)
+    setEventCharge(EVENT_CHARGE_MAX)
     setAttackBonus(0)
     setHintRemaining(HINTS_PER_BATTLE)
     setHintHighlightCards([])
     setHintToast(null)
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- forceBossBattle 仅用于首次进入时选 BOSS，不加入 deps 避免 clear 后重跑
   }, [deck, clearPlayerBlock])
 
   useEffect(() => () => {
@@ -368,7 +381,8 @@ export function BattleView() {
 
   const closeModal = () => {
     if (battleWonRef.current) {
-      if (enemy?.boss) goToRelicReward()
+      levelUpRandomCards()
+      if (enemy?.boss) goToCardUpgradeResult()
       else goToCardChoice()
     }
     setModal(null)
@@ -407,7 +421,7 @@ export function BattleView() {
     if (validatingRef.current) return
     validatingRef.current = true
     setIsValidating(true)
-    const result = evaluateCombo(synthesis, undefined, relics)
+    const result = evaluateCombo(synthesis, undefined, relics, cardBonuses)
     const combinedDiscard = [...discardPile, ...synthesis]
     const combinedPool = shuffle([...hand, ...drawPile])
     const { drawn, drawPile: rawDp, discardPile: rawDcp } = drawCards(combinedPool, combinedDiscard, HAND_SIZE)
@@ -434,6 +448,7 @@ export function BattleView() {
         validatingRef.current = false
         setIsValidating(false)
       }
+      setEventCharge(c => Math.min(EVENT_CHARGE_MAX, c + 1))
       if (config) {
         if (subject === '历史') {
           const bonus = 8 + Math.floor(Math.random() * 13)
@@ -471,6 +486,7 @@ export function BattleView() {
     } else {
       damagePlayer(result.backlashDamage)
       setModal({ type: 'fail', message: result.message, backlashDamage: result.backlashDamage })
+      setEventCharge(c => Math.min(EVENT_CHARGE_MAX, c + 1))
       validatingRef.current = false
       setIsValidating(false)
     }
@@ -478,15 +494,26 @@ export function BattleView() {
 
   const handleHandCardClick = (cardId) => moveToSynthesis(cardId)
 
-  const rethinkHand = () => {
-    if (rethinkUsed) return
-    const combinedDiscard = [...discardPile, ...hand]
-    const { drawn, drawPile: rawDp, discardPile: rawDcp } = drawCards(drawPile, combinedDiscard, HAND_SIZE)
-    const ensured = ensureHandHasComboWithPiles(drawn, rawDp, rawDcp)
-    setDrawPile(ensured.drawPile)
-    setDiscardPile(ensured.discardPile)
-    setHand(shuffle(ensured.hand))
-    setRethinkUsed(true)
+  const triggerRandomEvent = () => {
+    if (eventCharge < EVENT_CHARGE_MAX) return
+    setEventCharge(0)
+    const roll = Math.floor(Math.random() * 4)
+    if (roll === 0) {
+      setHintRemaining(r => r + 1)
+      queueTopToast({ type: 'random_event', name: '灵光一现', effect: '连携提示 +1（脑中闪过一道灵光！）' })
+    } else if (roll === 1) {
+      const n = 5 + Math.floor(Math.random() * 16)
+      addPlayerBlock(n)
+      queueTopToast({ type: 'random_event', name: '知识护甲', effect: `获得 ${n} 点护盾（逻辑凝聚成无形的屏障！）` })
+    } else if (roll === 2) {
+      const n = 5 + Math.floor(Math.random() * 16)
+      setAttackBonus(b => b + n)
+      queueTopToast({ type: 'random_event', name: '逻辑锋芒', effect: `下回合瞬击 +${n}（知识即是力量，锋芒毕露！）` })
+    } else {
+      const n = 6 + Math.floor(Math.random() * 11)
+      healPlayer(n)
+      queueTopToast({ type: 'random_event', name: '温故知新', effect: `恢复 ${n} 点生命（顿悟的愉悦让身心焕发！）` })
+    }
   }
 
   if (!enemy) return null
@@ -601,7 +628,7 @@ export function BattleView() {
                   className={hintHighlightCards.includes(String(card.id)) ? 'hint-card-glow rounded-lg' : ''}
                   style={hintHighlightCards.includes(String(card.id)) ? { boxShadow: '0 0 0 4px rgba(251,191,36,0.9), 0 0 40px rgba(251,191,36,0.95), 0 0 70px rgba(251,191,36,0.6)' } : undefined}
                 >
-                  <Card card={card} onClick={() => returnToHand(card.id)} variant="synthesis" upgraded={upgradedCards?.has?.(card.id)} comboSizes={getComboSizesForCard(card.id)} />
+                  <Card card={card} onClick={() => returnToHand(card.id)} variant="synthesis" upgraded={upgradedCards?.has?.(card.id)} comboSizes={getComboSizesForCard(card.id)} bonus={cardBonuses?.[card.id] ?? 0} bonusPosition="top-center" />
                 </motion.div>
               ))}
               {Array.from({ length: 4 - synthesisCards.length }).map((_, i) => (
@@ -627,20 +654,25 @@ export function BattleView() {
             >
               验证逻辑
             </motion.button>
-            <motion.button
-              whileHover={!rethinkUsed ? { scale: 1.02 } : {}}
-              whileTap={!rethinkUsed ? { scale: 0.98 } : {}}
-              onClick={rethinkHand}
-              disabled={rethinkUsed}
-              className={`px-5 sm:px-8 py-2.5 sm:py-3 font-mono text-xs sm:text-sm tracking-widest rounded-lg border transition-colors
-                ${rethinkUsed
-                  ? 'bg-slate-700/50 border-slate-500/30 text-slate-500 cursor-not-allowed'
-                  : 'bg-violet-600/80 hover:bg-violet-500/90 border-violet-400/50 text-violet-100'
-                }`}
-              title={rethinkUsed ? '本场战斗已使用' : '丢弃所有手牌，立刻重抽 8 张（每场限 1 次）'}
-            >
-              整理思绪
-            </motion.button>
+            <div className="relative overflow-hidden rounded-lg border border-violet-400/50">
+              <div className="absolute inset-0 bg-slate-700/50" />
+              <motion.div
+                className="absolute inset-0 bg-violet-600/80"
+                initial={false}
+                animate={{ width: `${(eventCharge / EVENT_CHARGE_MAX) * 100}%` }}
+                transition={{ duration: 0.3 }}
+              />
+              <motion.button
+                whileHover={eventCharge >= EVENT_CHARGE_MAX ? { scale: 1.02 } : {}}
+                whileTap={eventCharge >= EVENT_CHARGE_MAX ? { scale: 0.98 } : {}}
+                onClick={triggerRandomEvent}
+                disabled={eventCharge < EVENT_CHARGE_MAX}
+                className="relative w-full px-5 sm:px-8 py-2.5 sm:py-3 font-mono text-xs sm:text-sm tracking-widest text-violet-100 transition-colors disabled:text-slate-500 disabled:cursor-not-allowed disabled:hover:bg-transparent"
+                title={eventCharge >= EVENT_CHARGE_MAX ? '随机获得一项增益（连携提示/护盾/瞬击/恢复HP）' : `需验证逻辑 ${EVENT_CHARGE_MAX - eventCharge} 次后可用`}
+              >
+                随机事件
+              </motion.button>
+            </div>
           </div>
         </div>
       </section>
@@ -655,6 +687,23 @@ export function BattleView() {
             className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-lg bg-amber-900/90 border border-amber-400/50 text-amber-200 font-mono text-sm shadow-lg"
           >
             {hintToast}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* 随机事件提示 */}
+      <AnimatePresence>
+        {randomEventToast && (
+          <motion.div
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed top-16 left-1/2 -translate-x-1/2 z-[9997] pointer-events-none"
+          >
+            <div className="px-4 sm:px-8 py-3 sm:py-4 rounded-xl font-serif text-lg sm:text-xl font-bold text-center max-w-[95vw] bg-violet-900/95 border-2 border-violet-400/80 text-violet-100 shadow-[0_0_60px_rgba(139,92,246,0.5)]">
+              <p>✦ {randomEventToast.name} ✦</p>
+              <p className="text-base font-mono mt-2 opacity-90">{randomEventToast.effect}</p>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -733,7 +782,7 @@ export function BattleView() {
                   style={hintHighlightCards.includes(String(card.id)) ? { boxShadow: '0 0 0 4px rgba(251,191,36,0.9), 0 0 40px rgba(251,191,36,0.95), 0 0 70px rgba(251,191,36,0.6)' } : undefined}
                   onClick={() => handleHandCardClick(card.id)}
                 >
-                  <Card card={card} onClick={() => {}} variant="hand" upgraded={upgradedCards?.has?.(card.id)} comboSizes={getComboSizesForCard(card.id)} />
+                  <Card card={card} onClick={() => {}} variant="hand" upgraded={upgradedCards?.has?.(card.id)} comboSizes={getComboSizesForCard(card.id)} bonus={cardBonuses?.[card.id] ?? 0} bonusPosition="top-center" />
                 </div>
               </motion.div>
             ))}

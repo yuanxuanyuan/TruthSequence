@@ -55,6 +55,44 @@ export function GameProvider({ children }) {
 
   const [relics, setRelics] = useState([])
   const [upgradedCards, setUpgradedCards] = useState(new Set())
+  const [cardBonuses, setCardBonuses] = useState({}) // { cardId: number } 每张卡的伤害加成，默认 0
+  const [lastUpgradedCards, setLastUpgradedCards] = useState([]) // [{ cardId, addedBonus, totalBonus }] BOSS 战结算用
+
+  const levelUpRandomCards = useCallback(() => {
+    const count = 20 + Math.floor(Math.random() * 11) // 20-30
+    setDeck(d => {
+      const unique = [...new Set(d)]
+      const toLevel = shuffle(unique).slice(0, Math.min(count, unique.length))
+      const adds = {}
+      toLevel.forEach(cardId => {
+        adds[cardId] = 2 + Math.floor(Math.random() * 4)
+      })
+      setCardBonuses(prev => {
+        const next = { ...prev }
+        const result = []
+        Object.entries(adds).forEach(([id, add]) => {
+          const oldBonus = prev[id] ?? 0
+          next[id] = oldBonus + add
+          result.push({ cardId: id, addedBonus: add, totalBonus: oldBonus + add })
+        })
+        setLastUpgradedCards(result)
+        return next
+      })
+      return d
+    })
+  }, [])
+
+  const goToCardUpgradeResult = useCallback(() => setCurrentView('cardUpgradeResult'), [])
+  const finishCardUpgradeResult = useCallback(() => {
+    setCurrentView('postBossChoice')
+  }, [])
+
+  const [forceBossBattle, setForceBossBattle] = useState(false)
+  const startBossBattle = useCallback(() => {
+    setForceBossBattle(true)
+    setCurrentView('battle')
+  }, [])
+  const clearForceBossBattle = useCallback(() => setForceBossBattle(false), [])
 
   const addCardToDeck = useCallback((cardId) => {
     if (!comboCardIds.has(cardId)) return
@@ -125,6 +163,7 @@ export function GameProvider({ children }) {
     setFloor(0)
     setRelics([])
     setUpgradedCards(new Set())
+    setCardBonuses({})
     setCurrentView('map')
   }, [])
 
@@ -137,6 +176,7 @@ export function GameProvider({ children }) {
     setFloor(0)
     setRelics([])
     setUpgradedCards(new Set())
+    setCardBonuses({})
     setCurrentView('battle')
   }, [])
 
@@ -194,6 +234,14 @@ export function GameProvider({ children }) {
     upgradeCard,
     addAdvancedCard,
     upgradedCards,
+    cardBonuses,
+    levelUpRandomCards,
+    lastUpgradedCards,
+    goToCardUpgradeResult,
+    finishCardUpgradeResult,
+    forceBossBattle,
+    startBossBattle,
+    clearForceBossBattle,
     startGame,
     startTestGame,
     INIT_PLAYER_HP,

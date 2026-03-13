@@ -1,6 +1,20 @@
 [
   {
     "id": "fool_king_out_of_loop",
+    "name": "ZERO",
+    "hp": 234,
+    "boss": true,
+    "avatar": "♥",
+    "subject": "从从容容",
+    "actions": [
+      { "type": "attack", "value": 15 },
+      { "type": "defend", "value": 50 },
+      { "type": "curse", "value": "curse_celestial_dream", "desc": "助力每一个梦想！" },
+      { "type": "attack", "value": 35 }
+    ]
+  },
+  {
+    "id": "fool_king_out_of_loop",
     "name": "在状况内外横跳的傻王",
     "hp": 850,
     "boss": true,

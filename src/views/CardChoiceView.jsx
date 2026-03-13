@@ -16,7 +16,7 @@ function shuffle(arr) {
 }
 
 export function CardChoiceView() {
-  const { cardsData, finishCardChoice } = useGame()
+  const { cardsData, finishCardChoice, cardBonuses } = useGame()
   const [choice, setChoice] = useState(null)
 
   const comboCards = useMemo(() => cardsData.filter(c => comboCardIds.has(c.id)), [cardsData])
@@ -49,7 +49,7 @@ export function CardChoiceView() {
               onClick={() => handleSelect(card)}
             >
               <motion.div whileHover={{ scale: 1.08, y: -8 }} whileTap={{ scale: 0.95 }}>
-                <Card card={card} variant="hand" comboSizes={getComboSizesForCard(card.id)} />
+                <Card card={card} variant="hand" comboSizes={getComboSizesForCard(card.id)} bonus={cardBonuses?.[card.id] ?? 0} />
                 <p className="text-center text-cyan-400/80 text-xs mt-2 font-mono">点击选择</p>
               </motion.div>
             </motion.div>

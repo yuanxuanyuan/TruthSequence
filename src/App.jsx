@@ -6,6 +6,8 @@ import { CardChoiceView } from './views/CardChoiceView'
 import { CampView } from './views/CampView'
 import { EventView } from './views/EventView'
 import { RelicRewardView } from './views/RelicRewardView'
+import { CardUpgradeResultView } from './views/CardUpgradeResultView'
+import { PostBossChoiceView } from './views/PostBossChoiceView'
 
 function GameRouter() {
   const { currentView } = useGame()
@@ -16,6 +18,8 @@ function GameRouter() {
   if (currentView === 'camp') return <CampView />
   if (currentView === 'event') return <EventView />
   if (currentView === 'relicReward') return <RelicRewardView />
+  if (currentView === 'cardUpgradeResult') return <CardUpgradeResultView />
+  if (currentView === 'postBossChoice') return <PostBossChoiceView />
   return <MapView />
 }
 

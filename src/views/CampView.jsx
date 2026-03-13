@@ -7,7 +7,7 @@ import cardsData from '../data/cards.json'
 import { getComboSizesForCard } from '../engine/evaluateCombo'
 
 export function CampView() {
-  const { playerHP, INIT_PLAYER_HP, healPlayer, deck, upgradedCards, upgradeCard, removeCardFromDeck, finishCamp } = useGame()
+  const { playerHP, INIT_PLAYER_HP, healPlayer, deck, upgradedCards, upgradeCard, removeCardFromDeck, finishCamp, cardBonuses } = useGame()
   const [choice, setChoice] = useState(null) // 'rest' | 'upgrade' | 'forget'
   const [upgradeSelected, setUpgradeSelected] = useState(null)
   const [forgetSelected, setForgetSelected] = useState(null)
@@ -122,6 +122,7 @@ export function CampView() {
                     variant="hand"
                     upgraded={upgradedCards.has(card.id)}
                     disabled={upgradedCards.has(card.id)}
+                    bonus={cardBonuses?.[card.id] ?? 0}
                   />
                   {upgradedCards.has(card.id) && (
                     <p className="text-xs text-amber-400 text-center mt-1">已升级</p>
@@ -160,7 +161,7 @@ export function CampView() {
                       onClick={() => handleForgetSelect(card.id)}
                       className="cursor-pointer rounded-lg border-2 border-transparent p-1 transition-colors hover:border-violet-400/50"
                     >
-                      <Card card={card} variant="hand" comboSizes={getComboSizesForCard(card.id)} />
+                      <Card card={card} variant="hand" comboSizes={getComboSizesForCard(card.id)} bonus={cardBonuses?.[card.id] ?? 0} />
                       <p className="text-xs text-violet-400/80 text-center mt-1">点击遗忘</p>
                     </motion.div>
                   ))}

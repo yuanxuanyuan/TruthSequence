@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Zap } from 'lucide-react'
 
 const TOOLTIP_DELAY_MS = 300
 const LONG_PRESS_MS = 500
@@ -69,13 +70,13 @@ function getSubjectStyle(subject) {
 }
 
 function nameSizeClass(name, isCompact) {
-  if (!name) return isCompact ? 'text-[10px]' : 'text-xs'
+  if (!name) return isCompact ? 'text-xs' : 'text-sm'
   const len = name.length
-  if (isCompact) return len >= 5 ? 'text-[9px]' : len >= 4 ? 'text-[10px]' : 'text-xs'
-  return len >= 6 ? 'text-[10px]' : len >= 4 ? 'text-xs' : 'text-sm'
+  if (isCompact) return len >= 8 ? 'text-[11px]' : len >= 6 ? 'text-xs' : 'text-sm'
+  return len >= 10 ? 'text-xs' : len >= 6 ? 'text-sm' : 'text-base'
 }
 
-export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comboSizes = [] }) {
+export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comboSizes = [], bonus = 0, bonusPosition = 'bottom-left' }) {
   const isCompact = variant === 'synthesis'
   const showGlow = upgraded && isBasicNoun(card?.type)
   const hasMultiCombo = comboSizes.length > 1
@@ -250,28 +251,45 @@ export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comb
           </>
         )}
         <div className="relative p-2 h-full flex flex-col">
-          {comboSizes.length > 0 && (
-            <span className={`absolute top-1 right-1.5 text-[13px] font-mono tabular-nums flex flex-col items-end gap-0 [&>*:not(:first-child)]:-mt-[5px] ${hasMultiCombo ? 'font-semibold' : ''}`}>
-              {comboSizes.filter(n => n !== 2).map(n => (
-                <span
-                  key={n}
-                  className="text-amber-400"
-                  style={hasMultiCombo ? { textShadow: '0 0 6px rgba(251,191,36,0.6)' } : undefined}
-                >
-                  1/{n}
-                </span>
-              ))}
-              {comboSizes.includes(2) && (
-                <span
-                  className="text-cyan-400"
-                  style={hasMultiCombo ? { textShadow: '0 0 6px rgba(34,211,238,0.7)' } : undefined}
-                >
-                  1/2
-                </span>
-              )}
+          {/* 顶部行：分类标签 | 加成(居中) | 连携数，X 轴对齐 */}
+          <div className="flex items-center justify-between gap-1 shrink-0 min-h-[1.25rem]">
+            <span className="text-[10px] text-cyan-400/90 font-mono leading-tight text-fragment shrink-0">{typeLabel}</span>
+            {bonus > 0 && bonusPosition === 'top-center' ? (
+              <span className="flex items-center justify-center gap-0.5 text-amber-400 font-mono text-[10px] sm:text-xs font-bold flex-1 min-w-0" title="伤害加成">
+                <Zap className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" strokeWidth={2.5} />
+                <span>+{bonus}</span>
+              </span>
+            ) : (
+              <span className="flex-1 min-w-0" />
+            )}
+            {comboSizes.length > 0 ? (
+              <span className={`text-[13px] font-mono tabular-nums flex flex-col items-end gap-0 [&>*:not(:first-child)]:-mt-[5px] shrink-0 ${hasMultiCombo ? 'font-semibold' : ''}`}>
+                {comboSizes.filter(n => n !== 2).map(n => (
+                  <span
+                    key={n}
+                    className="text-amber-400"
+                    style={hasMultiCombo ? { textShadow: '0 0 6px rgba(251,191,36,0.6)' } : undefined}
+                  >
+                    1/{n}
+                  </span>
+                ))}
+                {comboSizes.includes(2) && (
+                  <span
+                    className="text-cyan-400"
+                    style={hasMultiCombo ? { textShadow: '0 0 6px rgba(34,211,238,0.7)' } : undefined}
+                  >
+                    1/2
+                  </span>
+                )}
+              </span>
+            ) : <span className="w-8 shrink-0" />}
+          </div>
+          {bonus > 0 && bonusPosition === 'bottom-left' && (
+            <span className="absolute bottom-1 left-1.5 flex items-center gap-0.5 text-amber-400 font-mono text-[10px] sm:text-xs font-bold" title="伤害加成">
+              <Zap className="w-3 h-3 sm:w-3.5 sm:h-3.5" strokeWidth={2.5} />
+              <span>+{bonus}</span>
             </span>
           )}
-          <span className="text-[10px] text-cyan-400/90 font-mono leading-tight shrink-0 text-fragment">{typeLabel}</span>
           {card.desc && (
             <div className="flex-1 min-h-0 flex items-center -ml-[10px] -mr-[20px] -mt-[30px] -mb-[30px] px-2">
               <p className="w-full text-[11px] text-slate-500 leading-snug line-clamp-3 overflow-hidden text-left">
@@ -287,7 +305,7 @@ export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comb
             </div>
           )}
           <span
-            className={`font-serif font-bold text-slate-100 mt-auto break-words leading-tight ${nameSizeClass(card?.name ?? '', isCompact)}`}
+            className={`block w-full font-serif font-bold text-slate-100 mt-auto text-center break-words leading-tight line-clamp-2 min-h-0 ${nameSizeClass(card?.name ?? '', isCompact)}`}
           >
             {card.name}
           </span>

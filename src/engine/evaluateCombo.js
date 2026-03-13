@@ -33,7 +33,7 @@ function isAllGeo(cardIds) {
  * @param {string[]} [relicIds] - 玩家遗物 ID 数组
  * @returns {{ success: boolean, damage?: number, block?: number, comboName?: string, factText?: string, backlashDamage?: number, message?: string }}
  */
-export function evaluateCombo(selectedCardIds, combos = combosData, relicIds = []) {
+export function evaluateCombo(selectedCardIds, combos = combosData, relicIds = [], cardBonuses = {}) {
   const selected = [...selectedCardIds].sort()
   const selectedKey = selected.join(',')
   const relics = new Set(relicIds ?? [])
@@ -43,6 +43,8 @@ export function evaluateCombo(selectedCardIds, combos = combosData, relicIds = [
     const requiredKey = required.join(',')
     if (selectedKey === requiredKey) {
       let damage = combo.damage ?? 0
+      const bonusDamage = selected.reduce((sum, id) => sum + (cardBonuses[id] ?? 0), 0)
+      damage += bonusDamage
       if (relics.has('zhenghe_compass') && isAllGeo(selected)) {
         damage = Math.floor(damage * 1.3)
       }
@@ -61,7 +63,8 @@ export function evaluateCombo(selectedCardIds, combos = combosData, relicIds = [
 
   // 保底机制：单卡打出造成微弱物理伤害（2-5 点），不触发悖论反噬
   if (selectedCardIds.length === 1) {
-    const singleDamage = 2 + Math.floor(Math.random() * 4)
+    let singleDamage = 2 + Math.floor(Math.random() * 4)
+    singleDamage += cardBonuses[selectedCardIds[0]] ?? 0
     const card = cardsById[selectedCardIds[0]]
     return {
       success: true,
