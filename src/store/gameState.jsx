@@ -59,13 +59,13 @@ export function GameProvider({ children }) {
   const [lastUpgradedCards, setLastUpgradedCards] = useState([]) // [{ cardId, addedBonus, totalBonus }] BOSS 战结算用
 
   const levelUpRandomCards = useCallback(() => {
-    const count = 20 + Math.floor(Math.random() * 11) // 20-30
+    const count = 50
     setDeck(d => {
       const unique = [...new Set(d)]
       const toLevel = shuffle(unique).slice(0, Math.min(count, unique.length))
       const adds = {}
       toLevel.forEach(cardId => {
-        adds[cardId] = 2 + Math.floor(Math.random() * 4)
+        adds[cardId] = 3 + Math.floor(Math.random() * 6) // 3-8
       })
       setCardBonuses(prev => {
         const next = { ...prev }
