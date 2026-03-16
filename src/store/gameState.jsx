@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useState } from 'react'
+import { createContext, useCallback, useContext, useState, useEffect } from 'react'
 import cardsData from '../data/cards.json'
 import combosData from '../data/combos.json'
 import { comboCardIds } from '../engine/evaluateCombo'
@@ -6,7 +6,29 @@ import { comboCardIds } from '../engine/evaluateCombo'
 export const INIT_PLAYER_HP = 100
 export const INIT_ENEMY_HP = 200
 
+const SAVE_KEY = 'truth_sequence_save'
+
 const GameContext = createContext(null)
+
+/** 从 localStorage 读取存档，无效则返回 null */
+function loadSave() {
+  try {
+    const raw = localStorage.getItem(SAVE_KEY)
+    if (!raw) return null
+    const data = JSON.parse(raw)
+    if (!data || !Array.isArray(data.deck)) return null
+    return data
+  } catch {
+    return null
+  }
+}
+
+/** 写入存档 */
+function saveToStorage(data) {
+  try {
+    localStorage.setItem(SAVE_KEY, JSON.stringify(data))
+  } catch (_) {}
+}
 
 function shuffle(arr) {
   const a = [...arr]
@@ -22,13 +44,66 @@ function pickRandomCards(pool, n, excludeIds = []) {
   return shuffle(available).slice(0, n).map(c => c.id)
 }
 
+function getInitialState() {
+  const save = loadSave()
+  if (!save) {
+    return {
+      playerCombat: { hp: INIT_PLAYER_HP, block: 0 },
+      deck: [],
+      floor: 0,
+      currentView: 'home',
+      relics: [],
+      upgradedCards: new Set(),
+      cardBonuses: {},
+      backpackItems: {},
+    }
+  }
+  return {
+    playerCombat: save.playerCombat && typeof save.playerCombat.hp === 'number'
+      ? { hp: save.playerCombat.hp, block: save.playerCombat.block ?? 0 }
+      : { hp: INIT_PLAYER_HP, block: 0 },
+    deck: Array.isArray(save.deck) ? save.deck : [],
+    floor: typeof save.floor === 'number' ? save.floor : 0,
+    currentView: typeof save.currentView === 'string' ? save.currentView : 'home',
+    relics: Array.isArray(save.relics) ? save.relics : [],
+    upgradedCards: new Set(Array.isArray(save.upgradedCards) ? save.upgradedCards : []),
+    cardBonuses: typeof save.cardBonuses === 'object' && save.cardBonuses ? save.cardBonuses : {},
+    backpackItems: typeof save.backpackItems === 'object' && save.backpackItems ? save.backpackItems : {},
+  }
+}
+
 export function GameProvider({ children }) {
-  const [playerCombat, setPlayerCombat] = useState({ hp: INIT_PLAYER_HP, block: 0 })
+  const [playerCombat, setPlayerCombat] = useState(() => getInitialState().playerCombat)
   const playerHP = playerCombat.hp
   const playerBlock = playerCombat.block
-  const [deck, setDeck] = useState([])
-  const [floor, setFloor] = useState(0)
-  const [currentView, setCurrentView] = useState('home')
+  const [deck, setDeck] = useState(() => getInitialState().deck)
+  const [floor, setFloor] = useState(() => getInitialState().floor)
+  const [currentView, setCurrentView] = useState(() => getInitialState().currentView)
+
+  const [relics, setRelics] = useState(() => getInitialState().relics)
+  const [upgradedCards, setUpgradedCards] = useState(() => getInitialState().upgradedCards)
+  const [cardBonuses, setCardBonuses] = useState(() => getInitialState().cardBonuses)
+  const [backpackItems, setBackpackItems] = useState(() => getInitialState().backpackItems)
+  const [bossHintBonus, setBossHintBonus] = useState(0)
+  const [bossChainMode, setBossChainMode] = useState(false)
+  const [bossChainAttackStart, setBossChainAttackStart] = useState(0)
+  const [bossChainBlockStart, setBossChainBlockStart] = useState(0)
+  const [bossChainWave, setBossChainWave] = useState(0)
+
+  /** 持久化：有进行中的游戏时写入 localStorage */
+  useEffect(() => {
+    if (deck.length === 0) return
+    saveToStorage({
+      playerCombat: { hp: playerCombat.hp, block: playerCombat.block },
+      deck,
+      floor,
+      currentView,
+      relics,
+      upgradedCards: [...upgradedCards],
+      cardBonuses,
+      backpackItems,
+    })
+  }, [deck, floor, currentView, playerCombat.hp, playerCombat.block, relics, upgradedCards, cardBonuses, backpackItems])
 
   /** 对玩家造成伤害，优先扣 block，剩余扣 HP（单次 state 更新，避免 Strict Mode 双倍伤害） */
   const damagePlayer = useCallback((amount) => {
@@ -53,9 +128,6 @@ export function GameProvider({ children }) {
     setPlayerCombat(prev => ({ ...prev, hp: Math.min(INIT_PLAYER_HP, prev.hp + amount) }))
   }, [])
 
-  const [relics, setRelics] = useState([])
-  const [upgradedCards, setUpgradedCards] = useState(new Set())
-  const [cardBonuses, setCardBonuses] = useState({}) // { cardId: number } 每张卡的伤害加成，默认 0
   const [lastUpgradedCards, setLastUpgradedCards] = useState([]) // [{ cardId, addedBonus, totalBonus }] BOSS 战结算用
 
   const levelUpRandomCards = useCallback(() => {
@@ -89,6 +161,8 @@ export function GameProvider({ children }) {
 
   const [forceBossBattle, setForceBossBattle] = useState(false)
   const startBossBattle = useCallback(() => {
+    setBossChainMode(true)
+    setBossChainWave(w => (w > 0 ? w + 1 : 1))
     setForceBossBattle(true)
     setCurrentView('battle')
   }, [])
@@ -139,6 +213,28 @@ export function GameProvider({ children }) {
     setRelics(r => (r.includes(relicId) ? r : [...r, relicId]))
   }, [])
 
+  /** 背包道具：击败 BOSS 获得。id 如 'scroll_upgrade_50'，count 为数量 */
+  const addBackpackItem = useCallback((id, count = 1) => {
+    if (!id || count < 1) return
+    setBackpackItems(prev => ({ ...prev, [id]: (prev[id] ?? 0) + count }))
+  }, [])
+
+  /** 使用背包道具，成功返回 true 并扣 1 个，没有则返回 false */
+  const useBackpackItem = useCallback((id) => {
+    if (!id) return false
+    let used = false
+    setBackpackItems(prev => {
+      const n = prev[id] ?? 0
+      if (n <= 0) return prev
+      used = true
+      const next = { ...prev }
+      if (next[id] === 1) delete next[id]
+      else next[id] = next[id] - 1
+      return next
+    })
+    return used
+  }, [])
+
   const startGame = useCallback(() => {
     setPlayerCombat({ hp: 100, block: 0 })
     const comboPool = cardsData.filter(c => comboCardIds.has(c.id))
@@ -162,8 +258,11 @@ export function GameProvider({ children }) {
     setDeck(shuffle([...deckIds]))
     setFloor(0)
     setRelics([])
-    setUpgradedCards(new Set())
-    setCardBonuses({})
+    setBossHintBonus(0)
+    setBossChainMode(false)
+    setBossChainAttackStart(0)
+    setBossChainBlockStart(0)
+    setBossChainWave(0)
     setCurrentView('map')
   }, [])
 
@@ -175,8 +274,11 @@ export function GameProvider({ children }) {
     setDeck(shuffle(deckIds))
     setFloor(0)
     setRelics([])
-    setUpgradedCards(new Set())
-    setCardBonuses({})
+    setBossHintBonus(0)
+    setBossChainMode(false)
+    setBossChainAttackStart(0)
+    setBossChainBlockStart(0)
+    setBossChainWave(0)
     setCurrentView('battle')
   }, [])
 
@@ -247,6 +349,17 @@ export function GameProvider({ children }) {
     INIT_PLAYER_HP,
     INIT_ENEMY_HP,
     cardsData,
+    backpackItems,
+    addBackpackItem,
+    useBackpackItem,
+    bossHintBonus,
+    setBossHintBonus,
+    bossChainMode,
+    bossChainAttackStart,
+    setBossChainAttackStart,
+    bossChainBlockStart,
+    setBossChainBlockStart,
+    bossChainWave,
   }
 
   return (

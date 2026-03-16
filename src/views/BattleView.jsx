@@ -1,6 +1,6 @@
 import { useState, useMemo, useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Heart, Zap, X, Swords, Shield, Skull, Info } from 'lucide-react'
+import { Heart, Zap, X, Swords, Shield, Skull, Info, Package, BookOpen } from 'lucide-react'
 import { RelicBar } from '../components/RelicBar'
 import { useGame } from '../store/gameState.jsx'
 import cardsData from '../data/cards.json'
@@ -11,6 +11,14 @@ import { Card } from '../components/Card'
 
 const HAND_SIZE = 8
 const HINTS_PER_BATTLE = 3
+
+const CONSUMABLES = {
+  scroll_upgrade_50: {
+    name: '温故知新卷轴',
+    desc: '使用后随机强化约50张卡牌（+3~8伤害）',
+    icon: BookOpen,
+  },
+}
 
 /** 将 factText 中的【】「」《》等标签及数字+单位高亮，提升可读性 */
 function renderFactText(text) {
@@ -73,7 +81,7 @@ function pickRandomEnemy(onlyBoss = false) {
 }
 
 export function BattleView() {
-  const { playerHP, playerBlock, damagePlayer, addPlayerBlock, clearPlayerBlock, healPlayer, deck, relics, goToCardChoice, goToCardUpgradeResult, goToHome, upgradedCards, cardBonuses, levelUpRandomCards, forceBossBattle, clearForceBossBattle } = useGame()
+  const { playerHP, playerBlock, damagePlayer, addPlayerBlock, clearPlayerBlock, healPlayer, deck, relics, goToCardChoice, goToCardUpgradeResult, goToHome, upgradedCards, cardBonuses, levelUpRandomCards, forceBossBattle, clearForceBossBattle, backpackItems, useBackpackItem, addBackpackItem, bossHintBonus, setBossHintBonus, bossChainMode, bossChainAttackStart, setBossChainAttackStart, bossChainBlockStart, setBossChainBlockStart, bossChainWave } = useGame()
   const [modal, setModal] = useState(null)
   const [syllabusOpen, setSyllabusOpen] = useState(false)
   const [hintRemaining, setHintRemaining] = useState(HINTS_PER_BATTLE)
@@ -87,6 +95,9 @@ export function BattleView() {
   const [randomEventToast, setRandomEventToast] = useState(null) // { name, effect }
   const [attackDamageToast, setAttackDamageToast] = useState(null)
   const [gameOverOpen, setGameOverOpen] = useState(false)
+  const [backpackOpen, setBackpackOpen] = useState(false)
+  const [backpackToast, setBackpackToast] = useState(null)
+  const [secretClickCount, setSecretClickCount] = useState(0)
   const [attackBonus, setAttackBonus] = useState(0) // 学科共鸣：下一回合攻击力加成
   const [resonanceToast, setResonanceToast] = useState(null) // { subject, name, effect }
   const [resonanceGlow, setResonanceGlow] = useState(null)
@@ -162,6 +173,32 @@ export function BattleView() {
     if (relevant.length > 0) return relevant.slice(0, 12)
     return combosData.slice(0, 8)
   }, [deck])
+
+  const grantBossChainRewards = () => {
+    if (!bossChainMode || !enemy?.boss) return
+    const extraHints = 2 + Math.floor(Math.random() * 2) // 2-3 次提示
+    setBossHintBonus(b => b + extraHints)
+    healPlayer(20)
+    setBossChainBlockStart(b => b + 10)
+    setBossChainAttackStart(b => b + 10)
+  }
+
+  // 开发用隐藏功能：连续点击玩家左侧 ❤️ 30 次，若当前为 BOSS 战则直接击败 BOSS
+  const handleSecretHeartClick = () => {
+    setSecretClickCount(count => {
+      const next = count + 1
+      if (next >= 30 && enemy?.boss && !battleWonRef.current) {
+        setEnemyHP(0)
+        battleWonRef.current = true
+        levelUpRandomCards()
+        grantBossChainRewards()
+        addBackpackItem('scroll_upgrade_50', 1 + Math.floor(Math.random() * 2))
+        goToCardUpgradeResult()
+        return 0
+      }
+      return next
+    })
+  }
 
   // 检查一组手牌里是否至少包含一套完整连携
   const ensureHandHasCombo = useCallback((initHand, fullDeck) => {
@@ -312,11 +349,19 @@ export function BattleView() {
     setSynthesis([])
     setEventCharge(EVENT_CHARGE_MAX)
     setAttackBonus(0)
-    setHintRemaining(HINTS_PER_BATTLE)
+    setHintRemaining(HINTS_PER_BATTLE + (bossChainMode ? bossHintBonus : 0))
     setHintHighlightCards([])
     setHintToast(null)
+    if (bossChainMode) {
+      if (bossChainBlockStart > 0) {
+        addPlayerBlock(bossChainBlockStart)
+      }
+      if (bossChainAttackStart > 0) {
+        setAttackBonus(bossChainAttackStart)
+      }
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps -- forceBossBattle 仅用于首次进入时选 BOSS，不加入 deps 避免 clear 后重跑
-  }, [deck, clearPlayerBlock])
+  }, [deck, clearPlayerBlock, bossChainMode, bossHintBonus, bossChainAttackStart, bossChainBlockStart, addPlayerBlock])
 
   useEffect(() => () => {
     if (hintClearRef.current) clearTimeout(hintClearRef.current)
@@ -328,6 +373,12 @@ export function BattleView() {
       setGameOverOpen(true)
     }
   }, [playerHP, enemy])
+
+  useEffect(() => {
+    if (!backpackToast) return
+    const t = setTimeout(() => setBackpackToast(null), 2500)
+    return () => clearTimeout(t)
+  }, [backpackToast])
 
   const useComboHint = useCallback(() => {
     if (hintRemaining <= 0) return
@@ -350,7 +401,6 @@ export function BattleView() {
     setHintToast(highlight.length > 0 ? `使用了一次提示，还剩 ${remain} 次提示` : (consumed ? `未发现可连携组合，消耗 1 次，还剩 ${remain} 次` : `未发现可连携组合，60%概率未消耗，还剩 ${remain} 次`))
     if (hintClearRef.current) clearTimeout(hintClearRef.current)
     hintClearRef.current = setTimeout(() => {
-      setHintHighlightCards([])
       setHintToast(null)
       hintClearRef.current = null
     }, 2000)
@@ -382,8 +432,11 @@ export function BattleView() {
   const closeModal = () => {
     if (battleWonRef.current) {
       levelUpRandomCards()
-      if (enemy?.boss) goToCardUpgradeResult()
-      else goToCardChoice()
+      if (enemy?.boss) {
+        grantBossChainRewards()
+        addBackpackItem('scroll_upgrade_50', 1 + Math.floor(Math.random() * 2))
+        goToCardUpgradeResult()
+      } else goToCardChoice()
     }
     setModal(null)
   }
@@ -421,6 +474,7 @@ export function BattleView() {
     if (validatingRef.current) return
     validatingRef.current = true
     setIsValidating(true)
+    setHintHighlightCards([])
     const result = evaluateCombo(synthesis, undefined, relics, cardBonuses)
     const combinedDiscard = [...discardPile, ...synthesis]
     const combinedPool = shuffle([...hand, ...drawPile])
@@ -527,7 +581,32 @@ export function BattleView() {
       <header className="relative z-10 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 px-4 py-4 sm:px-8 sm:py-6 border-b border-cyan-500/20 flex-shrink-0">
         <div className="flex flex-wrap items-center gap-2 sm:gap-4">
           <RelicBar relicIds={relics} />
-          <Heart className="w-6 h-6 text-rose-400" />
+          {bossChainMode && bossChainWave > 0 && (
+            <span className="px-2 py-1 rounded-full bg-amber-500/15 border border-amber-400/60 font-mono text-xs text-amber-200">
+              连续 BOSS 第 {bossChainWave} 关
+            </span>
+          )}
+          <motion.button
+            type="button"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => setBackpackOpen(true)}
+            className="flex items-center gap-1.5 px-2 py-1.5 rounded-lg border border-amber-500/40 bg-amber-500/10 hover:border-amber-400/60 transition-colors"
+            title="背包"
+          >
+            <Package className="w-4 h-4 text-amber-400" />
+            <span className="font-mono text-xs text-amber-300">
+              {Object.values(backpackItems).reduce((a, b) => a + b, 0)}
+            </span>
+          </motion.button>
+          <button
+            type="button"
+            onClick={handleSecretHeartClick}
+            className="inline-flex items-center justify-center"
+            title="玩家生命值"
+          >
+            <Heart className="w-6 h-6 text-rose-400" />
+          </button>
           <span className="font-mono text-lg">玩家</span>
           <span className="font-mono text-2xl font-bold text-cyan-300 tabular-nums">{playerHP}</span>
           <span className="text-slate-500">/ 100</span>
@@ -677,6 +756,19 @@ export function BattleView() {
         </div>
       </section>
 
+      {/* 背包使用提示 */}
+      <AnimatePresence>
+        {backpackToast && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -5 }}
+            className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-lg bg-amber-900/90 border border-amber-400/50 text-amber-200 font-mono text-sm shadow-lg"
+          >
+            {backpackToast}
+          </motion.div>
+        )}
+      </AnimatePresence>
       {/* 连携提示 Toast */}
       <AnimatePresence>
         {hintToast && (
@@ -789,6 +881,77 @@ export function BattleView() {
           </AnimatePresence>
         </div>
       </footer>
+
+      {/* 背包弹窗 */}
+      <AnimatePresence>
+        {backpackOpen && (
+          <motion.div
+            key="backpack"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+            onClick={() => setBackpackOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: 'spring', damping: 25 }}
+              onClick={e => e.stopPropagation()}
+              className="max-w-sm w-full rounded-xl border-2 border-amber-500/50 bg-slate-900/95 p-4 shadow-2xl"
+            >
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="font-serif text-lg font-bold text-amber-300">背包</h3>
+                <button onClick={() => setBackpackOpen(false)} className="p-1 rounded hover:bg-white/10">
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              <div className="space-y-3">
+                {Object.entries(CONSUMABLES).map(([id, meta]) => {
+                  const count = backpackItems[id] ?? 0
+                  const Icon = meta.icon
+                  const onUse = () => {
+                    if (count <= 0) return
+                    useBackpackItem(id)
+                    if (id === 'scroll_upgrade_50') {
+                      levelUpRandomCards()
+                      setBackpackToast('已使用温故知新卷轴，随机强化了约50张卡牌')
+                    }
+                    setBackpackOpen(false)
+                  }
+                  return (
+                    <div
+                      key={id}
+                      className="flex items-center justify-between gap-3 p-3 rounded-lg bg-slate-800/60 border border-amber-500/20"
+                    >
+                      <div className="flex items-center gap-2 min-w-0">
+                        <Icon className="w-5 h-5 text-amber-400 shrink-0" />
+                        <div>
+                          <p className="font-mono text-amber-200">{meta.name}</p>
+                          <p className="text-xs text-slate-400">{meta.desc}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2 shrink-0">
+                        <span className="font-mono text-amber-400 tabular-nums">×{count}</span>
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={onUse}
+                          disabled={count <= 0}
+                          className="px-3 py-1.5 rounded font-mono text-xs bg-amber-600/80 hover:bg-amber-500 disabled:opacity-50 disabled:cursor-not-allowed text-amber-100"
+                        >
+                          使用
+                        </motion.button>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <AnimatePresence>
         {syllabusOpen && (

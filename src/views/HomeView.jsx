@@ -37,9 +37,10 @@ const TEST_SUBJECTS = [
 ]
 
 export function HomeView() {
-  const { startTestGame } = useGame()
+  const { startTestGame, goToMap, deck } = useGame()
   const [testOpen, setTestOpen] = useState(false)
   const [toast, setToast] = useState(null)
+  const hasSave = deck && deck.length > 0
 
   const showComingSoon = () => {
     setToast('敬请期待')
@@ -100,19 +101,35 @@ export function HomeView() {
 
       {/* 按钮菜单 */}
       <nav className="relative z-10 flex flex-col gap-4">
-        <motion.button
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.5 }}
-          whileHover={{ scale: 1.03, boxShadow: '0 0 30px rgba(34,211,238,0.3)' }}
-          whileTap={{ scale: 0.98 }}
-          onClick={showComingSoon}
-          className="px-12 py-4 font-mono text-lg tracking-widest rounded-lg
-            bg-cyan-600/80 hover:bg-cyan-500/90 border border-cyan-400/50 text-cyan-100
-            transition-colors"
-        >
-          开启课题
-        </motion.button>
+        {hasSave ? (
+          <motion.button
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+            whileHover={{ scale: 1.03, boxShadow: '0 0 30px rgba(34,211,238,0.3)' }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => goToMap()}
+            className="px-12 py-4 font-mono text-lg tracking-widest rounded-lg
+              bg-cyan-600/80 hover:bg-cyan-500/90 border border-cyan-400/50 text-cyan-100
+              transition-colors"
+          >
+            继续游戏
+          </motion.button>
+        ) : (
+          <motion.button
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+            whileHover={{ scale: 1.03, boxShadow: '0 0 30px rgba(34,211,238,0.3)' }}
+            whileTap={{ scale: 0.98 }}
+            onClick={showComingSoon}
+            className="px-12 py-4 font-mono text-lg tracking-widest rounded-lg
+              bg-cyan-600/80 hover:bg-cyan-500/90 border border-cyan-400/50 text-cyan-100
+              transition-colors"
+          >
+            开启课题
+          </motion.button>
+        )}
 
         <motion.button
           initial={{ opacity: 0, y: 15 }}
