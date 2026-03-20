@@ -251,11 +251,11 @@ export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comb
           </>
         )}
         <div className="relative p-2 h-full flex flex-col">
-          {/* 顶部行：分类标签 | 加成(居中) | 连携数，X 轴对齐 */}
-          <div className="flex items-center justify-between gap-1 shrink-0 min-h-[1.25rem]">
-            <span className="text-[10px] text-cyan-400/90 font-mono leading-tight text-fragment shrink-0">{typeLabel}</span>
+          {/* 顶部行：分类标签 | 加成(居中) | 连携数，Y 固定顶部对齐 */}
+          <div className="flex items-start justify-between gap-1 shrink-0 min-h-[1.25rem]">
+            <span className="text-[10px] text-cyan-400/90 font-mono leading-tight text-fragment shrink-0 pt-0.5">{typeLabel}</span>
             {bonus > 0 && bonusPosition === 'top-center' ? (
-              <span className="flex items-center justify-center gap-0.5 text-amber-400 font-mono text-[10px] sm:text-xs font-bold flex-1 min-w-0" title="伤害加成">
+              <span className="flex items-center justify-center gap-0.5 text-amber-400 font-mono text-[10px] sm:text-xs font-bold flex-1 min-w-0 pt-0.5" title="伤害加成">
                 <Zap className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" strokeWidth={2.5} />
                 <span>+{bonus}</span>
               </span>
@@ -263,11 +263,11 @@ export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comb
               <span className="flex-1 min-w-0" />
             )}
             {comboSizes.length > 0 ? (
-              <span className={`text-[13px] font-mono tabular-nums flex flex-col items-end gap-0 [&>*:not(:first-child)]:-mt-[5px] shrink-0 ${hasMultiCombo ? 'font-semibold' : ''}`}>
+              <span className={`text-[13px] font-mono tabular-nums flex flex-col items-end justify-start gap-[2px] shrink-0 min-h-[1.25rem] ${hasMultiCombo ? 'font-semibold' : ''}`}>
                 {comboSizes.filter(n => n !== 2).map(n => (
                   <span
                     key={n}
-                    className="text-amber-400"
+                    className="text-amber-400 leading-none"
                     style={hasMultiCombo ? { textShadow: '0 0 6px rgba(251,191,36,0.6)' } : undefined}
                   >
                     1/{n}
@@ -275,14 +275,14 @@ export function Card({ card, onClick, disabled, variant = 'hand', upgraded, comb
                 ))}
                 {comboSizes.includes(2) && (
                   <span
-                    className="text-cyan-400"
+                    className="text-cyan-400 leading-none"
                     style={hasMultiCombo ? { textShadow: '0 0 6px rgba(34,211,238,0.7)' } : undefined}
                   >
                     1/2
                   </span>
                 )}
               </span>
-            ) : <span className="w-8 shrink-0" />}
+            ) : <span className="w-8 shrink-0 min-h-[1.25rem]" />}
           </div>
           {bonus > 0 && bonusPosition === 'bottom-left' && (
             <span className="absolute bottom-1 left-1.5 flex items-center gap-0.5 text-amber-400 font-mono text-[10px] sm:text-xs font-bold" title="伤害加成">
